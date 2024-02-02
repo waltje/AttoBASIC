@@ -1,0 +1,78 @@
+
+picobootSerial.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .bootloader   00000042  00001fbe  00001fbe  00000084  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .text         00000010  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .bootloader:
+
+00001fbe <VirtualReset>:
+    1fbe:	21 c0       	rjmp	.+66     	; 0x2002 <Delay3Cycle+0x8>
+
+00001fc0 <BootStart>:
+    1fc0:	b0 9b       	sbis	0x16, 0	; 22
+    1fc2:	fd cf       	rjmp	.-6      	; 0x1fbe <VirtualReset>
+    1fc4:	00 27       	eor	r16, r16
+    1fc6:	b9 9a       	sbi	0x17, 1	; 23
+
+00001fc8 <CommandLoop>:
+    1fc8:	0d d0       	rcall	.+26     	; 0x1fe4 <RxByte>
+    1fca:	e6 2f       	mov	r30, r22
+    1fcc:	0b d0       	rcall	.+22     	; 0x1fe4 <RxByte>
+    1fce:	f6 2f       	mov	r31, r22
+    1fd0:	09 d0       	rcall	.+18     	; 0x1fe4 <RxByte>
+    1fd2:	c1 9a       	sbi	0x18, 1	; 24
+    1fd4:	07 d0       	rcall	.+14     	; 0x1fe4 <RxByte>
+    1fd6:	02 13       	cpse	r16, r18
+
+00001fd8 <Halt>:
+    1fd8:	ff cf       	rjmp	.-2      	; 0x1fd8 <Halt>
+    1fda:	67 bf       	out	0x37, r22	; 55
+    1fdc:	e8 95       	spm
+    1fde:	0f 01       	movw	r0, r30
+    1fe0:	c1 98       	cbi	0x18, 1	; 24
+    1fe2:	f2 cf       	rjmp	.-28     	; 0x1fc8 <CommandLoop>
+
+00001fe4 <RxByte>:
+    1fe4:	60 e8       	ldi	r22, 0x80	; 128
+    1fe6:	2c e0       	ldi	r18, 0x0C	; 12
+
+00001fe8 <WaitStart>:
+    1fe8:	b0 99       	sbic	0x16, 0	; 22
+    1fea:	fe cf       	rjmp	.-4      	; 0x1fe8 <WaitStart>
+
+00001fec <RxBit>:
+    1fec:	06 d0       	rcall	.+12     	; 0x1ffa <Delay3Cycle>
+    1fee:	28 e0       	ldi	r18, 0x08	; 8
+    1ff0:	b0 99       	sbic	0x16, 0	; 22
+    1ff2:	08 94       	sec
+    1ff4:	67 95       	ror	r22
+    1ff6:	d0 f7       	brcc	.-12     	; 0x1fec <RxBit>
+    1ff8:	06 27       	eor	r16, r22
+
+00001ffa <Delay3Cycle>:
+    1ffa:	21 50       	subi	r18, 0x01	; 1
+    1ffc:	f1 f7       	brne	.-4      	; 0x1ffa <Delay3Cycle>
+    1ffe:	08 95       	ret
+
+Disassembly of section .text:
+
+00000000 <__ctors_end>:
+   0:	df cf       	rjmp	.-66     	; 0xffffffc0 <__eeprom_end+0xff7effc0>
+
+00000002 <BlinkLED>:
+   2:	ba 9a       	sbi	0x17, 2	; 23
+
+00000004 <Blink>:
+   4:	b2 9a       	sbi	0x16, 2	; 22
+   6:	fe e1       	ldi	r31, 0x1E	; 30
+
+00000008 <DelayLoop>:
+   8:	f8 df       	rcall	.-16     	; 0xfffffffa <__eeprom_end+0xff7efffa>
+   a:	31 97       	sbiw	r30, 0x01	; 1
+   c:	e9 f7       	brne	.-6      	; 0x8 <DelayLoop>
+   e:	fa cf       	rjmp	.-12     	; 0x4 <Blink>

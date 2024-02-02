@@ -1,0 +1,17 @@
+vuart is a full duplex UART implemented in software for AVR microcontrollers
+that lack the feature in hardware. 
+
+Copyright (C) 2010 Masood Behabadi <masoodbeh@gmail.com>
+
+Licensed under the GNU General Public License Version 3 or later; you may not
+use this file except in compliance with the License.
+
+# Usage #
+
+All you need is to import vuart.h and vuart.c files into your project and 
+include the header file to the source you wish to have functionality available.
+
+Please read the header file for functions available. It is a very simple code
+and you may need to fine-tune it to make it work on your microcontroller.
+
+

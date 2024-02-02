@@ -1,0 +1,138 @@
+AVRASM: AVR macro assembler 2.1.42 (build 1796 Sep 15 2009 10:48:36)
+Copyright (C) 1995-2009 ATMEL Corporation
+
+AttoBASICV236.asm(1294): Including file 'Include/Defs_MCU-Options.inc'
+Include/Defs_MCU-Options.inc(1): Including file 'Include/usb1286def.inc'
+AttoBASICV236.asm(1331): AT90USB1286 selected.
+AttoBASICV236.asm(1352): Including file 'Include/Defs_Constants.inc'
+Include/Defs_Constants.inc(51): Including file 'Include/Defs_Register.inc'
+Include/Defs_Register.inc(88): warning: Register r30 already defined by the .DEF directive
+Include/Defs_Constants.inc(51): info: 'Include/Defs_Register.inc' included from here
+AttoBASICV236.asm(1352): info: 'Include/Defs_Constants.inc' included from here
+Include/Defs_Constants.inc(52): Including file 'Include/Defs_Pinout.inc'
+Include/Defs_Constants.inc(53): Including file 'Include/Defs_Timers.inc'
+Include/Defs_Constants.inc(54): Including file 'Include/Defs_ADC.inc'
+Include/Defs_Constants.inc(435): System clock prescaler set to  1
+Include/Defs_Constants.inc(808): Including file 'Include/Defs_PWM.inc'
+Include/Defs_Constants.inc(860): AttoBASIC does not control SPI_SS line
+Include/Defs_Constants.inc(965): Including file 'Include/Defs_DHT.inc'
+Include/Defs_Constants.inc(972): Including file 'Include/Defs_OWR.inc'
+Include/Defs_Constants.inc(985): Including file 'Include/Defs_NRF.inc'
+Include/Defs_Constants.inc(992): Including file 'Include/Defs_RTC.inc'
+Include/Defs_Constants.inc(999): Including file 'Include\Defs_DDS.inc'
+AttoBASICV236.asm(1353): Including file 'Include/Defs_USART.inc'
+AttoBASICV236.asm(1386): Including file 'Include/Macro_IO.inc'
+AttoBASICV236.asm(1387): Including file 'Include/Macro_Misc.inc'
+AttoBASICV236.asm(1388): Including file 'Include/Macro_Delays.inc'
+AttoBASICV236.asm(1389): Including file 'Include/Macro_AttoBASIC.inc'
+AttoBASICV236.asm(1396): Including file 'Include/Data_RAM.inc'
+AttoBASICV236.asm(1397): Including file 'Include/Data_EEP.inc'
+AttoBASICV236.asm(1403): Including file 'Include/Code_Vectors.inc'
+AttoBASICV236.asm(3764): Including file 'Include/Code_Editing.inc'
+AttoBASICV236.asm(3765): Including file 'Include/Code_EFS.inc'
+AttoBASICV236.asm(3766): Including file 'include/Code_Math.inc'
+AttoBASICV236.asm(3767): Including file 'Include/Code_ERRPROC.inc'
+AttoBASICV236.asm(3768): Including file 'Include/Code_Init.inc'
+AttoBASICV236.asm(3769): Including file 'Include/Code_DataBytes.inc'
+AttoBASICV236.asm(3772): Including file 'Include/Code_SysClock.inc'
+AttoBASICV236.asm(3781): Including file 'Include/Code_TWI.inc'
+Include/Code_TWI.inc(41): Including file 'Include/Defs_TWI.inc'
+Include/Defs_TWI.inc(197): Including file 'Include/Macro_TWI.inc'
+AttoBASICV236.asm(3786): Including file 'Include/Code_SPI.inc'
+AttoBASICV236.asm(3789): Including file 'Include/Code_PORTIO.inc'
+AttoBASICV236.asm(3792): Including file 'Include/Code_PWM.inc'
+AttoBASICV236.asm(3794): Including file 'Include/Code_Operators.inc'
+AttoBASICV236.asm(3796): Including file 'Include/Code_Analog.inc'
+AttoBASICV236.asm(3799): Including file 'Include/Code_AComp.inc'
+AttoBASICV236.asm(3802): Including file 'Include/Code_ICP.inc'
+Include/Code_ICP.inc(40): Including file 'Include/Defs_ICP.inc'
+AttoBASICV236.asm(3805): Including file 'Include/Code_DS.inc'
+AttoBASICV236.asm(3808): Including file 'Include/Code_DataFile.inc'
+Include/Code_DataFile.inc(39): Including file 'Include/Defs_DATAFILE.inc'
+AttoBASICV236.asm(3811): Including file 'Include/Code_LOPWR.inc'
+AttoBASICV236.asm(3814): Including file 'Include/Code_DDS.inc'
+AttoBASICV236.asm(3817): Including file 'Include/Code_RTC.inc'
+AttoBASICV236.asm(3820): Including file 'Include/Code_DHT.inc'
+AttoBASICV236.asm(3823): Including file 'Include/Code_NRF.inc'
+AttoBASICV236.asm(3826): Including file 'Include/Code_OWR.inc'
+AttoBASICV236.asm(3832): Including file 'Include/Code_Debug.inc'
+AttoBASICV236.asm(3850): Including file 'Include/Code_sio_usart.inc'
+AttoBASICV236.asm(3879): Including file 'Include/Code_BLDR.inc'
+AttoBASICV236.asm(3884): Including file 'Include/Data_Cmds.inc'
+AttoBASICV236.asm(3885): Including file 'Include/Data_Msgs.inc'
+AttoBASICV236.asm(3890): Including file 'Include/Code_IRQvectors.inc'
+AttoBASICV236.asm(4024): Including file 'Include/Data_SqrWav.inc'
+Include/Defs_Constants.inc(455): Using FCLK @ 16MHz
+Include/Defs_Constants.inc(645): Enabling non-volatile option storage (CFG)
+Include/Defs_DHT.inc(43): Enabling DHT Sensor Support
+Include/Defs_DHT.inc(386): Using divide by 8 for DHT timing.
+Include/Defs_OWR.inc(42): Enabling 1-Wire Support
+Include/Defs_USART.inc(56): Using baud rate of 38400 for FCLK > 4MHz
+Include/Code_EFS.inc(101): EFS enabled.
+Include/Code_Init.inc(167): Enabling Port-Pin Pullups for DS interface.
+Include/Code_SysClock.inc(39): CLK (SysClkPsc) enabled
+Include/Code_TWI.inc(39): TWI enabled.
+Include/Defs_TWI.inc(76): TWI @ 400K available
+Include/Code_PORTIO.inc(247): Multi-Port PIO enabled.
+Include/Code_PWM.inc(39): PWM enabled.
+Include/Code_ICP.inc(39): ICP enabled.
+Include/Code_DS.inc(39): DSI enabled.
+Include/Code_LOPWR.inc(39): LPMD enabled.
+Include/Code_DDS.inc(39): DDS enabled.
+Include/Code_RTC.inc(39): RTC enabled.
+Include/Code_DHT.inc(39): DHT enabled.
+Include/Code_NRF.inc(39): NRF enabled.
+Include/Code_OWR.inc(39): OWR enabled.
+Include/Code_Debug.inc(39): DEBUG enabled.
+Include/Data_Cmds.inc(1114): TWA command enabled for TWI.
+
+Notice:
+The register and instruction counts are symbol table hit counts,
+and hence implicitly used resources are not counted, eg, the
+'lpm' instruction without operands implicitly uses r0 and z,
+none of which are counted.
+
+x,y,z are separate entities in the symbol table and are
+counted separately from r26..r31 here.
+
+.dseg memory usage only counts static data declared with .byte
+
+AT90USB1286 register use summary:
+r0 : 108 r1 : 143 r2 :  42 r3 :   7 r4 :   7 r5 :   8 r6 :   7 r7 :   7 
+r8 :   0 r9 :   4 r10:   7 r11:   8 r12:  37 r13:   7 r14:   1 r15:   1 
+r16:1139 r17:  16 r18:  34 r19: 106 r20: 132 r21: 559 r22: 168 r23: 132 
+r24:  95 r25:  81 r26:  42 r27:  52 r28: 190 r29: 204 r30: 292 r31: 292 
+x  :   0 y  :  63 z  :  83 
+Registers used: 33 out of 35 (94.3%)
+
+AT90USB1286 instruction use summary:
+.lds  :   0 .sts  :   0 adc   :  23 add   :  27 adiw  :   9 and   :  11 
+andi  :  90 asr   :   0 bclr  :   0 bld   :   1 brbc  :   0 brbs  :   0 
+brcc  :  19 brcs  :  11 break :   0 breq  : 112 brge  :   5 brhc  :   0 
+brhs  :   0 brid  :   0 brie  :   0 brlo  :   4 brlt  :   2 brmi  :  21 
+brne  : 207 brpl  :   9 brsh  :  14 brtc  :   1 brts  :   3 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   2 call  : 440 cbi   :  52 cbr   :  40 
+clc   :  10 clh   :   0 cli   :  17 cln   :   0 clr   : 135 cls   :   0 
+clt   :   3 clv   :   0 clz   :   0 com   :   7 cp    :  46 cpc   :  26 
+cpi   : 171 cpse  :   1 dec   :  88 elpm  :   2 eor   :   9 fmul  :   0 
+fmuls :   0 fmulsu:   0 icall :   1 ijmp  :   1 in    : 115 inc   :  31 
+jmp   : 141 ld    :  69 ldd   :   4 ldi   : 666 lds   : 147 lpm   :  30 
+lsl   :  13 lsr   :  15 mov   : 180 movw  :  18 mul   :  10 muls  :   0 
+mulsu :   0 neg   :   3 nop   :  13 or    :  16 ori   :  48 out   : 136 
+pop   : 212 push  : 231 rcall : 364 ret   : 230 reti  :   5 rjmp  : 335 
+rol   :  25 ror   :  10 sbc   :  20 sbci  :  71 sbi   :  63 sbic  :  15 
+sbis  :  12 sbiw  :  32 sbr   :  28 sbrc  :  49 sbrs  :  64 sec   :   8 
+seh   :   0 sei   :   6 sen   :   0 ser   :   6 ses   :   0 set   :   3 
+sev   :   0 sez   :   0 sleep :   7 spm   :   0 st    :  48 std   :   0 
+sts   : 268 sub   :  31 subi  :  74 swap  :  16 tst   :  66 wdr   :   5 
+
+Instructions used: 83 out of 114 (72.8%)
+
+AT90USB1286 memory use summary [bytes]:
+Segment   Begin    End      Code   Data   Used    Size   Use%
+---------------------------------------------------------------
+[.cseg] 0x000000 0x01e000  13136   3468  16604  131072  12.7%
+[.dseg] 0x000100 0x002100      0   8192   8192    8192 100.0%
+[.eseg] 0x000000 0x000020      0     32     32    4096   0.8%
+
+Assembly complete, 0 errors. 1 warnings

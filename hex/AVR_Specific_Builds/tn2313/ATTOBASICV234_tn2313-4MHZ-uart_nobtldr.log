@@ -1,0 +1,23 @@
+AVRASM: AVR macro assembler 2.1.42 (build 1796 Sep 15 2009 10:48:36)
+Copyright (C) 1995-2009 ATMEL Corporation
+
+Verilog option is set
+AttoBASICV234.asm(1249): Including file 'Include/Defs_MCU-Options.inc'
+Include/Defs_MCU-Options.inc(1): Including file 'Include/tn2313def.inc'
+AttoBASICV234.asm(1254): ATtiny2313 [ A ] selected.
+AttoBASICV234.asm(1295): Including file 'Include/Code_at90s2313.inc'
+Include/Code_at90s2313.inc(61): Including file 'Include/Defs_MCU-Options.inc'
+Include/Defs_MCU-Options.inc(1): Including file 'Include/tn2313def.inc'
+Include/Code_at90s2313.inc(189): Including file 'Include/\Macro_Misc.inc'
+Include/Code_at90s2313.inc(190): Including file 'Include/\Macro_IO.inc'
+Include/Code_at90s2313.inc(192): Including file 'Include/\Macro_Delays.inc'
+AttoBASICV234.asm(4015): No EEPROM data, deleting AttoBASICV234.eep
+
+ATtiny2313 memory use summary [bytes]:
+Segment   Begin    End      Code   Data   Used    Size   Use%
+---------------------------------------------------------------
+[.cseg] 0x000000 0x0007f6   1620    418   2038    2048  99.5%
+[.dseg] 0x000060 0x000060      0      0      0     128   0.0%
+[.eseg] 0x000000 0x000000      0      0      0     128   0.0%
+
+Assembly complete, 0 errors. 0 warnings

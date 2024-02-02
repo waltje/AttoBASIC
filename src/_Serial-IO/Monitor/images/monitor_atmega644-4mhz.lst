@@ -1,0 +1,2267 @@
+
+monitor.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000da8  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          0000000e  00800100  00800100  00000e1c  2**0
+                  ALLOC
+  2 .stab         00000180  00000000  00000000  00000e1c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      0000005f  00000000  00000000  00000f9c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_aranges 00000028  00000000  00000000  00000ffb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_pubnames 000004ba  00000000  00000000  00001023  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00001267  00000000  00000000  000014dd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000002e9  00000000  00000000  00002744  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000af9  00000000  00000000  00002a2d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000000e0  00000000  00000000  00003528  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000006fa  00000000  00000000  00003608  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000a04  00000000  00000000  00003d02  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_pubtypes 00000038  00000000  00000000  00004706  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_ranges 00000048  00000000  00000000  0000473e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <gTextMsg_CPU_Name>:
+   0:	41 54 6d 65 67 61 36 34 34 00                       ATmega644.
+
+0000000a <gTextMsg_Explorer>:
+   a:	41 72 64 75 69 6e 6f 20 65 78 70 6c 6f 72 65 72     Arduino explorer
+  1a:	20 73 74 6b 35 30 30 56 32 20 62 79 20 4d 4c 53      stk500V2 by MLS
+	...
+
+0000002b <gTextMsg_Prompt>:
+  2b:	42 6f 6f 74 6c 6f 61 64 65 72 3e 00                 Bootloader>.
+
+00000037 <gTextMsg_HUH>:
+  37:	48 75 68 3f 00                                      Huh?.
+
+0000003c <gTextMsg_COMPILED_ON>:
+  3c:	43 6f 6d 70 69 6c 65 64 20 6f 6e 20 3d 20 00        Compiled on = .
+
+0000004b <gTextMsg_CPU_Type>:
+  4b:	43 50 55 20 54 79 70 65 09 3d 20 00                 CPU Type.= .
+
+00000057 <gTextMsg_AVR_ARCH>:
+  57:	5f 5f 41 56 52 5f 41 52 43 48 5f 5f 3d 20 00        __AVR_ARCH__= .
+
+00000066 <gTextMsg_AVR_LIBC>:
+  66:	41 56 52 20 4c 69 62 43 20 56 65 72 3d 20 00        AVR LibC Ver= .
+
+00000075 <gTextMsg_GCC_VERSION>:
+  75:	47 43 43 20 56 65 72 73 69 6f 6e 20 3d 20 00        GCC Version = .
+
+00000084 <gTextMsg_CPU_SIGNATURE>:
+  84:	43 50 55 20 49 44 09 3d 20 00                       CPU ID.= .
+
+0000008e <gTextMsg_FUSE_BYTE_LOW>:
+  8e:	4c 6f 77 20 66 75 73 65 09 3d 20 00                 Low fuse.= .
+
+0000009a <gTextMsg_FUSE_BYTE_HIGH>:
+  9a:	48 69 67 68 20 66 75 73 65 09 3d 20 00              High fuse.= .
+
+000000a7 <gTextMsg_FUSE_BYTE_EXT>:
+  a7:	45 78 74 20 66 75 73 65 09 3d 20 00                 Ext fuse.= .
+
+000000b3 <gTextMsg_FUSE_BYTE_LOCK>:
+  b3:	4c 6f 63 6b 20 66 75 73 65 09 3d 20 00              Lock fuse.= .
+
+000000c0 <gTextMsg_GCC_DATE_STR>:
+  c0:	4a 75 6c 20 31 39 20 32 30 31 36 00                 Jul 19 2016.
+
+000000cc <gTextMsg_AVR_LIBC_VER_STR>:
+  cc:	31 2e 37 2e 31 00                                   1.7.1.
+
+000000d2 <gTextMsg_GCC_VERSION_STR>:
+  d2:	34 2e 35 2e 33 00                                   4.5.3.
+
+000000d8 <gTextMsg_VECTOR_HEADER>:
+  d8:	56 23 09 41 44 44 52 09 6f 70 20 63 6f 64 65 09     V#.ADDR.op code.
+  e8:	69 6e 73 74 72 75 63 74 69 6f 6e 20 61 64 64 72     instruction addr
+  f8:	20 20 20 49 6e 74 65 72 72 75 70 74 00                 Interrupt.
+
+00000105 <gTextMsg_noVector>:
+ 105:	6e 6f 20 76 65 63 74 6f 72 00                       no vector.
+
+0000010f <gTextMsg_rjmp>:
+ 10f:	72 6a 6d 70 20 20 00                                rjmp  .
+
+00000116 <gTextMsg_jmp>:
+ 116:	6a 6d 70 20 00                                      jmp .
+
+0000011b <gTextMsg_WHAT_PORT>:
+ 11b:	57 68 61 74 20 70 6f 72 74 3a 00                    What port:.
+
+00000126 <gTextMsg_PortNotSupported>:
+ 126:	50 6f 72 74 20 6e 6f 74 20 73 75 70 70 6f 72 74     Port not support
+ 136:	65 64 00                                            ed.
+
+00000139 <gTextMsg_MustBeLetter>:
+ 139:	4d 75 73 74 20 62 65 20 61 20 6c 65 74 74 65 72     Must be a letter
+	...
+
+0000014a <gTextMsg_SPACE>:
+ 14a:	20 00                                                .
+
+0000014c <gTextMsg_WriteToEEprom>:
+ 14c:	57 72 69 74 74 69 6e 67 20 45 45 00                 Writting EE.
+
+00000158 <gTextMsg_ReadingEEprom>:
+ 158:	52 65 61 64 69 6e 67 20 45 45 00                    Reading EE.
+
+00000163 <gTextMsg_EEPROMerrorCnt>:
+ 163:	45 45 20 65 72 72 20 63 6e 74 3d 00                 EE err cnt=.
+
+0000016f <gTextMsg_PORT>:
+ 16f:	50 4f 52 54 00                                      PORT.
+
+00000174 <gTextMsg_HELP_MSG_0>:
+ 174:	30 20 3d 20 5a 65 72 6f 20 61 64 64 72 00           0 = Zero addr.
+
+00000182 <gTextMsg_HELP_MSG_QM>:
+ 182:	3f 20 3d 20 43 50 55 20 73 74 61 74 73 00           ? = CPU stats.
+
+00000190 <gTextMsg_HELP_MSG_AT>:
+ 190:	40 20 3d 20 45 45 50 52 4f 4d 20 74 65 73 74 00     @ = EEPROM test.
+
+000001a0 <gTextMsg_HELP_MSG_E>:
+ 1a0:	45 20 3d 20 44 75 6d 70 20 45 45 50 52 4f 4d 00     E = Dump EEPROM.
+
+000001b0 <gTextMsg_HELP_MSG_F>:
+ 1b0:	46 20 3d 20 44 75 6d 70 20 46 4c 41 53 48 00        F = Dump FLASH.
+
+000001bf <gTextMsg_HELP_MSG_H>:
+ 1bf:	48 20 3d 20 48 65 6c 70 00                          H = Help.
+
+000001c8 <gTextMsg_HELP_MSG_L>:
+ 1c8:	4c 20 3d 20 4c 69 73 74 20 49 2f 4f 20 50 6f 72     L = List I/O Por
+ 1d8:	74 73 00                                            ts.
+
+000001db <gTextMsg_HELP_MSG_Q>:
+ 1db:	51 20 3d 20 51 75 69 74 00                          Q = Quit.
+
+000001e4 <gTextMsg_HELP_MSG_R>:
+ 1e4:	52 20 3d 20 44 75 6d 70 20 52 41 4d 00              R = Dump RAM.
+
+000001f1 <gTextMsg_HELP_MSG_V>:
+ 1f1:	56 20 3d 20 73 68 6f 77 20 69 6e 74 65 72 72 75     V = show interru
+ 201:	70 74 20 56 65 63 74 6f 72 73 00                    pt Vectors.
+
+0000020c <gTextMsg_HELP_MSG_Y>:
+ 20c:	59 20 3d 20 50 6f 72 74 20 62 6c 69 6e 6b 00        Y = Port blink.
+
+0000021b <gTextMsg_END>:
+ 21b:	2a 00 00                                            *..
+
+0000021e <__ctors_end>:
+ 21e:	11 e0       	ldi	r17, 0x01	; 1
+ 220:	a0 e0       	ldi	r26, 0x00	; 0
+ 222:	b1 e0       	ldi	r27, 0x01	; 1
+ 224:	01 c0       	rjmp	.+2      	; 0x228 <.do_clear_bss_start>
+
+00000226 <.do_clear_bss_loop>:
+ 226:	1d 92       	st	X+, r1
+
+00000228 <.do_clear_bss_start>:
+ 228:	ae 30       	cpi	r26, 0x0E	; 14
+ 22a:	b1 07       	cpc	r27, r17
+ 22c:	e1 f7       	brne	.-8      	; 0x226 <.do_clear_bss_loop>
+
+0000022e <__jumpMain>:
+
+	asm volatile ( ".set __stack, %0" :: "i" (RAMEND) );
+
+	//*	set stack pointer to top of RAM
+
+	asm volatile ( "ldi	16, %0" :: "i" (RAMEND >> 8) );
+ 22e:	00 e1       	ldi	r16, 0x10	; 16
+	asm volatile ( "out %0,16" :: "i" (AVR_STACK_POINTER_HI_ADDR) );
+ 230:	0e bf       	out	0x3e, r16	; 62
+
+	asm volatile ( "ldi	16, %0" :: "i" (RAMEND & 0x0ff) );
+ 232:	0f ef       	ldi	r16, 0xFF	; 255
+	asm volatile ( "out %0,16" :: "i" (AVR_STACK_POINTER_LO_ADDR) );
+ 234:	0d bf       	out	0x3d, r16	; 61
+
+	asm volatile ( "clr __zero_reg__" );					// GCC depends on register r1 set to 0
+ 236:	11 24       	eor	r1, r1
+	asm volatile ( "out %0, __zero_reg__" :: "I" (_SFR_IO_ADDR(SREG)) );	// set SREG to 0
+ 238:	1f be       	out	0x3f, r1	; 63
+	asm volatile ( "jmp main");						// jump to main()
+ 23a:	0c 94 7b 02 	jmp	0x4f6	; 0x4f6 <main>
+
+0000023e <sendchar>:
+/*
+ * send single byte to USART, wait until transmission is completed
+ */
+static void sendchar(char c)
+{
+	UART_DATA_REG	=	c;					// prepare transmission
+ 23e:	80 93 c6 00 	sts	0x00C6, r24
+	while (!(UART_STATUS_REG & (1 << UART_TRANSMIT_COMPLETE))) ;	// wait until byte sent
+ 242:	80 91 c0 00 	lds	r24, 0x00C0
+ 246:	86 ff       	sbrs	r24, 6
+ 248:	fc cf       	rjmp	.-8      	; 0x242 <sendchar+0x4>
+	UART_STATUS_REG |= (1 << UART_TRANSMIT_COMPLETE);		// delete TXCflag
+ 24a:	80 91 c0 00 	lds	r24, 0x00C0
+ 24e:	80 64       	ori	r24, 0x40	; 64
+ 250:	80 93 c0 00 	sts	0x00C0, r24
+}
+ 254:	08 95       	ret
+
+00000256 <recchar>:
+/*
+ * Read single byte from USART, block if no data available
+ */
+static unsigned char recchar(void)
+{
+	while (!(UART_STATUS_REG & (1 << UART_RECEIVE_COMPLETE))) {
+ 256:	80 91 c0 00 	lds	r24, 0x00C0
+ 25a:	87 ff       	sbrs	r24, 7
+ 25c:	fc cf       	rjmp	.-8      	; 0x256 <recchar>
+		// wait for data
+	}
+	return UART_DATA_REG;
+ 25e:	80 91 c6 00 	lds	r24, 0x00C6
+}
+ 262:	08 95       	ret
+
+00000264 <delay_ms>:
+//*****************************************************************************
+void delay_ms(unsigned int timedelay)
+{
+	unsigned int i;
+
+	for (i = 0;	i < timedelay;	i++) {
+ 264:	20 e0       	ldi	r18, 0x00	; 0
+ 266:	30 e0       	ldi	r19, 0x00	; 0
+ 268:	08 c0       	rjmp	.+16     	; 0x27a <delay_ms+0x16>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 26a:	e3 ef       	ldi	r30, 0xF3	; 243
+ 26c:	f1 e0       	ldi	r31, 0x01	; 1
+ 26e:	31 97       	sbiw	r30, 0x01	; 1
+ 270:	f1 f7       	brne	.-4      	; 0x26e <delay_ms+0xa>
+ 272:	00 c0       	rjmp	.+0      	; 0x274 <delay_ms+0x10>
+ 274:	00 00       	nop
+ 276:	2f 5f       	subi	r18, 0xFF	; 255
+ 278:	3f 4f       	sbci	r19, 0xFF	; 255
+ 27a:	28 17       	cp	r18, r24
+ 27c:	39 07       	cpc	r19, r25
+ 27e:	a8 f3       	brcs	.-22     	; 0x26a <delay_ms+0x6>
+		_delay_ms(0.5);
+	}
+}
+ 280:	08 95       	ret
+
+00000282 <PrintFromPROGMEM>:
+const char gTextMsg_END[]			PROGMEM =	"*";
+
+
+//************************************************************************
+void	PrintFromPROGMEM(const void *dataPtr, unsigned char offset)
+{
+ 282:	cf 93       	push	r28
+ 284:	df 93       	push	r29
+	char theChar;
+
+	dataPtr		+=	offset;
+ 286:	ec 01       	movw	r28, r24
+ 288:	c6 0f       	add	r28, r22
+ 28a:	d1 1d       	adc	r29, r1
+ 28c:	fe 01       	movw	r30, r28
+
+	do {
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#if (FLASHEND > 0x10000)
+		theChar =	pgm_read_byte_far((uint16_t)dataPtr++);
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#else
+		theChar =	pgm_read_byte_near((uint16_t)dataPtr++);
+ 28e:	21 96       	adiw	r28, 0x01	; 1
+ 290:	84 91       	lpm	r24, Z
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#endif
+		if (theChar != 0) {
+ 292:	88 23       	and	r24, r24
+ 294:	19 f0       	breq	.+6      	; 0x29c <PrintFromPROGMEM+0x1a>
+			sendchar(theChar);
+ 296:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+ 29a:	f8 cf       	rjmp	.-16     	; 0x28c <PrintFromPROGMEM+0xa>
+		}
+	} while (theChar != 0);
+}
+ 29c:	df 91       	pop	r29
+ 29e:	cf 91       	pop	r28
+ 2a0:	08 95       	ret
+
+000002a2 <PrintNewLine>:
+
+//************************************************************************
+void	PrintNewLine(void)
+{
+	sendchar(0x0d);
+ 2a2:	8d e0       	ldi	r24, 0x0D	; 13
+ 2a4:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+	sendchar(0x0a);
+ 2a8:	8a e0       	ldi	r24, 0x0A	; 10
+ 2aa:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+}
+ 2ae:	08 95       	ret
+
+000002b0 <PrintAvailablePort>:
+	}
+}
+
+//************************************************************************
+static void	PrintAvailablePort(char thePortLetter)
+{
+ 2b0:	1f 93       	push	r17
+ 2b2:	18 2f       	mov	r17, r24
+	PrintFromPROGMEM(gTextMsg_PORT, 0);
+ 2b4:	8f e6       	ldi	r24, 0x6F	; 111
+ 2b6:	91 e0       	ldi	r25, 0x01	; 1
+ 2b8:	60 e0       	ldi	r22, 0x00	; 0
+ 2ba:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+	sendchar(thePortLetter);
+ 2be:	81 2f       	mov	r24, r17
+ 2c0:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+	PrintNewLine();
+ 2c4:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+}
+ 2c8:	1f 91       	pop	r17
+ 2ca:	08 95       	ret
+
+000002cc <PrintFromPROGMEMln>:
+
+
+//************************************************************************
+void	PrintFromPROGMEMln(const void *dataPtr, unsigned char offset)
+{
+	PrintFromPROGMEM(dataPtr, offset);
+ 2cc:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+
+	PrintNewLine();
+ 2d0:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+}
+ 2d4:	08 95       	ret
+
+000002d6 <PrintString>:
+
+
+//************************************************************************
+void	PrintString(char *textString)
+{
+ 2d6:	ef 92       	push	r14
+ 2d8:	ff 92       	push	r15
+ 2da:	cf 93       	push	r28
+ 2dc:	df 93       	push	r29
+ 2de:	e8 2e       	mov	r14, r24
+ 2e0:	e7 01       	movw	r28, r14
+ 2e2:	7e 01       	movw	r14, r28
+ 2e4:	f9 2e       	mov	r15, r25
+ 2e6:	e7 01       	movw	r28, r14
+	int ii;
+
+	theChar		=	1;
+	ii			=	0;
+	while (theChar != 0) {
+		theChar =	textString[ii];
+ 2e8:	89 91       	ld	r24, Y+
+		if (theChar != 0) {
+ 2ea:	88 23       	and	r24, r24
+ 2ec:	19 f0       	breq	.+6      	; 0x2f4 <PrintString+0x1e>
+			sendchar(theChar);
+ 2ee:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+ 2f2:	fa cf       	rjmp	.-12     	; 0x2e8 <PrintString+0x12>
+		}
+		ii++;
+	}
+}
+ 2f4:	df 91       	pop	r29
+ 2f6:	cf 91       	pop	r28
+ 2f8:	ff 90       	pop	r15
+ 2fa:	ef 90       	pop	r14
+ 2fc:	08 95       	ret
+
+000002fe <PrintHexByte>:
+
+//************************************************************************
+void	PrintHexByte(unsigned char theByte)
+{
+ 2fe:	1f 93       	push	r17
+ 300:	18 2f       	mov	r17, r24
+	char theChar;
+
+	theChar =	0x30 + ((theByte >> 4) & 0x0f);
+ 302:	98 2f       	mov	r25, r24
+ 304:	92 95       	swap	r25
+ 306:	9f 70       	andi	r25, 0x0F	; 15
+ 308:	89 2f       	mov	r24, r25
+ 30a:	80 5d       	subi	r24, 0xD0	; 208
+	if (theChar > 0x39) {
+ 30c:	8a 33       	cpi	r24, 0x3A	; 58
+ 30e:	08 f0       	brcs	.+2      	; 0x312 <PrintHexByte+0x14>
+		theChar +=	7;
+ 310:	89 5f       	subi	r24, 0xF9	; 249
+	}
+	sendchar(theChar );
+ 312:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+
+	theChar =	0x30 + (theByte & 0x0f);
+ 316:	1f 70       	andi	r17, 0x0F	; 15
+ 318:	81 2f       	mov	r24, r17
+ 31a:	80 5d       	subi	r24, 0xD0	; 208
+	if (theChar > 0x39) {
+ 31c:	8a 33       	cpi	r24, 0x3A	; 58
+ 31e:	08 f0       	brcs	.+2      	; 0x322 <PrintHexByte+0x24>
+		theChar +=	7;
+ 320:	89 5f       	subi	r24, 0xF9	; 249
+	}
+	sendchar(theChar );
+ 322:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+}
+ 326:	1f 91       	pop	r17
+ 328:	08 95       	ret
+
+0000032a <DumpHex.clone.0>:
+	kDUMP_EEPROM,
+	kDUMP_RAM
+};
+
+//************************************************************************
+static void	DumpHex(unsigned char dumpWhat, unsigned long startAddress, unsigned char numRows)
+ 32a:	3f 92       	push	r3
+ 32c:	4f 92       	push	r4
+ 32e:	5f 92       	push	r5
+ 330:	6f 92       	push	r6
+ 332:	7f 92       	push	r7
+ 334:	8f 92       	push	r8
+ 336:	9f 92       	push	r9
+ 338:	af 92       	push	r10
+ 33a:	bf 92       	push	r11
+ 33c:	cf 92       	push	r12
+ 33e:	df 92       	push	r13
+ 340:	ef 92       	push	r14
+ 342:	ff 92       	push	r15
+ 344:	0f 93       	push	r16
+ 346:	1f 93       	push	r17
+ 348:	df 93       	push	r29
+ 34a:	cf 93       	push	r28
+ 34c:	cd b7       	in	r28, 0x3d	; 61
+ 34e:	de b7       	in	r29, 0x3e	; 62
+ 350:	66 97       	sbiw	r28, 0x16	; 22
+ 352:	0f b6       	in	r0, 0x3f	; 63
+ 354:	f8 94       	cli
+ 356:	de bf       	out	0x3e, r29	; 62
+ 358:	0f be       	out	0x3f, r0	; 63
+ 35a:	cd bf       	out	0x3d, r28	; 61
+ 35c:	88 2e       	mov	r8, r24
+ 35e:	7a 01       	movw	r14, r20
+ 360:	8b 01       	movw	r16, r22
+ 362:	db 01       	movw	r26, r22
+ 364:	ca 01       	movw	r24, r20
+ 366:	80 50       	subi	r24, 0x00	; 0
+ 368:	9f 4f       	sbci	r25, 0xFF	; 255
+ 36a:	af 4f       	sbci	r26, 0xFF	; 255
+ 36c:	bf 4f       	sbci	r27, 0xFF	; 255
+ 36e:	8b 8b       	std	Y+19, r24	; 0x13
+ 370:	9c 8b       	std	Y+20, r25	; 0x14
+ 372:	ad 8b       	std	Y+21, r26	; 0x15
+ 374:	be 8b       	std	Y+22, r27	; 0x16
+	char asciiDump[18];
+	unsigned char	*ramPtr;
+
+
+	ramPtr				=	0;
+	theValue			=	0;
+ 376:	99 24       	eor	r9, r9
+ 378:	5e 01       	movw	r10, r28
+ 37a:	08 94       	sec
+ 37c:	a1 1c       	adc	r10, r1
+ 37e:	b1 1c       	adc	r11, r1
+			sendchar(0x20);
+			if ((theValue >= 0x20) && (theValue < 0x7f)) {
+				asciiDump[ii % 16]	=	theValue;
+			}
+			else{
+				asciiDump[ii % 16]	=	'.';
+ 380:	8e e2       	ldi	r24, 0x2E	; 46
+ 382:	38 2e       	mov	r3, r24
+
+	ramPtr				=	0;
+	theValue			=	0;
+	myAddressPointer	=	startAddress;
+	while (numRows > 0) {
+		if (myAddressPointer > 0x10000) {
+ 384:	91 e0       	ldi	r25, 0x01	; 1
+ 386:	e9 16       	cp	r14, r25
+ 388:	90 e0       	ldi	r25, 0x00	; 0
+ 38a:	f9 06       	cpc	r15, r25
+ 38c:	91 e0       	ldi	r25, 0x01	; 1
+ 38e:	09 07       	cpc	r16, r25
+ 390:	90 e0       	ldi	r25, 0x00	; 0
+ 392:	19 07       	cpc	r17, r25
+ 394:	18 f0       	brcs	.+6      	; 0x39c <DumpHex.clone.0+0x72>
+			PrintHexByte((myAddressPointer >> 16) & 0x00ff);
+ 396:	80 2f       	mov	r24, r16
+ 398:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+		}
+		PrintHexByte((myAddressPointer >> 8) & 0x00ff);
+ 39c:	8f 2d       	mov	r24, r15
+ 39e:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+		PrintHexByte(myAddressPointer & 0x00ff);
+ 3a2:	8e 2d       	mov	r24, r14
+ 3a4:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+		sendchar(0x20);
+ 3a8:	80 e2       	ldi	r24, 0x20	; 32
+ 3aa:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+		sendchar('-');
+ 3ae:	8d e2       	ldi	r24, 0x2D	; 45
+ 3b0:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+		sendchar(0x20);
+ 3b4:	80 e2       	ldi	r24, 0x20	; 32
+ 3b6:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+
+		asciiDump[0]		=	0;
+ 3ba:	19 82       	std	Y+1, r1	; 0x01
+ 3bc:	27 01       	movw	r4, r14
+ 3be:	38 01       	movw	r6, r16
+ 3c0:	cc 24       	eor	r12, r12
+ 3c2:	dd 24       	eor	r13, r13
+		for (ii = 0;	ii < 16;	ii++) {
+			switch (dumpWhat) {
+ 3c4:	a8 2d       	mov	r26, r8
+ 3c6:	a1 30       	cpi	r26, 0x01	; 1
+ 3c8:	41 f0       	breq	.+16     	; 0x3da <DumpHex.clone.0+0xb0>
+ 3ca:	a1 30       	cpi	r26, 0x01	; 1
+ 3cc:	18 f0       	brcs	.+6      	; 0x3d4 <DumpHex.clone.0+0xaa>
+ 3ce:	a2 30       	cpi	r26, 0x02	; 2
+ 3d0:	59 f4       	brne	.+22     	; 0x3e8 <DumpHex.clone.0+0xbe>
+ 3d2:	08 c0       	rjmp	.+16     	; 0x3e4 <DumpHex.clone.0+0xba>
+			case kDUMP_FLASH:
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#if (FLASHEND > 0x10000)
+				theValue	=	pgm_read_byte_far(myAddressPointer);
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#else
+				theValue	=	pgm_read_byte_near(myAddressPointer);
+ 3d4:	f2 01       	movw	r30, r4
+ 3d6:	94 90       	lpm	r9, Z
+ 3d8:	07 c0       	rjmp	.+14     	; 0x3e8 <DumpHex.clone.0+0xbe>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#endif
+				break;
+
+			case kDUMP_EEPROM:
+				theValue	=	eeprom_read_byte((uint8_t*)(uint16_t)myAddressPointer);
+ 3da:	c2 01       	movw	r24, r4
+ 3dc:	0e 94 be 06 	call	0xd7c	; 0xd7c <__eerd_byte_m644>
+ 3e0:	98 2e       	mov	r9, r24
+ 3e2:	02 c0       	rjmp	.+4      	; 0x3e8 <DumpHex.clone.0+0xbe>
+				break;
+
+			case kDUMP_RAM:
+				theValue	=	ramPtr[myAddressPointer];
+ 3e4:	d2 01       	movw	r26, r4
+ 3e6:	9c 90       	ld	r9, X
+				break;
+
+			}
+			PrintHexByte(theValue);
+ 3e8:	89 2d       	mov	r24, r9
+ 3ea:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+			sendchar(0x20);
+ 3ee:	80 e2       	ldi	r24, 0x20	; 32
+ 3f0:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+			if ((theValue >= 0x20) && (theValue < 0x7f)) {
+ 3f4:	89 2d       	mov	r24, r9
+ 3f6:	80 52       	subi	r24, 0x20	; 32
+ 3f8:	96 01       	movw	r18, r12
+ 3fa:	2f 70       	andi	r18, 0x0F	; 15
+ 3fc:	30 70       	andi	r19, 0x00	; 0
+ 3fe:	8f 35       	cpi	r24, 0x5F	; 95
+ 400:	28 f4       	brcc	.+10     	; 0x40c <DumpHex.clone.0+0xe2>
+				asciiDump[ii % 16]	=	theValue;
+ 402:	2a 0d       	add	r18, r10
+ 404:	3b 1d       	adc	r19, r11
+ 406:	f9 01       	movw	r30, r18
+ 408:	90 82       	st	Z, r9
+ 40a:	04 c0       	rjmp	.+8      	; 0x414 <DumpHex.clone.0+0xea>
+			}
+			else{
+				asciiDump[ii % 16]	=	'.';
+ 40c:	2a 0d       	add	r18, r10
+ 40e:	3b 1d       	adc	r19, r11
+ 410:	d9 01       	movw	r26, r18
+ 412:	3c 92       	st	X, r3
+			}
+
+			myAddressPointer++;
+ 414:	08 94       	sec
+ 416:	41 1c       	adc	r4, r1
+ 418:	51 1c       	adc	r5, r1
+ 41a:	61 1c       	adc	r6, r1
+ 41c:	71 1c       	adc	r7, r1
+ 41e:	08 94       	sec
+ 420:	c1 1c       	adc	r12, r1
+ 422:	d1 1c       	adc	r13, r1
+		sendchar(0x20);
+		sendchar('-');
+		sendchar(0x20);
+
+		asciiDump[0]		=	0;
+		for (ii = 0;	ii < 16;	ii++) {
+ 424:	b0 e1       	ldi	r27, 0x10	; 16
+ 426:	cb 16       	cp	r12, r27
+ 428:	d1 04       	cpc	r13, r1
+ 42a:	61 f6       	brne	.-104    	; 0x3c4 <DumpHex.clone.0+0x9a>
+ 42c:	80 e1       	ldi	r24, 0x10	; 16
+ 42e:	90 e0       	ldi	r25, 0x00	; 0
+ 430:	a0 e0       	ldi	r26, 0x00	; 0
+ 432:	b0 e0       	ldi	r27, 0x00	; 0
+ 434:	e8 0e       	add	r14, r24
+ 436:	f9 1e       	adc	r15, r25
+ 438:	0a 1f       	adc	r16, r26
+ 43a:	1b 1f       	adc	r17, r27
+				asciiDump[ii % 16]	=	'.';
+			}
+
+			myAddressPointer++;
+		}
+		asciiDump[16]	=	0;
+ 43c:	19 8a       	std	Y+17, r1	; 0x11
+		PrintString(asciiDump);
+ 43e:	c5 01       	movw	r24, r10
+ 440:	0e 94 6b 01 	call	0x2d6	; 0x2d6 <PrintString>
+		PrintNewLine();
+ 444:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+
+
+	ramPtr				=	0;
+	theValue			=	0;
+	myAddressPointer	=	startAddress;
+	while (numRows > 0) {
+ 448:	8b 89       	ldd	r24, Y+19	; 0x13
+ 44a:	9c 89       	ldd	r25, Y+20	; 0x14
+ 44c:	ad 89       	ldd	r26, Y+21	; 0x15
+ 44e:	be 89       	ldd	r27, Y+22	; 0x16
+ 450:	e8 16       	cp	r14, r24
+ 452:	f9 06       	cpc	r15, r25
+ 454:	0a 07       	cpc	r16, r26
+ 456:	1b 07       	cpc	r17, r27
+ 458:	09 f0       	breq	.+2      	; 0x45c <DumpHex.clone.0+0x132>
+ 45a:	94 cf       	rjmp	.-216    	; 0x384 <DumpHex.clone.0+0x5a>
+		PrintString(asciiDump);
+		PrintNewLine();
+
+		numRows--;
+	}
+}
+ 45c:	66 96       	adiw	r28, 0x16	; 22
+ 45e:	0f b6       	in	r0, 0x3f	; 63
+ 460:	f8 94       	cli
+ 462:	de bf       	out	0x3e, r29	; 62
+ 464:	0f be       	out	0x3f, r0	; 63
+ 466:	cd bf       	out	0x3d, r28	; 61
+ 468:	cf 91       	pop	r28
+ 46a:	df 91       	pop	r29
+ 46c:	1f 91       	pop	r17
+ 46e:	0f 91       	pop	r16
+ 470:	ff 90       	pop	r15
+ 472:	ef 90       	pop	r14
+ 474:	df 90       	pop	r13
+ 476:	cf 90       	pop	r12
+ 478:	bf 90       	pop	r11
+ 47a:	af 90       	pop	r10
+ 47c:	9f 90       	pop	r9
+ 47e:	8f 90       	pop	r8
+ 480:	7f 90       	pop	r7
+ 482:	6f 90       	pop	r6
+ 484:	5f 90       	pop	r5
+ 486:	4f 90       	pop	r4
+ 488:	3f 90       	pop	r3
+ 48a:	08 95       	ret
+
+0000048c <PrintDecInt>:
+	sendchar(theChar );
+}
+
+//************************************************************************
+void	PrintDecInt(int theNumber, int digitCnt)
+{
+ 48c:	0f 93       	push	r16
+ 48e:	1f 93       	push	r17
+ 490:	cf 93       	push	r28
+ 492:	df 93       	push	r29
+ 494:	ec 01       	movw	r28, r24
+ 496:	8b 01       	movw	r16, r22
+	int theChar;
+	int myNumber;
+
+	myNumber	=	theNumber;
+
+	if ((myNumber > 100) || (digitCnt >= 3)) {
+ 498:	85 36       	cpi	r24, 0x65	; 101
+ 49a:	91 05       	cpc	r25, r1
+ 49c:	1c f4       	brge	.+6      	; 0x4a4 <PrintDecInt+0x18>
+ 49e:	63 30       	cpi	r22, 0x03	; 3
+ 4a0:	71 05       	cpc	r23, r1
+ 4a2:	4c f0       	brlt	.+18     	; 0x4b6 <PrintDecInt+0x2a>
+		theChar		=	0x30 + myNumber / 100;
+ 4a4:	ce 01       	movw	r24, r28
+ 4a6:	64 e6       	ldi	r22, 0x64	; 100
+ 4a8:	70 e0       	ldi	r23, 0x00	; 0
+ 4aa:	0e 94 97 06 	call	0xd2e	; 0xd2e <__divmodhi4>
+		sendchar(theChar );
+ 4ae:	86 2f       	mov	r24, r22
+ 4b0:	80 5d       	subi	r24, 0xD0	; 208
+ 4b2:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+	}
+
+	if ((myNumber > 10) || (digitCnt >= 2)) {
+ 4b6:	cb 30       	cpi	r28, 0x0B	; 11
+ 4b8:	d1 05       	cpc	r29, r1
+ 4ba:	1c f4       	brge	.+6      	; 0x4c2 <PrintDecInt+0x36>
+ 4bc:	02 30       	cpi	r16, 0x02	; 2
+ 4be:	11 05       	cpc	r17, r1
+ 4c0:	6c f0       	brlt	.+26     	; 0x4dc <PrintDecInt+0x50>
+		theChar =	0x30  + ((myNumber % 100) / 10 );
+ 4c2:	ce 01       	movw	r24, r28
+ 4c4:	64 e6       	ldi	r22, 0x64	; 100
+ 4c6:	70 e0       	ldi	r23, 0x00	; 0
+ 4c8:	0e 94 97 06 	call	0xd2e	; 0xd2e <__divmodhi4>
+ 4cc:	6a e0       	ldi	r22, 0x0A	; 10
+ 4ce:	70 e0       	ldi	r23, 0x00	; 0
+ 4d0:	0e 94 97 06 	call	0xd2e	; 0xd2e <__divmodhi4>
+		sendchar(theChar );
+ 4d4:	86 2f       	mov	r24, r22
+ 4d6:	80 5d       	subi	r24, 0xD0	; 208
+ 4d8:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+	}
+	theChar =	0x30 + (myNumber % 10);
+ 4dc:	ce 01       	movw	r24, r28
+ 4de:	6a e0       	ldi	r22, 0x0A	; 10
+ 4e0:	70 e0       	ldi	r23, 0x00	; 0
+ 4e2:	0e 94 97 06 	call	0xd2e	; 0xd2e <__divmodhi4>
+	sendchar(theChar );
+ 4e6:	80 5d       	subi	r24, 0xD0	; 208
+ 4e8:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+}
+ 4ec:	df 91       	pop	r29
+ 4ee:	cf 91       	pop	r28
+ 4f0:	1f 91       	pop	r17
+ 4f2:	0f 91       	pop	r16
+ 4f4:	08 95       	ret
+
+000004f6 <main>:
+void (*app_start)(void) = 0x0000;
+
+
+//*****************************************************************************
+int main(void)
+{
+ 4f6:	2f 92       	push	r2
+ 4f8:	3f 92       	push	r3
+ 4fa:	5f 92       	push	r5
+ 4fc:	6f 92       	push	r6
+ 4fe:	7f 92       	push	r7
+ 500:	8f 92       	push	r8
+ 502:	9f 92       	push	r9
+ 504:	af 92       	push	r10
+ 506:	bf 92       	push	r11
+ 508:	cf 92       	push	r12
+ 50a:	df 92       	push	r13
+ 50c:	ef 92       	push	r14
+ 50e:	ff 92       	push	r15
+ 510:	0f 93       	push	r16
+ 512:	1f 93       	push	r17
+ 514:	df 93       	push	r29
+ 516:	cf 93       	push	r28
+ 518:	cd b7       	in	r28, 0x3d	; 61
+ 51a:	de b7       	in	r29, 0x3e	; 62
+ 51c:	2c 97       	sbiw	r28, 0x0c	; 12
+ 51e:	0f b6       	in	r0, 0x3f	; 63
+ 520:	f8 94       	cli
+ 522:	de bf       	out	0x3e, r29	; 62
+ 524:	0f be       	out	0x3f, r0	; 63
+ 526:	cd bf       	out	0x3d, r28	; 61
+	//*	some chips dont set the stack properly
+	asm volatile ( ".set __stack, %0" :: "i" (RAMEND) );
+	asm volatile ( "ldi	16, %0" :: "i" (RAMEND >> 8) );
+ 528:	00 e1       	ldi	r16, 0x10	; 16
+	asm volatile ( "out %0,16" :: "i" (AVR_STACK_POINTER_HI_ADDR) );
+ 52a:	0e bf       	out	0x3e, r16	; 62
+	asm volatile ( "ldi	16, %0" :: "i" (RAMEND & 0x0ff) );
+ 52c:	0f ef       	ldi	r16, 0xFF	; 255
+	asm volatile ( "out %0,16" :: "i" (AVR_STACK_POINTER_LO_ADDR) );
+ 52e:	0d bf       	out	0x3d, r16	; 61
+	/*
+	* Init UART
+	* set baudrate and enable USART receiver and transmiter without interrupts
+	*/
+#if UART_BAUDRATE_DOUBLE_SPEED
+	UART_STATUS_REG		|=	(1 << UART_DOUBLE_SPEED);
+ 530:	80 91 c0 00 	lds	r24, 0x00C0
+ 534:	82 60       	ori	r24, 0x02	; 2
+ 536:	80 93 c0 00 	sts	0x00C0, r24
+#endif
+	UART_BAUD_RATE_LOW	=	UART_BAUD_SELECT(BAUDRATE, F_CPU);
+ 53a:	8c e0       	ldi	r24, 0x0C	; 12
+ 53c:	80 93 c4 00 	sts	0x00C4, r24
+	UART_CONTROL_REG	=	(1 << UART_ENABLE_RECEIVER) | (1 << UART_ENABLE_TRANSMITTER);
+ 540:	88 e1       	ldi	r24, 0x18	; 24
+ 542:	80 93 c1 00 	sts	0x00C1, r24
+
+	asm volatile ("nop");					// wait until port has changed
+ 546:	00 00       	nop
+		}
+		PrintNewLine();
+	}
+*/
+
+	gRamIndex			=	0;
+ 548:	10 92 0a 01 	sts	0x010A, r1
+ 54c:	10 92 0b 01 	sts	0x010B, r1
+ 550:	10 92 0c 01 	sts	0x010C, r1
+ 554:	10 92 0d 01 	sts	0x010D, r1
+	gFlashIndex			=	0;
+ 558:	10 92 06 01 	sts	0x0106, r1
+ 55c:	10 92 07 01 	sts	0x0107, r1
+ 560:	10 92 08 01 	sts	0x0108, r1
+ 564:	10 92 09 01 	sts	0x0109, r1
+	gEepromIndex		=	0;
+ 568:	10 92 02 01 	sts	0x0102, r1
+ 56c:	10 92 03 01 	sts	0x0103, r1
+ 570:	10 92 04 01 	sts	0x0104, r1
+ 574:	10 92 05 01 	sts	0x0105, r1
+
+	PrintFromPROGMEMln(gTextMsg_Explorer, 0);
+ 578:	8a e0       	ldi	r24, 0x0A	; 10
+ 57a:	90 e0       	ldi	r25, 0x00	; 0
+ 57c:	60 e0       	ldi	r22, 0x00	; 0
+ 57e:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+
+	keepGoing	=	1;
+	while (keepGoing) {
+		PrintFromPROGMEM(gTextMsg_Prompt, 0);
+ 582:	8b e2       	ldi	r24, 0x2B	; 43
+ 584:	90 e0       	ldi	r25, 0x00	; 0
+ 586:	60 e0       	ldi	r22, 0x00	; 0
+ 588:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+		theChar =	recchar();
+ 58c:	0e 94 2b 01 	call	0x256	; 0x256 <recchar>
+ 590:	08 2f       	mov	r16, r24
+		if (theChar >= 0x60) {
+ 592:	80 36       	cpi	r24, 0x60	; 96
+ 594:	08 f0       	brcs	.+2      	; 0x598 <main+0xa2>
+			theChar =	theChar & 0x5F;
+ 596:	0f 75       	andi	r16, 0x5F	; 95
+		}
+
+		if (theChar >= 0x20) {
+ 598:	00 32       	cpi	r16, 0x20	; 32
+ 59a:	30 f0       	brcs	.+12     	; 0x5a8 <main+0xb2>
+			sendchar(theChar);
+ 59c:	80 2f       	mov	r24, r16
+ 59e:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+			sendchar(0x20);
+ 5a2:	80 e2       	ldi	r24, 0x20	; 32
+ 5a4:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+		}
+
+		switch (theChar) {
+ 5a8:	08 34       	cpi	r16, 0x48	; 72
+ 5aa:	09 f4       	brne	.+2      	; 0x5ae <main+0xb8>
+ 5ac:	91 c1       	rjmp	.+802    	; 0x8d0 <main+0x3da>
+ 5ae:	09 34       	cpi	r16, 0x49	; 73
+ 5b0:	90 f4       	brcc	.+36     	; 0x5d6 <main+0xe0>
+ 5b2:	00 34       	cpi	r16, 0x40	; 64
+ 5b4:	09 f4       	brne	.+2      	; 0x5b8 <main+0xc2>
+ 5b6:	c1 c0       	rjmp	.+386    	; 0x73a <main+0x244>
+ 5b8:	01 34       	cpi	r16, 0x41	; 65
+ 5ba:	30 f4       	brcc	.+12     	; 0x5c8 <main+0xd2>
+ 5bc:	00 33       	cpi	r16, 0x30	; 48
+ 5be:	f1 f0       	breq	.+60     	; 0x5fc <main+0x106>
+ 5c0:	0f 33       	cpi	r16, 0x3F	; 63
+ 5c2:	09 f0       	breq	.+2      	; 0x5c6 <main+0xd0>
+ 5c4:	b0 c3       	rjmp	.+1888   	; 0xd26 <main+0x830>
+ 5c6:	30 c0       	rjmp	.+96     	; 0x628 <main+0x132>
+ 5c8:	05 34       	cpi	r16, 0x45	; 69
+ 5ca:	09 f4       	brne	.+2      	; 0x5ce <main+0xd8>
+ 5cc:	2e c1       	rjmp	.+604    	; 0x82a <main+0x334>
+ 5ce:	06 34       	cpi	r16, 0x46	; 70
+ 5d0:	09 f0       	breq	.+2      	; 0x5d4 <main+0xde>
+ 5d2:	a9 c3       	rjmp	.+1874   	; 0xd26 <main+0x830>
+ 5d4:	58 c1       	rjmp	.+688    	; 0x886 <main+0x390>
+ 5d6:	02 35       	cpi	r16, 0x52	; 82
+ 5d8:	09 f4       	brne	.+2      	; 0x5dc <main+0xe6>
+ 5da:	d9 c1       	rjmp	.+946    	; 0x98e <main+0x498>
+ 5dc:	03 35       	cpi	r16, 0x53	; 83
+ 5de:	38 f4       	brcc	.+14     	; 0x5ee <main+0xf8>
+ 5e0:	0c 34       	cpi	r16, 0x4C	; 76
+ 5e2:	09 f4       	brne	.+2      	; 0x5e6 <main+0xf0>
+ 5e4:	af c1       	rjmp	.+862    	; 0x944 <main+0x44e>
+ 5e6:	01 35       	cpi	r16, 0x51	; 81
+ 5e8:	09 f0       	breq	.+2      	; 0x5ec <main+0xf6>
+ 5ea:	9d c3       	rjmp	.+1850   	; 0xd26 <main+0x830>
+ 5ec:	bd c1       	rjmp	.+890    	; 0x968 <main+0x472>
+ 5ee:	06 35       	cpi	r16, 0x56	; 86
+ 5f0:	09 f4       	brne	.+2      	; 0x5f4 <main+0xfe>
+ 5f2:	f2 c1       	rjmp	.+996    	; 0x9d8 <main+0x4e2>
+ 5f4:	09 35       	cpi	r16, 0x59	; 89
+ 5f6:	09 f0       	breq	.+2      	; 0x5fa <main+0x104>
+ 5f8:	96 c3       	rjmp	.+1836   	; 0xd26 <main+0x830>
+ 5fa:	26 c3       	rjmp	.+1612   	; 0xc48 <main+0x752>
+		case '0':
+			PrintFromPROGMEMln(gTextMsg_HELP_MSG_0, 2);
+ 5fc:	84 e7       	ldi	r24, 0x74	; 116
+ 5fe:	91 e0       	ldi	r25, 0x01	; 1
+ 600:	62 e0       	ldi	r22, 0x02	; 2
+ 602:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+			gFlashIndex		=	0;
+ 606:	10 92 06 01 	sts	0x0106, r1
+ 60a:	10 92 07 01 	sts	0x0107, r1
+ 60e:	10 92 08 01 	sts	0x0108, r1
+ 612:	10 92 09 01 	sts	0x0109, r1
+			gRamIndex		=	0;
+ 616:	10 92 0a 01 	sts	0x010A, r1
+ 61a:	10 92 0b 01 	sts	0x010B, r1
+ 61e:	10 92 0c 01 	sts	0x010C, r1
+ 622:	10 92 0d 01 	sts	0x010D, r1
+ 626:	f8 c0       	rjmp	.+496    	; 0x818 <main+0x322>
+			gEepromIndex	=	0;
+			break;
+
+		case '?':
+			PrintFromPROGMEMln(gTextMsg_HELP_MSG_QM, 2);
+ 628:	82 e8       	ldi	r24, 0x82	; 130
+ 62a:	91 e0       	ldi	r25, 0x01	; 1
+ 62c:	62 e0       	ldi	r22, 0x02	; 2
+ 62e:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+//************************************************************************
+static void	PrintCPUstats(void)
+{
+	unsigned char fuseByte;
+
+	PrintFromPROGMEMln(gTextMsg_Explorer, 0);
+ 632:	8a e0       	ldi	r24, 0x0A	; 10
+ 634:	90 e0       	ldi	r25, 0x00	; 0
+ 636:	60 e0       	ldi	r22, 0x00	; 0
+ 638:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+
+	PrintFromPROGMEM(gTextMsg_COMPILED_ON, 0);
+ 63c:	8c e3       	ldi	r24, 0x3C	; 60
+ 63e:	90 e0       	ldi	r25, 0x00	; 0
+ 640:	60 e0       	ldi	r22, 0x00	; 0
+ 642:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+	PrintFromPROGMEMln(gTextMsg_GCC_DATE_STR, 0);
+ 646:	80 ec       	ldi	r24, 0xC0	; 192
+ 648:	90 e0       	ldi	r25, 0x00	; 0
+ 64a:	60 e0       	ldi	r22, 0x00	; 0
+ 64c:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+
+	PrintFromPROGMEM(gTextMsg_CPU_Type, 0);
+ 650:	8b e4       	ldi	r24, 0x4B	; 75
+ 652:	90 e0       	ldi	r25, 0x00	; 0
+ 654:	60 e0       	ldi	r22, 0x00	; 0
+ 656:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+	PrintFromPROGMEMln(gTextMsg_CPU_Name, 0);
+ 65a:	80 e0       	ldi	r24, 0x00	; 0
+ 65c:	90 e0       	ldi	r25, 0x00	; 0
+ 65e:	60 e0       	ldi	r22, 0x00	; 0
+ 660:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+
+	PrintFromPROGMEM(gTextMsg_AVR_ARCH, 0);
+ 664:	87 e5       	ldi	r24, 0x57	; 87
+ 666:	90 e0       	ldi	r25, 0x00	; 0
+ 668:	60 e0       	ldi	r22, 0x00	; 0
+ 66a:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+	PrintDecInt(__AVR_ARCH__, 1);
+ 66e:	85 e0       	ldi	r24, 0x05	; 5
+ 670:	90 e0       	ldi	r25, 0x00	; 0
+ 672:	61 e0       	ldi	r22, 0x01	; 1
+ 674:	70 e0       	ldi	r23, 0x00	; 0
+ 676:	0e 94 46 02 	call	0x48c	; 0x48c <PrintDecInt>
+	PrintNewLine();
+ 67a:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+
+	PrintFromPROGMEM(gTextMsg_GCC_VERSION, 0);
+ 67e:	85 e7       	ldi	r24, 0x75	; 117
+ 680:	90 e0       	ldi	r25, 0x00	; 0
+ 682:	60 e0       	ldi	r22, 0x00	; 0
+ 684:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+	PrintFromPROGMEMln(gTextMsg_GCC_VERSION_STR, 0);
+ 688:	82 ed       	ldi	r24, 0xD2	; 210
+ 68a:	90 e0       	ldi	r25, 0x00	; 0
+ 68c:	60 e0       	ldi	r22, 0x00	; 0
+ 68e:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+
+	//*	these can be found in avr/version.h
+	PrintFromPROGMEM(gTextMsg_AVR_LIBC, 0);
+ 692:	86 e6       	ldi	r24, 0x66	; 102
+ 694:	90 e0       	ldi	r25, 0x00	; 0
+ 696:	60 e0       	ldi	r22, 0x00	; 0
+ 698:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+	PrintFromPROGMEMln(gTextMsg_AVR_LIBC_VER_STR, 0);
+ 69c:	8c ec       	ldi	r24, 0xCC	; 204
+ 69e:	90 e0       	ldi	r25, 0x00	; 0
+ 6a0:	60 e0       	ldi	r22, 0x00	; 0
+ 6a2:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+
+#if defined(SIGNATURE_0)
+	PrintFromPROGMEM(gTextMsg_CPU_SIGNATURE, 0);
+ 6a6:	84 e8       	ldi	r24, 0x84	; 132
+ 6a8:	90 e0       	ldi	r25, 0x00	; 0
+ 6aa:	60 e0       	ldi	r22, 0x00	; 0
+ 6ac:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+	//*	these can be found in avr/iomxxx.h
+	PrintHexByte(SIGNATURE_0);
+ 6b0:	8e e1       	ldi	r24, 0x1E	; 30
+ 6b2:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+	PrintHexByte(SIGNATURE_1);
+ 6b6:	86 e9       	ldi	r24, 0x96	; 150
+ 6b8:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+	PrintHexByte(SIGNATURE_2);
+ 6bc:	89 e0       	ldi	r24, 0x09	; 9
+ 6be:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+	PrintNewLine();
+ 6c2:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+#endif
+
+
+#if defined(GET_LOW_FUSE_BITS)
+	//*	fuse settings
+	PrintFromPROGMEM(gTextMsg_FUSE_BYTE_LOW, 0);
+ 6c6:	8e e8       	ldi	r24, 0x8E	; 142
+ 6c8:	90 e0       	ldi	r25, 0x00	; 0
+ 6ca:	60 e0       	ldi	r22, 0x00	; 0
+ 6cc:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+	fuseByte	=	boot_lock_fuse_bits_get(GET_LOW_FUSE_BITS);
+ 6d0:	09 e0       	ldi	r16, 0x09	; 9
+ 6d2:	e0 e0       	ldi	r30, 0x00	; 0
+ 6d4:	f0 e0       	ldi	r31, 0x00	; 0
+ 6d6:	00 93 57 00 	sts	0x0057, r16
+ 6da:	84 91       	lpm	r24, Z
+	PrintHexByte(fuseByte);
+ 6dc:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+	PrintNewLine();
+ 6e0:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+
+	PrintFromPROGMEM(gTextMsg_FUSE_BYTE_HIGH, 0);
+ 6e4:	8a e9       	ldi	r24, 0x9A	; 154
+ 6e6:	90 e0       	ldi	r25, 0x00	; 0
+ 6e8:	60 e0       	ldi	r22, 0x00	; 0
+ 6ea:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+	fuseByte	=	boot_lock_fuse_bits_get(GET_HIGH_FUSE_BITS);
+ 6ee:	e3 e0       	ldi	r30, 0x03	; 3
+ 6f0:	f0 e0       	ldi	r31, 0x00	; 0
+ 6f2:	00 93 57 00 	sts	0x0057, r16
+ 6f6:	84 91       	lpm	r24, Z
+	PrintHexByte(fuseByte);
+ 6f8:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+	PrintNewLine();
+ 6fc:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+
+	PrintFromPROGMEM(gTextMsg_FUSE_BYTE_EXT, 0);
+ 700:	87 ea       	ldi	r24, 0xA7	; 167
+ 702:	90 e0       	ldi	r25, 0x00	; 0
+ 704:	60 e0       	ldi	r22, 0x00	; 0
+ 706:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+	fuseByte	=	boot_lock_fuse_bits_get(GET_EXTENDED_FUSE_BITS);
+ 70a:	e2 e0       	ldi	r30, 0x02	; 2
+ 70c:	f0 e0       	ldi	r31, 0x00	; 0
+ 70e:	00 93 57 00 	sts	0x0057, r16
+ 712:	84 91       	lpm	r24, Z
+	PrintHexByte(fuseByte);
+ 714:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+	PrintNewLine();
+ 718:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+
+	PrintFromPROGMEM(gTextMsg_FUSE_BYTE_LOCK, 0);
+ 71c:	83 eb       	ldi	r24, 0xB3	; 179
+ 71e:	90 e0       	ldi	r25, 0x00	; 0
+ 720:	60 e0       	ldi	r22, 0x00	; 0
+ 722:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+	fuseByte	=	boot_lock_fuse_bits_get(GET_LOCK_BITS);
+ 726:	e1 e0       	ldi	r30, 0x01	; 1
+ 728:	f0 e0       	ldi	r31, 0x00	; 0
+ 72a:	00 93 57 00 	sts	0x0057, r16
+ 72e:	84 91       	lpm	r24, Z
+	PrintHexByte(fuseByte);
+ 730:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+	PrintNewLine();
+ 734:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+ 738:	24 cf       	rjmp	.-440    	; 0x582 <main+0x8c>
+			PrintFromPROGMEMln(gTextMsg_HELP_MSG_QM, 2);
+			PrintCPUstats();
+			break;
+
+		case '@':
+			PrintFromPROGMEMln(gTextMsg_HELP_MSG_AT, 2);
+ 73a:	80 e9       	ldi	r24, 0x90	; 144
+ 73c:	91 e0       	ldi	r25, 0x01	; 1
+ 73e:	62 e0       	ldi	r22, 0x02	; 2
+ 740:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+	int ii;
+	char theChar;
+	char theEEPROMchar;
+	int errorCount;
+
+	PrintFromPROGMEMln(gTextMsg_WriteToEEprom, 0);
+ 744:	8c e4       	ldi	r24, 0x4C	; 76
+ 746:	91 e0       	ldi	r25, 0x01	; 1
+ 748:	60 e0       	ldi	r22, 0x00	; 0
+ 74a:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+	PrintNewLine();
+ 74e:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+	ii			=	0;
+ 752:	ee 24       	eor	r14, r14
+ 754:	ff 24       	eor	r15, r15
+ 756:	12 c0       	rjmp	.+36     	; 0x77c <main+0x286>
+	while (((theChar = pgm_read_byte_far(((uint16_t)gTextMsg_Explorer) + ii)) != '*') && (ii < 512))
+#else
+	while (((theChar = pgm_read_byte_near(((uint16_t)gTextMsg_Explorer) + ii)) != '*') && (ii < 512))
+#endif
+	{
+		eeprom_write_byte((uint8_t*)ii, theChar);
+ 758:	c7 01       	movw	r24, r14
+ 75a:	60 2f       	mov	r22, r16
+ 75c:	0e 94 c6 06 	call	0xd8c	; 0xd8c <__eewr_byte_m644>
+		if (theChar == 0) {
+ 760:	00 23       	and	r16, r16
+ 762:	31 f4       	brne	.+12     	; 0x770 <main+0x27a>
+			PrintFromPROGMEM(gTextMsg_SPACE, 0);
+ 764:	8a e4       	ldi	r24, 0x4A	; 74
+ 766:	91 e0       	ldi	r25, 0x01	; 1
+ 768:	60 e0       	ldi	r22, 0x00	; 0
+ 76a:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+ 76e:	03 c0       	rjmp	.+6      	; 0x776 <main+0x280>
+		}
+		else{
+			sendchar(theChar);
+ 770:	80 2f       	mov	r24, r16
+ 772:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+		}
+		ii++;
+ 776:	08 94       	sec
+ 778:	e1 1c       	adc	r14, r1
+ 77a:	f1 1c       	adc	r15, r1
+	PrintNewLine();
+	ii			=	0;
+#if (FLASHEND > 0x10000)
+	while (((theChar = pgm_read_byte_far(((uint16_t)gTextMsg_Explorer) + ii)) != '*') && (ii < 512))
+#else
+	while (((theChar = pgm_read_byte_near(((uint16_t)gTextMsg_Explorer) + ii)) != '*') && (ii < 512))
+ 77c:	f7 01       	movw	r30, r14
+ 77e:	e6 5f       	subi	r30, 0xF6	; 246
+ 780:	ff 4f       	sbci	r31, 0xFF	; 255
+ 782:	04 91       	lpm	r16, Z
+ 784:	0a 32       	cpi	r16, 0x2A	; 42
+ 786:	29 f0       	breq	.+10     	; 0x792 <main+0x29c>
+ 788:	20 e0       	ldi	r18, 0x00	; 0
+ 78a:	e2 16       	cp	r14, r18
+ 78c:	22 e0       	ldi	r18, 0x02	; 2
+ 78e:	f2 06       	cpc	r15, r18
+ 790:	19 f7       	brne	.-58     	; 0x758 <main+0x262>
+		}
+		ii++;
+	}
+
+	//*	no go back through and test
+	PrintNewLine();
+ 792:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+	PrintNewLine();
+ 796:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+	PrintFromPROGMEMln(gTextMsg_ReadingEEprom, 0);
+ 79a:	88 e5       	ldi	r24, 0x58	; 88
+ 79c:	91 e0       	ldi	r25, 0x01	; 1
+ 79e:	60 e0       	ldi	r22, 0x00	; 0
+ 7a0:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+	PrintNewLine();
+ 7a4:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+	errorCount	=	0;
+ 7a8:	00 e0       	ldi	r16, 0x00	; 0
+ 7aa:	10 e0       	ldi	r17, 0x00	; 0
+	ii			=	0;
+ 7ac:	aa 24       	eor	r10, r10
+ 7ae:	bb 24       	eor	r11, r11
+ 7b0:	15 c0       	rjmp	.+42     	; 0x7dc <main+0x2e6>
+	while (((theChar = pgm_read_byte_far((uint16_t)gTextMsg_Explorer + ii)) != '*') && (ii < 512))
+#else
+	while (((theChar = pgm_read_byte_near((uint16_t)gTextMsg_Explorer + ii)) != '*') && (ii < 512))
+#endif
+	{
+		theEEPROMchar	=	eeprom_read_byte((uint8_t*)ii);
+ 7b2:	c5 01       	movw	r24, r10
+ 7b4:	0e 94 be 06 	call	0xd7c	; 0xd7c <__eerd_byte_m644>
+ 7b8:	e8 2e       	mov	r14, r24
+		if (theEEPROMchar == 0) {
+ 7ba:	88 23       	and	r24, r24
+ 7bc:	31 f4       	brne	.+12     	; 0x7ca <main+0x2d4>
+			PrintFromPROGMEM(gTextMsg_SPACE, 0);
+ 7be:	8a e4       	ldi	r24, 0x4A	; 74
+ 7c0:	91 e0       	ldi	r25, 0x01	; 1
+ 7c2:	60 e0       	ldi	r22, 0x00	; 0
+ 7c4:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+ 7c8:	02 c0       	rjmp	.+4      	; 0x7ce <main+0x2d8>
+		}
+		else{
+			sendchar(theEEPROMchar);
+ 7ca:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+		}
+		if (theEEPROMchar != theChar) {
+ 7ce:	ed 14       	cp	r14, r13
+ 7d0:	11 f0       	breq	.+4      	; 0x7d6 <main+0x2e0>
+			errorCount++;
+ 7d2:	0f 5f       	subi	r16, 0xFF	; 255
+ 7d4:	1f 4f       	sbci	r17, 0xFF	; 255
+		}
+		ii++;
+ 7d6:	08 94       	sec
+ 7d8:	a1 1c       	adc	r10, r1
+ 7da:	b1 1c       	adc	r11, r1
+	errorCount	=	0;
+	ii			=	0;
+#if (FLASHEND > 0x10000)
+	while (((theChar = pgm_read_byte_far((uint16_t)gTextMsg_Explorer + ii)) != '*') && (ii < 512))
+#else
+	while (((theChar = pgm_read_byte_near((uint16_t)gTextMsg_Explorer + ii)) != '*') && (ii < 512))
+ 7dc:	f5 01       	movw	r30, r10
+ 7de:	e6 5f       	subi	r30, 0xF6	; 246
+ 7e0:	ff 4f       	sbci	r31, 0xFF	; 255
+ 7e2:	d4 90       	lpm	r13, Z
+ 7e4:	3d 2d       	mov	r19, r13
+ 7e6:	3a 32       	cpi	r19, 0x2A	; 42
+ 7e8:	29 f0       	breq	.+10     	; 0x7f4 <main+0x2fe>
+ 7ea:	40 e0       	ldi	r20, 0x00	; 0
+ 7ec:	a4 16       	cp	r10, r20
+ 7ee:	42 e0       	ldi	r20, 0x02	; 2
+ 7f0:	b4 06       	cpc	r11, r20
+ 7f2:	f9 f6       	brne	.-66     	; 0x7b2 <main+0x2bc>
+		if (theEEPROMchar != theChar) {
+			errorCount++;
+		}
+		ii++;
+	}
+	PrintNewLine();
+ 7f4:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+	PrintNewLine();
+ 7f8:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+	PrintFromPROGMEM(gTextMsg_EEPROMerrorCnt, 0);
+ 7fc:	83 e6       	ldi	r24, 0x63	; 99
+ 7fe:	91 e0       	ldi	r25, 0x01	; 1
+ 800:	60 e0       	ldi	r22, 0x00	; 0
+ 802:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+	PrintDecInt(errorCount, 1);
+ 806:	c8 01       	movw	r24, r16
+ 808:	61 e0       	ldi	r22, 0x01	; 1
+ 80a:	70 e0       	ldi	r23, 0x00	; 0
+ 80c:	0e 94 46 02 	call	0x48c	; 0x48c <PrintDecInt>
+	PrintNewLine();
+ 810:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+	PrintNewLine();
+ 814:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+
+	gEepromIndex	=	0;				//*	set index back to zero for next eeprom dump
+ 818:	10 92 02 01 	sts	0x0102, r1
+ 81c:	10 92 03 01 	sts	0x0103, r1
+ 820:	10 92 04 01 	sts	0x0104, r1
+ 824:	10 92 05 01 	sts	0x0105, r1
+ 828:	ac ce       	rjmp	.-680    	; 0x582 <main+0x8c>
+		//			PrintFromPROGMEMln(gTextMsg_HELP_MSG_B, 2);
+		//			BlinkLED();
+		//			break;
+
+		case 'E':
+			PrintFromPROGMEMln(gTextMsg_HELP_MSG_E, 2);
+ 82a:	80 ea       	ldi	r24, 0xA0	; 160
+ 82c:	91 e0       	ldi	r25, 0x01	; 1
+ 82e:	62 e0       	ldi	r22, 0x02	; 2
+ 830:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+			DumpHex(kDUMP_EEPROM, gEepromIndex, 16);
+ 834:	40 91 02 01 	lds	r20, 0x0102
+ 838:	50 91 03 01 	lds	r21, 0x0103
+ 83c:	60 91 04 01 	lds	r22, 0x0104
+ 840:	70 91 05 01 	lds	r23, 0x0105
+ 844:	81 e0       	ldi	r24, 0x01	; 1
+ 846:	0e 94 95 01 	call	0x32a	; 0x32a <DumpHex.clone.0>
+			gEepromIndex	+=	256;
+ 84a:	80 91 02 01 	lds	r24, 0x0102
+ 84e:	90 91 03 01 	lds	r25, 0x0103
+ 852:	a0 91 04 01 	lds	r26, 0x0104
+ 856:	b0 91 05 01 	lds	r27, 0x0105
+ 85a:	80 50       	subi	r24, 0x00	; 0
+ 85c:	9f 4f       	sbci	r25, 0xFF	; 255
+ 85e:	af 4f       	sbci	r26, 0xFF	; 255
+ 860:	bf 4f       	sbci	r27, 0xFF	; 255
+ 862:	80 93 02 01 	sts	0x0102, r24
+ 866:	90 93 03 01 	sts	0x0103, r25
+ 86a:	a0 93 04 01 	sts	0x0104, r26
+ 86e:	b0 93 05 01 	sts	0x0105, r27
+			if (gEepromIndex > E2END) {
+ 872:	80 30       	cpi	r24, 0x00	; 0
+ 874:	58 e0       	ldi	r21, 0x08	; 8
+ 876:	95 07       	cpc	r25, r21
+ 878:	50 e0       	ldi	r21, 0x00	; 0
+ 87a:	a5 07       	cpc	r26, r21
+ 87c:	50 e0       	ldi	r21, 0x00	; 0
+ 87e:	b5 07       	cpc	r27, r21
+ 880:	08 f4       	brcc	.+2      	; 0x884 <main+0x38e>
+ 882:	7f ce       	rjmp	.-770    	; 0x582 <main+0x8c>
+ 884:	c9 cf       	rjmp	.-110    	; 0x818 <main+0x322>
+				gEepromIndex	=	0;
+			}
+			break;
+
+		case 'F':
+			PrintFromPROGMEMln(gTextMsg_HELP_MSG_F, 2);
+ 886:	80 eb       	ldi	r24, 0xB0	; 176
+ 888:	91 e0       	ldi	r25, 0x01	; 1
+ 88a:	62 e0       	ldi	r22, 0x02	; 2
+ 88c:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+			DumpHex(kDUMP_FLASH, gFlashIndex, 16);
+ 890:	40 91 06 01 	lds	r20, 0x0106
+ 894:	50 91 07 01 	lds	r21, 0x0107
+ 898:	60 91 08 01 	lds	r22, 0x0108
+ 89c:	70 91 09 01 	lds	r23, 0x0109
+ 8a0:	80 e0       	ldi	r24, 0x00	; 0
+ 8a2:	0e 94 95 01 	call	0x32a	; 0x32a <DumpHex.clone.0>
+			gFlashIndex	+=	256;
+ 8a6:	80 91 06 01 	lds	r24, 0x0106
+ 8aa:	90 91 07 01 	lds	r25, 0x0107
+ 8ae:	a0 91 08 01 	lds	r26, 0x0108
+ 8b2:	b0 91 09 01 	lds	r27, 0x0109
+ 8b6:	80 50       	subi	r24, 0x00	; 0
+ 8b8:	9f 4f       	sbci	r25, 0xFF	; 255
+ 8ba:	af 4f       	sbci	r26, 0xFF	; 255
+ 8bc:	bf 4f       	sbci	r27, 0xFF	; 255
+ 8be:	80 93 06 01 	sts	0x0106, r24
+ 8c2:	90 93 07 01 	sts	0x0107, r25
+ 8c6:	a0 93 08 01 	sts	0x0108, r26
+ 8ca:	b0 93 09 01 	sts	0x0109, r27
+ 8ce:	59 ce       	rjmp	.-846    	; 0x582 <main+0x8c>
+			break;
+
+		case 'H':
+			PrintFromPROGMEMln(gTextMsg_HELP_MSG_H, 2);
+ 8d0:	8f eb       	ldi	r24, 0xBF	; 191
+ 8d2:	91 e0       	ldi	r25, 0x01	; 1
+ 8d4:	62 e0       	ldi	r22, 0x02	; 2
+ 8d6:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+
+
+//*******************************************************************
+static void PrintHelp(void)
+{
+	PrintFromPROGMEMln(gTextMsg_HELP_MSG_0, 0);
+ 8da:	84 e7       	ldi	r24, 0x74	; 116
+ 8dc:	91 e0       	ldi	r25, 0x01	; 1
+ 8de:	60 e0       	ldi	r22, 0x00	; 0
+ 8e0:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+	PrintFromPROGMEMln(gTextMsg_HELP_MSG_QM, 0);
+ 8e4:	82 e8       	ldi	r24, 0x82	; 130
+ 8e6:	91 e0       	ldi	r25, 0x01	; 1
+ 8e8:	60 e0       	ldi	r22, 0x00	; 0
+ 8ea:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+	PrintFromPROGMEMln(gTextMsg_HELP_MSG_AT, 0);
+ 8ee:	80 e9       	ldi	r24, 0x90	; 144
+ 8f0:	91 e0       	ldi	r25, 0x01	; 1
+ 8f2:	60 e0       	ldi	r22, 0x00	; 0
+ 8f4:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+	//	PrintFromPROGMEMln(gTextMsg_HELP_MSG_B, 0);
+	PrintFromPROGMEMln(gTextMsg_HELP_MSG_E, 0);
+ 8f8:	80 ea       	ldi	r24, 0xA0	; 160
+ 8fa:	91 e0       	ldi	r25, 0x01	; 1
+ 8fc:	60 e0       	ldi	r22, 0x00	; 0
+ 8fe:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+	PrintFromPROGMEMln(gTextMsg_HELP_MSG_F, 0);
+ 902:	80 eb       	ldi	r24, 0xB0	; 176
+ 904:	91 e0       	ldi	r25, 0x01	; 1
+ 906:	60 e0       	ldi	r22, 0x00	; 0
+ 908:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+	PrintFromPROGMEMln(gTextMsg_HELP_MSG_H, 0);
+ 90c:	8f eb       	ldi	r24, 0xBF	; 191
+ 90e:	91 e0       	ldi	r25, 0x01	; 1
+ 910:	60 e0       	ldi	r22, 0x00	; 0
+ 912:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+
+	PrintFromPROGMEMln(gTextMsg_HELP_MSG_L, 0);
+ 916:	88 ec       	ldi	r24, 0xC8	; 200
+ 918:	91 e0       	ldi	r25, 0x01	; 1
+ 91a:	60 e0       	ldi	r22, 0x00	; 0
+ 91c:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+	PrintFromPROGMEMln(gTextMsg_HELP_MSG_Q, 0);
+ 920:	8b ed       	ldi	r24, 0xDB	; 219
+ 922:	91 e0       	ldi	r25, 0x01	; 1
+ 924:	60 e0       	ldi	r22, 0x00	; 0
+ 926:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+	PrintFromPROGMEMln(gTextMsg_HELP_MSG_R, 0);
+ 92a:	84 ee       	ldi	r24, 0xE4	; 228
+ 92c:	91 e0       	ldi	r25, 0x01	; 1
+ 92e:	60 e0       	ldi	r22, 0x00	; 0
+ 930:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+	PrintFromPROGMEMln(gTextMsg_HELP_MSG_V, 0);
+ 934:	81 ef       	ldi	r24, 0xF1	; 241
+ 936:	91 e0       	ldi	r25, 0x01	; 1
+ 938:	60 e0       	ldi	r22, 0x00	; 0
+ 93a:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+	PrintFromPROGMEMln(gTextMsg_HELP_MSG_Y, 0);
+ 93e:	8c e0       	ldi	r24, 0x0C	; 12
+ 940:	92 e0       	ldi	r25, 0x02	; 2
+ 942:	1c ce       	rjmp	.-968    	; 0x57c <main+0x86>
+			PrintFromPROGMEMln(gTextMsg_HELP_MSG_H, 2);
+			PrintHelp();
+			break;
+
+		case 'L':
+			PrintFromPROGMEMln(gTextMsg_HELP_MSG_L, 2);
+ 944:	88 ec       	ldi	r24, 0xC8	; 200
+ 946:	91 e0       	ldi	r25, 0x01	; 1
+ 948:	62 e0       	ldi	r22, 0x02	; 2
+ 94a:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+//************************************************************************
+static void	ListAvailablePorts(void)
+{
+
+#ifdef DDRA
+	PrintAvailablePort('A');
+ 94e:	81 e4       	ldi	r24, 0x41	; 65
+ 950:	0e 94 58 01 	call	0x2b0	; 0x2b0 <PrintAvailablePort>
+#endif
+
+#ifdef DDRB
+	PrintAvailablePort('B');
+ 954:	82 e4       	ldi	r24, 0x42	; 66
+ 956:	0e 94 58 01 	call	0x2b0	; 0x2b0 <PrintAvailablePort>
+#endif
+
+#ifdef DDRC
+	PrintAvailablePort('C');
+ 95a:	83 e4       	ldi	r24, 0x43	; 67
+ 95c:	0e 94 58 01 	call	0x2b0	; 0x2b0 <PrintAvailablePort>
+#endif
+
+#ifdef DDRD
+	PrintAvailablePort('D');
+ 960:	84 e4       	ldi	r24, 0x44	; 68
+ 962:	0e 94 58 01 	call	0x2b0	; 0x2b0 <PrintAvailablePort>
+ 966:	0d ce       	rjmp	.-998    	; 0x582 <main+0x8c>
+			PrintFromPROGMEMln(gTextMsg_HELP_MSG_L, 2);
+			ListAvailablePorts();
+			break;
+
+		case 'Q':
+			PrintFromPROGMEMln(gTextMsg_HELP_MSG_Q, 2);
+ 968:	8b ed       	ldi	r24, 0xDB	; 219
+ 96a:	91 e0       	ldi	r25, 0x01	; 1
+ 96c:	62 e0       	ldi	r22, 0x02	; 2
+ 96e:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+
+	asm volatile ("nop");					// wait until port has changed
+
+	RunMonitor();
+
+	asm volatile ("nop");					// wait until port has changed
+ 972:	00 00       	nop
+
+	/*
+	* Now leave bootloader
+	*/
+
+	UART_STATUS_REG &=	0xfd;
+ 974:	80 91 c0 00 	lds	r24, 0x00C0
+ 978:	8d 7f       	andi	r24, 0xFD	; 253
+ 97a:	80 93 c0 00 	sts	0x00C0, r24
+	boot_rww_enable();					// enable application section
+ 97e:	81 e1       	ldi	r24, 0x11	; 17
+ 980:	80 93 57 00 	sts	0x0057, r24
+ 984:	e8 95       	spm
+
+
+	asm volatile (
+ 986:	ee 27       	eor	r30, r30
+ 988:	ff 27       	eor	r31, r31
+ 98a:	09 94       	ijmp
+ 98c:	cf c1       	rjmp	.+926    	; 0xd2c <main+0x836>
+			PrintFromPROGMEMln(gTextMsg_HELP_MSG_Q, 2);
+			keepGoing	=	false;
+			break;
+
+		case 'R':
+			PrintFromPROGMEMln(gTextMsg_HELP_MSG_R, 2);
+ 98e:	84 ee       	ldi	r24, 0xE4	; 228
+ 990:	91 e0       	ldi	r25, 0x01	; 1
+ 992:	62 e0       	ldi	r22, 0x02	; 2
+ 994:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+			DumpHex(kDUMP_RAM, gRamIndex, 16);
+ 998:	40 91 0a 01 	lds	r20, 0x010A
+ 99c:	50 91 0b 01 	lds	r21, 0x010B
+ 9a0:	60 91 0c 01 	lds	r22, 0x010C
+ 9a4:	70 91 0d 01 	lds	r23, 0x010D
+ 9a8:	82 e0       	ldi	r24, 0x02	; 2
+ 9aa:	0e 94 95 01 	call	0x32a	; 0x32a <DumpHex.clone.0>
+			gRamIndex	+=	256;
+ 9ae:	80 91 0a 01 	lds	r24, 0x010A
+ 9b2:	90 91 0b 01 	lds	r25, 0x010B
+ 9b6:	a0 91 0c 01 	lds	r26, 0x010C
+ 9ba:	b0 91 0d 01 	lds	r27, 0x010D
+ 9be:	80 50       	subi	r24, 0x00	; 0
+ 9c0:	9f 4f       	sbci	r25, 0xFF	; 255
+ 9c2:	af 4f       	sbci	r26, 0xFF	; 255
+ 9c4:	bf 4f       	sbci	r27, 0xFF	; 255
+ 9c6:	80 93 0a 01 	sts	0x010A, r24
+ 9ca:	90 93 0b 01 	sts	0x010B, r25
+ 9ce:	a0 93 0c 01 	sts	0x010C, r26
+ 9d2:	b0 93 0d 01 	sts	0x010D, r27
+ 9d6:	d5 cd       	rjmp	.-1110   	; 0x582 <main+0x8c>
+			break;
+
+		case 'V':
+			PrintFromPROGMEMln(gTextMsg_HELP_MSG_V, 2);
+ 9d8:	81 ef       	ldi	r24, 0xF1	; 241
+ 9da:	91 e0       	ldi	r25, 0x01	; 1
+ 9dc:	62 e0       	ldi	r22, 0x02	; 2
+ 9de:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+	long stringPointer;
+#endif
+
+	myMemoryPtr		=	0;
+	vectorIndex		=	0;
+	PrintFromPROGMEMln(gTextMsg_CPU_Name, 0);
+ 9e2:	80 e0       	ldi	r24, 0x00	; 0
+ 9e4:	90 e0       	ldi	r25, 0x00	; 0
+ 9e6:	60 e0       	ldi	r22, 0x00	; 0
+ 9e8:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+	PrintFromPROGMEMln(gTextMsg_VECTOR_HEADER, 0);
+ 9ec:	88 ed       	ldi	r24, 0xD8	; 216
+ 9ee:	90 e0       	ldi	r25, 0x00	; 0
+ 9f0:	60 e0       	ldi	r22, 0x00	; 0
+ 9f2:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+#if defined(_INTERRUPT_NAMES_DEFINED_)
+	long stringPointer;
+#endif
+
+	myMemoryPtr		=	0;
+	vectorIndex		=	0;
+ 9f6:	22 24       	eor	r2, r2
+ 9f8:	33 24       	eor	r3, r3
+
+#if defined(_INTERRUPT_NAMES_DEFINED_)
+	long stringPointer;
+#endif
+
+	myMemoryPtr		=	0;
+ 9fa:	19 82       	std	Y+1, r1	; 0x01
+ 9fc:	1a 82       	std	Y+2, r1	; 0x02
+ 9fe:	1b 82       	std	Y+3, r1	; 0x03
+ a00:	1c 82       	std	Y+4, r1	; 0x04
+	PrintFromPROGMEMln(gTextMsg_CPU_Name, 0);
+	PrintFromPROGMEMln(gTextMsg_VECTOR_HEADER, 0);
+	//					V#   ADDR   op code
+	//					1 - 0000 = C3 BB 00 00 rjmp 03BB >000776 RESET
+	while (vectorIndex < kInterruptVectorCount) {
+		wordMemoryAddress	=	myMemoryPtr / 2;
+ a02:	69 81       	ldd	r22, Y+1	; 0x01
+ a04:	7a 81       	ldd	r23, Y+2	; 0x02
+ a06:	8b 81       	ldd	r24, Y+3	; 0x03
+ a08:	9c 81       	ldd	r25, Y+4	; 0x04
+ a0a:	96 95       	lsr	r25
+ a0c:	87 95       	ror	r24
+ a0e:	77 95       	ror	r23
+ a10:	67 95       	ror	r22
+ a12:	6d 83       	std	Y+5, r22	; 0x05
+ a14:	7e 83       	std	Y+6, r23	; 0x06
+ a16:	8f 83       	std	Y+7, r24	; 0x07
+ a18:	98 87       	std	Y+8, r25	; 0x08
+		//					01 - 0000 = 12 34
+		PrintDecInt(vectorIndex + 1, 2);
+ a1a:	08 94       	sec
+ a1c:	21 1c       	adc	r2, r1
+ a1e:	31 1c       	adc	r3, r1
+ a20:	c1 01       	movw	r24, r2
+ a22:	62 e0       	ldi	r22, 0x02	; 2
+ a24:	70 e0       	ldi	r23, 0x00	; 0
+ a26:	0e 94 46 02 	call	0x48c	; 0x48c <PrintDecInt>
+		sendchar(0x20);
+ a2a:	80 e2       	ldi	r24, 0x20	; 32
+ a2c:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+		sendchar('-');
+ a30:	8d e2       	ldi	r24, 0x2D	; 45
+ a32:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+		sendchar(0x20);
+ a36:	80 e2       	ldi	r24, 0x20	; 32
+ a38:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+		PrintHexByte((wordMemoryAddress >> 8) & 0x00ff);
+ a3c:	8e 81       	ldd	r24, Y+6	; 0x06
+ a3e:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+		PrintHexByte((wordMemoryAddress) & 0x00ff);
+ a42:	8d 81       	ldd	r24, Y+5	; 0x05
+ a44:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+		sendchar(0x20);
+ a48:	80 e2       	ldi	r24, 0x20	; 32
+ a4a:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+		sendchar('=');
+ a4e:	8d e3       	ldi	r24, 0x3D	; 61
+ a50:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+		sendchar(0x20);
+ a54:	80 e2       	ldi	r24, 0x20	; 32
+ a56:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+ a5a:	29 81       	ldd	r18, Y+1	; 0x01
+ a5c:	3a 81       	ldd	r19, Y+2	; 0x02
+		byte1	=	pgm_read_byte_far(myMemoryPtr++);
+		byte2	=	pgm_read_byte_far(myMemoryPtr++);
+		byte3	=	pgm_read_byte_far(myMemoryPtr++);
+		byte4	=	pgm_read_byte_far(myMemoryPtr++);
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#else
+		byte1	=	pgm_read_byte_near(myMemoryPtr++);
+ a5e:	f9 01       	movw	r30, r18
+ a60:	d4 90       	lpm	r13, Z
+ a62:	6d 2c       	mov	r6, r13
+ a64:	77 24       	eor	r7, r7
+ a66:	88 24       	eor	r8, r8
+ a68:	99 24       	eor	r9, r9
+		byte2	=	pgm_read_byte_near(myMemoryPtr++);
+ a6a:	31 96       	adiw	r30, 0x01	; 1
+ a6c:	84 91       	lpm	r24, Z
+ a6e:	48 2f       	mov	r20, r24
+ a70:	50 e0       	ldi	r21, 0x00	; 0
+ a72:	60 e0       	ldi	r22, 0x00	; 0
+ a74:	70 e0       	ldi	r23, 0x00	; 0
+ a76:	49 87       	std	Y+9, r20	; 0x09
+ a78:	5a 87       	std	Y+10, r21	; 0x0a
+ a7a:	6b 87       	std	Y+11, r22	; 0x0b
+ a7c:	7c 87       	std	Y+12, r23	; 0x0c
+		byte3	=	pgm_read_byte_near(myMemoryPtr++);
+ a7e:	f9 01       	movw	r30, r18
+ a80:	32 96       	adiw	r30, 0x02	; 2
+ a82:	54 90       	lpm	r5, Z
+ a84:	49 81       	ldd	r20, Y+1	; 0x01
+ a86:	5a 81       	ldd	r21, Y+2	; 0x02
+ a88:	6b 81       	ldd	r22, Y+3	; 0x03
+ a8a:	7c 81       	ldd	r23, Y+4	; 0x04
+ a8c:	4c 5f       	subi	r20, 0xFC	; 252
+ a8e:	5f 4f       	sbci	r21, 0xFF	; 255
+ a90:	6f 4f       	sbci	r22, 0xFF	; 255
+ a92:	7f 4f       	sbci	r23, 0xFF	; 255
+ a94:	49 83       	std	Y+1, r20	; 0x01
+ a96:	5a 83       	std	Y+2, r21	; 0x02
+ a98:	6b 83       	std	Y+3, r22	; 0x03
+ a9a:	7c 83       	std	Y+4, r23	; 0x04
+		byte4	=	pgm_read_byte_near(myMemoryPtr++);
+ a9c:	2d 5f       	subi	r18, 0xFD	; 253
+ a9e:	3f 4f       	sbci	r19, 0xFF	; 255
+ aa0:	f9 01       	movw	r30, r18
+ aa2:	a4 90       	lpm	r10, Z
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#endif
+		word1	=	(byte2 << 8) + byte1;
+ aa4:	29 85       	ldd	r18, Y+9	; 0x09
+ aa6:	3a 85       	ldd	r19, Y+10	; 0x0a
+ aa8:	4b 85       	ldd	r20, Y+11	; 0x0b
+ aaa:	5c 85       	ldd	r21, Y+12	; 0x0c
+ aac:	ee 24       	eor	r14, r14
+ aae:	f2 2e       	mov	r15, r18
+ ab0:	03 2f       	mov	r16, r19
+ ab2:	14 2f       	mov	r17, r20
+ ab4:	e6 0c       	add	r14, r6
+ ab6:	f7 1c       	adc	r15, r7
+ ab8:	08 1d       	adc	r16, r8
+ aba:	19 1d       	adc	r17, r9
+		word2	=	(byte4 << 8) + byte3;
+
+
+		PrintHexByte(byte2);
+ abc:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+		sendchar(0x20);
+ ac0:	80 e2       	ldi	r24, 0x20	; 32
+ ac2:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+		PrintHexByte(byte1);
+ ac6:	8d 2d       	mov	r24, r13
+ ac8:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+		sendchar(0x20);
+ acc:	80 e2       	ldi	r24, 0x20	; 32
+ ace:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+		PrintHexByte(byte4);
+ ad2:	8a 2d       	mov	r24, r10
+ ad4:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+		sendchar(0x20);
+ ad8:	80 e2       	ldi	r24, 0x20	; 32
+ ada:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+		PrintHexByte(byte3);
+ ade:	85 2d       	mov	r24, r5
+ ae0:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+		sendchar(0x20);
+ ae4:	80 e2       	ldi	r24, 0x20	; 32
+ ae6:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+
+		if (word1 == 0xffff) {
+ aea:	3f ef       	ldi	r19, 0xFF	; 255
+ aec:	e3 16       	cp	r14, r19
+ aee:	3f ef       	ldi	r19, 0xFF	; 255
+ af0:	f3 06       	cpc	r15, r19
+ af2:	30 e0       	ldi	r19, 0x00	; 0
+ af4:	03 07       	cpc	r16, r19
+ af6:	30 e0       	ldi	r19, 0x00	; 0
+ af8:	13 07       	cpc	r17, r19
+ afa:	31 f4       	brne	.+12     	; 0xb08 <main+0x612>
+			PrintFromPROGMEM(gTextMsg_noVector, 0);
+ afc:	85 e0       	ldi	r24, 0x05	; 5
+ afe:	91 e0       	ldi	r25, 0x01	; 1
+ b00:	60 e0       	ldi	r22, 0x00	; 0
+ b02:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+ b06:	98 c0       	rjmp	.+304    	; 0xc38 <main+0x742>
+		}
+		else if ((word1 & 0xc000) == 0xc000) {
+ b08:	a8 01       	movw	r20, r16
+ b0a:	97 01       	movw	r18, r14
+ b0c:	20 70       	andi	r18, 0x00	; 0
+ b0e:	30 7c       	andi	r19, 0xC0	; 192
+ b10:	40 70       	andi	r20, 0x00	; 0
+ b12:	50 70       	andi	r21, 0x00	; 0
+ b14:	20 30       	cpi	r18, 0x00	; 0
+ b16:	60 ec       	ldi	r22, 0xC0	; 192
+ b18:	36 07       	cpc	r19, r22
+ b1a:	60 e0       	ldi	r22, 0x00	; 0
+ b1c:	46 07       	cpc	r20, r22
+ b1e:	60 e0       	ldi	r22, 0x00	; 0
+ b20:	56 07       	cpc	r21, r22
+ b22:	e1 f4       	brne	.+56     	; 0xb5c <main+0x666>
+			//*	rjmp instruction
+			realitiveAddr	=	word1 & 0x3FFF;
+ b24:	7f ef       	ldi	r23, 0xFF	; 255
+ b26:	a7 2e       	mov	r10, r23
+ b28:	7f e3       	ldi	r23, 0x3F	; 63
+ b2a:	b7 2e       	mov	r11, r23
+ b2c:	c1 2c       	mov	r12, r1
+ b2e:	d1 2c       	mov	r13, r1
+ b30:	ae 20       	and	r10, r14
+ b32:	bf 20       	and	r11, r15
+ b34:	c0 22       	and	r12, r16
+ b36:	d1 22       	and	r13, r17
+			absoluteAddr	=	wordMemoryAddress + realitiveAddr;	 //*	add the offset to the current address
+ b38:	ed 80       	ldd	r14, Y+5	; 0x05
+ b3a:	fe 80       	ldd	r15, Y+6	; 0x06
+ b3c:	0f 81       	ldd	r16, Y+7	; 0x07
+ b3e:	18 85       	ldd	r17, Y+8	; 0x08
+ b40:	ea 0c       	add	r14, r10
+ b42:	fb 1c       	adc	r15, r11
+ b44:	0c 1d       	adc	r16, r12
+ b46:	1d 1d       	adc	r17, r13
+			absoluteAddr	=	absoluteAddr << 1;		 //*	multiply by 2 for byte address
+ b48:	ee 0c       	add	r14, r14
+ b4a:	ff 1c       	adc	r15, r15
+ b4c:	00 1f       	adc	r16, r16
+ b4e:	11 1f       	adc	r17, r17
+
+			PrintFromPROGMEM(gTextMsg_rjmp, 0);
+ b50:	8f e0       	ldi	r24, 0x0F	; 15
+ b52:	91 e0       	ldi	r25, 0x01	; 1
+ b54:	60 e0       	ldi	r22, 0x00	; 0
+ b56:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+ b5a:	59 c0       	rjmp	.+178    	; 0xc0e <main+0x718>
+			PrintHexByte((absoluteAddr >> 16) & 0x00ff);
+			PrintHexByte((absoluteAddr >> 8) & 0x00ff);
+			PrintHexByte((absoluteAddr) & 0x00ff);
+
+		}
+		else if ((word1 & 0xfE0E) == 0x940c) {
+ b5c:	d8 01       	movw	r26, r16
+ b5e:	c7 01       	movw	r24, r14
+ b60:	8e 70       	andi	r24, 0x0E	; 14
+ b62:	9e 7f       	andi	r25, 0xFE	; 254
+ b64:	a0 70       	andi	r26, 0x00	; 0
+ b66:	b0 70       	andi	r27, 0x00	; 0
+ b68:	8c 30       	cpi	r24, 0x0C	; 12
+ b6a:	74 e9       	ldi	r23, 0x94	; 148
+ b6c:	97 07       	cpc	r25, r23
+ b6e:	70 e0       	ldi	r23, 0x00	; 0
+ b70:	a7 07       	cpc	r26, r23
+ b72:	70 e0       	ldi	r23, 0x00	; 0
+ b74:	b7 07       	cpc	r27, r23
+ b76:	09 f0       	breq	.+2      	; 0xb7a <main+0x684>
+ b78:	5f c0       	rjmp	.+190    	; 0xc38 <main+0x742>
+		byte4	=	pgm_read_byte_far(myMemoryPtr++);
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#else
+		byte1	=	pgm_read_byte_near(myMemoryPtr++);
+		byte2	=	pgm_read_byte_near(myMemoryPtr++);
+		byte3	=	pgm_read_byte_near(myMemoryPtr++);
+		byte4	=	pgm_read_byte_near(myMemoryPtr++);
+ b7a:	bb 24       	eor	r11, r11
+ b7c:	cc 24       	eor	r12, r12
+ b7e:	dd 24       	eor	r13, r13
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#endif
+		word1	=	(byte2 << 8) + byte1;
+		word2	=	(byte4 << 8) + byte3;
+ b80:	dc 2c       	mov	r13, r12
+ b82:	cb 2c       	mov	r12, r11
+ b84:	ba 2c       	mov	r11, r10
+ b86:	aa 24       	eor	r10, r10
+			PrintHexByte((absoluteAddr) & 0x00ff);
+
+		}
+		else if ((word1 & 0xfE0E) == 0x940c) {
+			//*	jmp instruction, this is REALLY complicated, refer to the instruction manual (JMP)
+			myFullAddress	=	((byte1 & 0x01) << 16) +
+ b88:	a5 0c       	add	r10, r5
+ b8a:	b1 1c       	adc	r11, r1
+ b8c:	c1 1c       	adc	r12, r1
+ b8e:	d1 1c       	adc	r13, r1
+ b90:	d4 01       	movw	r26, r8
+ b92:	c3 01       	movw	r24, r6
+ b94:	81 70       	andi	r24, 0x01	; 1
+ b96:	90 70       	andi	r25, 0x00	; 0
+ b98:	a0 70       	andi	r26, 0x00	; 0
+ b9a:	b0 70       	andi	r27, 0x00	; 0
+ b9c:	dc 01       	movw	r26, r24
+ b9e:	99 27       	eor	r25, r25
+ ba0:	88 27       	eor	r24, r24
+							((byte1 & 0xf0) << 17) +
+ ba2:	a8 0e       	add	r10, r24
+ ba4:	b9 1e       	adc	r11, r25
+ ba6:	ca 1e       	adc	r12, r26
+ ba8:	db 1e       	adc	r13, r27
+ baa:	d4 01       	movw	r26, r8
+ bac:	c3 01       	movw	r24, r6
+ bae:	80 7f       	andi	r24, 0xF0	; 240
+ bb0:	90 70       	andi	r25, 0x00	; 0
+ bb2:	a0 70       	andi	r26, 0x00	; 0
+ bb4:	b0 70       	andi	r27, 0x00	; 0
+ bb6:	31 e1       	ldi	r19, 0x11	; 17
+ bb8:	88 0f       	add	r24, r24
+ bba:	99 1f       	adc	r25, r25
+ bbc:	aa 1f       	adc	r26, r26
+ bbe:	bb 1f       	adc	r27, r27
+ bc0:	3a 95       	dec	r19
+ bc2:	d1 f7       	brne	.-12     	; 0xbb8 <main+0x6c2>
+		byte2	=	pgm_read_byte_near(myMemoryPtr++);
+		byte3	=	pgm_read_byte_near(myMemoryPtr++);
+		byte4	=	pgm_read_byte_near(myMemoryPtr++);
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#endif
+		word1	=	(byte2 << 8) + byte1;
+		word2	=	(byte4 << 8) + byte3;
+ bc4:	a8 0e       	add	r10, r24
+ bc6:	b9 1e       	adc	r11, r25
+ bc8:	ca 1e       	adc	r12, r26
+ bca:	db 1e       	adc	r13, r27
+		}
+		else if ((word1 & 0xfE0E) == 0x940c) {
+			//*	jmp instruction, this is REALLY complicated, refer to the instruction manual (JMP)
+			myFullAddress	=	((byte1 & 0x01) << 16) +
+							((byte1 & 0xf0) << 17) +
+							((byte2 & 0x01) << 21) +
+ bcc:	89 85       	ldd	r24, Y+9	; 0x09
+ bce:	9a 85       	ldd	r25, Y+10	; 0x0a
+ bd0:	ab 85       	ldd	r26, Y+11	; 0x0b
+ bd2:	bc 85       	ldd	r27, Y+12	; 0x0c
+ bd4:	81 70       	andi	r24, 0x01	; 1
+ bd6:	90 70       	andi	r25, 0x00	; 0
+ bd8:	a0 70       	andi	r26, 0x00	; 0
+ bda:	b0 70       	andi	r27, 0x00	; 0
+ bdc:	25 e1       	ldi	r18, 0x15	; 21
+ bde:	88 0f       	add	r24, r24
+ be0:	99 1f       	adc	r25, r25
+ be2:	aa 1f       	adc	r26, r26
+ be4:	bb 1f       	adc	r27, r27
+ be6:	2a 95       	dec	r18
+ be8:	d1 f7       	brne	.-12     	; 0xbde <main+0x6e8>
+			PrintHexByte((absoluteAddr) & 0x00ff);
+
+		}
+		else if ((word1 & 0xfE0E) == 0x940c) {
+			//*	jmp instruction, this is REALLY complicated, refer to the instruction manual (JMP)
+			myFullAddress	=	((byte1 & 0x01) << 16) +
+ bea:	a8 0e       	add	r10, r24
+ bec:	b9 1e       	adc	r11, r25
+ bee:	ca 1e       	adc	r12, r26
+ bf0:	db 1e       	adc	r13, r27
+							((byte1 & 0xf0) << 17) +
+							((byte2 & 0x01) << 21) +
+							word2;
+
+			absoluteAddr	=	myFullAddress << 1;
+ bf2:	86 01       	movw	r16, r12
+ bf4:	75 01       	movw	r14, r10
+ bf6:	ee 0c       	add	r14, r14
+ bf8:	ff 1c       	adc	r15, r15
+ bfa:	00 1f       	adc	r16, r16
+ bfc:	11 1f       	adc	r17, r17
+
+			PrintFromPROGMEM(gTextMsg_jmp, 0);
+ bfe:	86 e1       	ldi	r24, 0x16	; 22
+ c00:	91 e0       	ldi	r25, 0x01	; 1
+ c02:	60 e0       	ldi	r22, 0x00	; 0
+ c04:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+			PrintHexByte((myFullAddress >> 16) & 0x00ff);
+ c08:	8c 2d       	mov	r24, r12
+ c0a:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+			PrintHexByte((myFullAddress >> 8) & 0x00ff);
+ c0e:	8b 2d       	mov	r24, r11
+ c10:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+			PrintHexByte((myFullAddress) & 0x00ff);
+ c14:	8a 2d       	mov	r24, r10
+ c16:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+			sendchar(0x20);
+ c1a:	80 e2       	ldi	r24, 0x20	; 32
+ c1c:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+			sendchar('>');
+ c20:	8e e3       	ldi	r24, 0x3E	; 62
+ c22:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+			PrintHexByte((absoluteAddr >> 16) & 0x00ff);
+ c26:	80 2f       	mov	r24, r16
+ c28:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+			PrintHexByte((absoluteAddr >> 8) & 0x00ff);
+ c2c:	8f 2d       	mov	r24, r15
+ c2e:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+			PrintHexByte((absoluteAddr) & 0x00ff);
+ c32:	8e 2d       	mov	r24, r14
+ c34:	0e 94 7f 01 	call	0x2fe	; 0x2fe <PrintHexByte>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#else
+		stringPointer	=	pgm_read_word_near(&(gInterruptNameTable[vectorIndex]));
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#endif
+		PrintFromPROGMEM((char*)stringPointer, 0);
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#endif
+		PrintNewLine();
+ c38:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+	vectorIndex		=	0;
+	PrintFromPROGMEMln(gTextMsg_CPU_Name, 0);
+	PrintFromPROGMEMln(gTextMsg_VECTOR_HEADER, 0);
+	//					V#   ADDR   op code
+	//					1 - 0000 = C3 BB 00 00 rjmp 03BB >000776 RESET
+	while (vectorIndex < kInterruptVectorCount) {
+ c3c:	8c e1       	ldi	r24, 0x1C	; 28
+ c3e:	28 16       	cp	r2, r24
+ c40:	31 04       	cpc	r3, r1
+ c42:	09 f0       	breq	.+2      	; 0xc46 <main+0x750>
+ c44:	de ce       	rjmp	.-580    	; 0xa02 <main+0x50c>
+ c46:	9d cc       	rjmp	.-1734   	; 0x582 <main+0x8c>
+			PrintFromPROGMEMln(gTextMsg_HELP_MSG_V, 2);
+			VectorDisplay();
+			break;
+
+		case 'Y':
+			PrintFromPROGMEMln(gTextMsg_HELP_MSG_Y, 2);
+ c48:	8c e0       	ldi	r24, 0x0C	; 12
+ c4a:	92 e0       	ldi	r25, 0x02	; 2
+ c4c:	62 e0       	ldi	r22, 0x02	; 2
+ c4e:	0e 94 66 01 	call	0x2cc	; 0x2cc <PrintFromPROGMEMln>
+static void	AVR_PortOutput(void)
+{
+	char portLetter;
+	char getCharFlag;
+
+	PrintFromPROGMEM(gTextMsg_WHAT_PORT, 0);
+ c52:	8b e1       	ldi	r24, 0x1B	; 27
+ c54:	91 e0       	ldi	r25, 0x01	; 1
+ c56:	60 e0       	ldi	r22, 0x00	; 0
+ c58:	0e 94 41 01 	call	0x282	; 0x282 <PrintFromPROGMEM>
+
+	portLetter	=	recchar();
+ c5c:	0e 94 2b 01 	call	0x256	; 0x256 <recchar>
+	portLetter	=	portLetter & 0x5f;
+ c60:	08 2f       	mov	r16, r24
+ c62:	0f 75       	andi	r16, 0x5F	; 95
+	sendchar(portLetter);
+ c64:	80 2f       	mov	r24, r16
+ c66:	0e 94 1f 01 	call	0x23e	; 0x23e <sendchar>
+	PrintNewLine();
+ c6a:	0e 94 51 01 	call	0x2a2	; 0x2a2 <PrintNewLine>
+
+	if ((portLetter >= 'A') && (portLetter <= 'Z')) {
+ c6e:	80 2f       	mov	r24, r16
+ c70:	81 54       	subi	r24, 0x41	; 65
+ c72:	8a 31       	cpi	r24, 0x1A	; 26
+ c74:	08 f0       	brcs	.+2      	; 0xc78 <main+0x782>
+ c76:	54 c0       	rjmp	.+168    	; 0xd20 <main+0x82a>
+		getCharFlag	=	true;
+		switch (portLetter) {
+ c78:	02 34       	cpi	r16, 0x42	; 66
+ c7a:	e1 f0       	breq	.+56     	; 0xcb4 <main+0x7be>
+ c7c:	03 34       	cpi	r16, 0x43	; 67
+ c7e:	20 f4       	brcc	.+8      	; 0xc88 <main+0x792>
+ c80:	01 34       	cpi	r16, 0x41	; 65
+ c82:	09 f0       	breq	.+2      	; 0xc86 <main+0x790>
+ c84:	47 c0       	rjmp	.+142    	; 0xd14 <main+0x81e>
+ c86:	06 c0       	rjmp	.+12     	; 0xc94 <main+0x79e>
+ c88:	03 34       	cpi	r16, 0x43	; 67
+ c8a:	21 f1       	breq	.+72     	; 0xcd4 <main+0x7de>
+ c8c:	04 34       	cpi	r16, 0x44	; 68
+ c8e:	09 f0       	breq	.+2      	; 0xc92 <main+0x79c>
+ c90:	41 c0       	rjmp	.+130    	; 0xd14 <main+0x81e>
+ c92:	30 c0       	rjmp	.+96     	; 0xcf4 <main+0x7fe>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#ifdef DDRA
+		case 'A':
+			DDRA	=	0xff;
+ c94:	8f ef       	ldi	r24, 0xFF	; 255
+ c96:	81 b9       	out	0x01, r24	; 1
+ c98:	07 c0       	rjmp	.+14     	; 0xca8 <main+0x7b2>
+			while (!Serial_Available()) {
+				PORTA	^=	0xff;
+ c9a:	82 b1       	in	r24, 0x02	; 2
+ c9c:	80 95       	com	r24
+ c9e:	82 b9       	out	0x02, r24	; 2
+				delay_ms(200);
+ ca0:	88 ec       	ldi	r24, 0xC8	; 200
+ ca2:	90 e0       	ldi	r25, 0x00	; 0
+ ca4:	0e 94 32 01 	call	0x264	; 0x264 <delay_ms>
+
+
+//************************************************************************
+static int	Serial_Available(void)
+{
+	return(UART_STATUS_REG & (1 << UART_RECEIVE_COMPLETE));	// wait for data
+ ca8:	80 91 c0 00 	lds	r24, 0x00C0
+		getCharFlag	=	true;
+		switch (portLetter) {
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#ifdef DDRA
+		case 'A':
+			DDRA	=	0xff;
+			while (!Serial_Available()) {
+ cac:	87 ff       	sbrs	r24, 7
+ cae:	f5 cf       	rjmp	.-22     	; 0xc9a <main+0x7a4>
+				PORTA	^=	0xff;
+				delay_ms(200);
+			}
+			PORTA	=	0;
+ cb0:	12 b8       	out	0x02, r1	; 2
+ cb2:	33 c0       	rjmp	.+102    	; 0xd1a <main+0x824>
+			break;
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#endif
+
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#ifdef DDRB
+		case 'B':
+			DDRB	=	0xff;
+ cb4:	8f ef       	ldi	r24, 0xFF	; 255
+ cb6:	84 b9       	out	0x04, r24	; 4
+ cb8:	07 c0       	rjmp	.+14     	; 0xcc8 <main+0x7d2>
+			while (!Serial_Available()) {
+				PORTB	^=	0xff;
+ cba:	85 b1       	in	r24, 0x05	; 5
+ cbc:	80 95       	com	r24
+ cbe:	85 b9       	out	0x05, r24	; 5
+				delay_ms(200);
+ cc0:	88 ec       	ldi	r24, 0xC8	; 200
+ cc2:	90 e0       	ldi	r25, 0x00	; 0
+ cc4:	0e 94 32 01 	call	0x264	; 0x264 <delay_ms>
+
+
+//************************************************************************
+static int	Serial_Available(void)
+{
+	return(UART_STATUS_REG & (1 << UART_RECEIVE_COMPLETE));	// wait for data
+ cc8:	80 91 c0 00 	lds	r24, 0x00C0
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#endif
+
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#ifdef DDRB
+		case 'B':
+			DDRB	=	0xff;
+			while (!Serial_Available()) {
+ ccc:	87 ff       	sbrs	r24, 7
+ cce:	f5 cf       	rjmp	.-22     	; 0xcba <main+0x7c4>
+				PORTB	^=	0xff;
+				delay_ms(200);
+			}
+			PORTB	=	0;
+ cd0:	15 b8       	out	0x05, r1	; 5
+ cd2:	23 c0       	rjmp	.+70     	; 0xd1a <main+0x824>
+			break;
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#endif
+
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#ifdef DDRC
+		case 'C':
+			DDRC	=	0xff;
+ cd4:	8f ef       	ldi	r24, 0xFF	; 255
+ cd6:	87 b9       	out	0x07, r24	; 7
+ cd8:	07 c0       	rjmp	.+14     	; 0xce8 <main+0x7f2>
+			while (!Serial_Available()) {
+				PORTC	^=	0xff;
+ cda:	88 b1       	in	r24, 0x08	; 8
+ cdc:	80 95       	com	r24
+ cde:	88 b9       	out	0x08, r24	; 8
+				delay_ms(200);
+ ce0:	88 ec       	ldi	r24, 0xC8	; 200
+ ce2:	90 e0       	ldi	r25, 0x00	; 0
+ ce4:	0e 94 32 01 	call	0x264	; 0x264 <delay_ms>
+
+
+//************************************************************************
+static int	Serial_Available(void)
+{
+	return(UART_STATUS_REG & (1 << UART_RECEIVE_COMPLETE));	// wait for data
+ ce8:	80 91 c0 00 	lds	r24, 0x00C0
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#endif
+
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#ifdef DDRC
+		case 'C':
+			DDRC	=	0xff;
+			while (!Serial_Available()) {
+ cec:	87 ff       	sbrs	r24, 7
+ cee:	f5 cf       	rjmp	.-22     	; 0xcda <main+0x7e4>
+				PORTC	^=	0xff;
+				delay_ms(200);
+			}
+			PORTC	=	0;
+ cf0:	18 b8       	out	0x08, r1	; 8
+ cf2:	13 c0       	rjmp	.+38     	; 0xd1a <main+0x824>
+			break;
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#endif
+
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#ifdef DDRD
+		case 'D':
+			DDRD	=	0xff;
+ cf4:	8f ef       	ldi	r24, 0xFF	; 255
+ cf6:	8a b9       	out	0x0a, r24	; 10
+ cf8:	07 c0       	rjmp	.+14     	; 0xd08 <main+0x812>
+			while (!Serial_Available()) {
+				PORTD	^=	0xff;
+ cfa:	8b b1       	in	r24, 0x0b	; 11
+ cfc:	80 95       	com	r24
+ cfe:	8b b9       	out	0x0b, r24	; 11
+				delay_ms(200);
+ d00:	88 ec       	ldi	r24, 0xC8	; 200
+ d02:	90 e0       	ldi	r25, 0x00	; 0
+ d04:	0e 94 32 01 	call	0x264	; 0x264 <delay_ms>
+
+
+//************************************************************************
+static int	Serial_Available(void)
+{
+	return(UART_STATUS_REG & (1 << UART_RECEIVE_COMPLETE));	// wait for data
+ d08:	80 91 c0 00 	lds	r24, 0x00C0
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#endif
+
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#ifdef DDRD
+		case 'D':
+			DDRD	=	0xff;
+			while (!Serial_Available()) {
+ d0c:	87 ff       	sbrs	r24, 7
+ d0e:	f5 cf       	rjmp	.-22     	; 0xcfa <main+0x804>
+				PORTD	^=	0xff;
+				delay_ms(200);
+			}
+			PORTD	=	0;
+ d10:	1b b8       	out	0x0b, r1	; 11
+ d12:	03 c0       	rjmp	.+6      	; 0xd1a <main+0x824>
+			PORTL	=	0;
+			break;
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																#endif
+
+		default:
+			PrintFromPROGMEMln(gTextMsg_PortNotSupported, 0);
+ d14:	86 e2       	ldi	r24, 0x26	; 38
+ d16:	91 e0       	ldi	r25, 0x01	; 1
+ d18:	31 cc       	rjmp	.-1950   	; 0x57c <main+0x86>
+			getCharFlag	=	false;
+			break;
+		}
+		if (getCharFlag) {
+			recchar();
+ d1a:	0e 94 2b 01 	call	0x256	; 0x256 <recchar>
+ d1e:	31 cc       	rjmp	.-1950   	; 0x582 <main+0x8c>
+		}
+	}
+	else{
+		PrintFromPROGMEMln(gTextMsg_MustBeLetter, 0);
+ d20:	89 e3       	ldi	r24, 0x39	; 57
+ d22:	91 e0       	ldi	r25, 0x01	; 1
+ d24:	2b cc       	rjmp	.-1962   	; 0x57c <main+0x86>
+			PrintFromPROGMEMln(gTextMsg_HELP_MSG_Y, 2);
+			AVR_PortOutput();
+			break;
+
+		default:
+			PrintFromPROGMEMln(gTextMsg_HUH, 0);
+ d26:	87 e3       	ldi	r24, 0x37	; 55
+ d28:	90 e0       	ldi	r25, 0x00	; 0
+ d2a:	28 cc       	rjmp	.-1968   	; 0x57c <main+0x86>
+ d2c:	ff cf       	rjmp	.-2      	; 0xd2c <main+0x836>
+
+00000d2e <__divmodhi4>:
+ d2e:	97 fb       	bst	r25, 7
+ d30:	09 2e       	mov	r0, r25
+ d32:	07 26       	eor	r0, r23
+ d34:	0a d0       	rcall	.+20     	; 0xd4a <__divmodhi4_neg1>
+ d36:	77 fd       	sbrc	r23, 7
+ d38:	04 d0       	rcall	.+8      	; 0xd42 <__divmodhi4_neg2>
+ d3a:	0c d0       	rcall	.+24     	; 0xd54 <__udivmodhi4>
+ d3c:	06 d0       	rcall	.+12     	; 0xd4a <__divmodhi4_neg1>
+ d3e:	00 20       	and	r0, r0
+ d40:	1a f4       	brpl	.+6      	; 0xd48 <__divmodhi4_exit>
+
+00000d42 <__divmodhi4_neg2>:
+ d42:	70 95       	com	r23
+ d44:	61 95       	neg	r22
+ d46:	7f 4f       	sbci	r23, 0xFF	; 255
+
+00000d48 <__divmodhi4_exit>:
+ d48:	08 95       	ret
+
+00000d4a <__divmodhi4_neg1>:
+ d4a:	f6 f7       	brtc	.-4      	; 0xd48 <__divmodhi4_exit>
+ d4c:	90 95       	com	r25
+ d4e:	81 95       	neg	r24
+ d50:	9f 4f       	sbci	r25, 0xFF	; 255
+ d52:	08 95       	ret
+
+00000d54 <__udivmodhi4>:
+ d54:	aa 1b       	sub	r26, r26
+ d56:	bb 1b       	sub	r27, r27
+ d58:	51 e1       	ldi	r21, 0x11	; 17
+ d5a:	07 c0       	rjmp	.+14     	; 0xd6a <__udivmodhi4_ep>
+
+00000d5c <__udivmodhi4_loop>:
+ d5c:	aa 1f       	adc	r26, r26
+ d5e:	bb 1f       	adc	r27, r27
+ d60:	a6 17       	cp	r26, r22
+ d62:	b7 07       	cpc	r27, r23
+ d64:	10 f0       	brcs	.+4      	; 0xd6a <__udivmodhi4_ep>
+ d66:	a6 1b       	sub	r26, r22
+ d68:	b7 0b       	sbc	r27, r23
+
+00000d6a <__udivmodhi4_ep>:
+ d6a:	88 1f       	adc	r24, r24
+ d6c:	99 1f       	adc	r25, r25
+ d6e:	5a 95       	dec	r21
+ d70:	a9 f7       	brne	.-22     	; 0xd5c <__udivmodhi4_loop>
+ d72:	80 95       	com	r24
+ d74:	90 95       	com	r25
+ d76:	bc 01       	movw	r22, r24
+ d78:	cd 01       	movw	r24, r26
+ d7a:	08 95       	ret
+
+00000d7c <__eerd_byte_m644>:
+ d7c:	f9 99       	sbic	0x1f, 1	; 31
+ d7e:	fe cf       	rjmp	.-4      	; 0xd7c <__eerd_byte_m644>
+ d80:	92 bd       	out	0x22, r25	; 34
+ d82:	81 bd       	out	0x21, r24	; 33
+ d84:	f8 9a       	sbi	0x1f, 0	; 31
+ d86:	99 27       	eor	r25, r25
+ d88:	80 b5       	in	r24, 0x20	; 32
+ d8a:	08 95       	ret
+
+00000d8c <__eewr_byte_m644>:
+ d8c:	26 2f       	mov	r18, r22
+
+00000d8e <__eewr_r18_m644>:
+ d8e:	f9 99       	sbic	0x1f, 1	; 31
+ d90:	fe cf       	rjmp	.-4      	; 0xd8e <__eewr_r18_m644>
+ d92:	1f ba       	out	0x1f, r1	; 31
+ d94:	92 bd       	out	0x22, r25	; 34
+ d96:	81 bd       	out	0x21, r24	; 33
+ d98:	20 bd       	out	0x20, r18	; 32
+ d9a:	0f b6       	in	r0, 0x3f	; 63
+ d9c:	f8 94       	cli
+ d9e:	fa 9a       	sbi	0x1f, 2	; 31
+ da0:	f9 9a       	sbi	0x1f, 1	; 31
+ da2:	0f be       	out	0x3f, r0	; 63
+ da4:	01 96       	adiw	r24, 0x01	; 1
+ da6:	08 95       	ret

@@ -1,0 +1,21 @@
+0REM TWI Test
+5 twi 1
+10 b:= $a0
+15 tws
+20 tww b and $FE; tww 0 0
+35 for i = 0 to 127
+40 tww i + 64
+45 next
+50 twp
+55 del 1
+60 tws
+65 tww b and $FE; tww 0 0; twp
+80 twp
+85 del 1
+90 tws
+95 tww b or $01
+100 for i = 0 to 127
+105 pri twr
+110 next
+115 end
+120 twp

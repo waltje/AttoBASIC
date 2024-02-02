@@ -1,0 +1,73 @@
+AVRASM: AVR macro assembler 2.1.42 (build 1796 Sep 15 2009 10:48:36)
+Copyright (C) 1995-2009 ATMEL Corporation
+
+Verilog option is set
+AttoBASICV234.asm(1249): Including file 'Include/Defs_MCU-Options.inc'
+Include/Defs_MCU-Options.inc(1): Including file 'Include/tn84def.inc'
+AttoBASICV234.asm(1268): ATtiny84 ( A ) selected.
+AttoBASICV234.asm(1307): Including file 'Include/Defs_Constants.inc'
+Include/Defs_Constants.inc(51): Including file 'Include/Defs_Register.inc'
+Include/Defs_Register.inc(88): warning: Register r30 already defined by the .DEF directive
+Include/Defs_Constants.inc(51): info: 'Include/Defs_Register.inc' included from here
+AttoBASICV234.asm(1307): info: 'Include/Defs_Constants.inc' included from here
+Include/Defs_Constants.inc(52): Including file 'Include/Defs_Pinout.inc'
+Include/Defs_Constants.inc(53): Including file 'Include/Defs_Timers.inc'
+Include/Defs_Constants.inc(54): Including file 'Include/Defs_ADC.inc'
+Include/Defs_Constants.inc(385): System clock prescaler set to  1
+Include/Defs_Constants.inc(500): ATtiny84/85 with UART enabled
+Include/Defs_Constants.inc(757): Including file 'Include/Defs_PWM.inc'
+Include/Defs_Constants.inc(809): AttoBASIC does not control SPI_SS line
+Include/Defs_Constants.inc(916): Including file 'Include/Defs_OWR.inc'
+AttoBASICV234.asm(1308): Including file 'Include/Defs_USART.inc'
+Include/Defs_USART.inc(315): ATtiny84 ( A ) or ATtiny85 selected , no hardware USART.
+AttoBASICV234.asm(1317): Using BootLoader API's for UART
+AttoBASICV234.asm(1318): Including file 'Include/Defs_optiboot85-attiny84.inc'
+AttoBASICV234.asm(1341): Including file 'Include/Macro_IO.inc'
+AttoBASICV234.asm(1342): Including file 'Include/Macro_Misc.inc'
+AttoBASICV234.asm(1343): Including file 'Include/Macro_Delays.inc'
+AttoBASICV234.asm(1344): Including file 'Include/Macro_AttoBASIC.inc'
+AttoBASICV234.asm(1351): Including file 'Include/Data_RAM.inc'
+AttoBASICV234.asm(1352): Including file 'Include/Data_EEP.inc'
+AttoBASICV234.asm(1358): Including file 'Include/Code_Vectors.inc'
+AttoBASICV234.asm(3718): Including file 'Include/Code_Editing.inc'
+AttoBASICV234.asm(3719): Including file 'Include/Code_EFS.inc'
+AttoBASICV234.asm(3720): Including file 'include/Code_Math.inc'
+AttoBASICV234.asm(3721): Including file 'Include/Code_ERRPROC.inc'
+AttoBASICV234.asm(3722): Including file 'Include/Code_Init.inc'
+AttoBASICV234.asm(3723): Including file 'Include/Code_DataBytes.inc'
+AttoBASICV234.asm(3726): Including file 'Include/Code_SysClock.inc'
+AttoBASICV234.asm(3743): Including file 'Include/Code_PORTIO.inc'
+AttoBASICV234.asm(3746): Including file 'Include/Code_PWM.inc'
+AttoBASICV234.asm(3748): Including file 'Include/Code_Operators.inc'
+AttoBASICV234.asm(3750): Including file 'Include/Code_Analog.inc'
+AttoBASICV234.asm(3753): Including file 'Include/Code_AComp.inc'
+AttoBASICV234.asm(3765): Including file 'Include/Code_LOPWR.inc'
+AttoBASICV234.asm(3780): Including file 'Include/Code_OWR.inc'
+AttoBASICV234.asm(3799): Including file 'Include/Code_sio_tinyusart.inc'
+AttoBASICV234.asm(3838): Including file 'Include/Data_Cmds.inc'
+AttoBASICV234.asm(3839): Including file 'Include/Data_Msgs.inc'
+AttoBASICV234.asm(3844): Including file 'Include/Code_IRQvectors.inc'
+AttoBASICV234.asm(3858): Including file 'Include/Code_SPM_Exec.inc'
+AttoBASICV234.asm(3983): Including file 'Include/Code_Bootloader.inc'
+Include/Code_Bootloader.inc(57): Including file 'Include/\Code_optiboot85-attiny84-20M.inc'
+AttoBASICV234.asm(4011): warning: end of .eseg at 0x207 is beyond end of memory at 0x1ff
+Include/Defs_Constants.inc(407): Using FCLK @ 20MHz
+Include/Defs_Constants.inc(595): Enabling non-volatile option storage (CFG)
+Include/Defs_OWR.inc(42): Enabling 1-Wire Support
+Include/Defs_USART.inc(56): Using baud rate of 38400 for FCLK > 4MHz
+Include/Code_SysClock.inc(39): CLK (SysClkPsc) enabled
+Include/Code_PORTIO.inc(42): Single-port PIO enabled.
+Include/Code_PWM.inc(39): PWM enabled.
+Include/Code_LOPWR.inc(39): LPMD enabled.
+Include/Code_OWR.inc(39): OWR enabled.
+Include/Code_SPM_Exec.inc(39): SPM_EXEC enabled.
+Include/Code_Bootloader.inc(56): Notice: BootloaderAVR for tn84 @ 20MHz enabled
+
+ATtiny84 memory use summary [bytes]:
+Segment   Begin    End      Code   Data   Used    Size   Use%  Warn
+--------------------------------------------------------------------
+[.cseg] 0x000000 0x002000   5906   2276   8182    8192  99.9%
+[.dseg] 0x000060 0x000260      0    512    512     512 100.0%
+[.eseg] 0x000000 0x000207      0    511    511     512  99.8%  OVER
+
+Assembly complete, 0 errors. 2 warnings

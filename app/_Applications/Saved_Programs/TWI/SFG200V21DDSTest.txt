@@ -1,0 +1,35 @@
+0REM SFG200 DDS Test
+5SDD 7;CBD 7;SDD 6;SBD 6;TWI
+10spm 2;spw 33 0;sps 1
+15aov;gos 80;gos 155
+20emi 13;emi 58;a:= key;
+25if a=88
+30end
+35if a>100
+40got 20
+45if a>96
+50a:= a-32;sbd 6
+55a:= a-48
+60pri a;a:= 50 + a * 10;gos a
+65if a=50
+70got 20
+75spw $20 $68;sps 1;got 20
+80tws;tww $7c $80 57 20 37 $56 $6d 56 12 6 1 ;twp;del 5
+85tws;tww $7c $80 $80 $40
+90for i = 65 80;tww i; nex;twp
+95pok 195,$d1;pok 0,$c0;pok 9,$c1
+100pok 9,$c2;pok 0,$c3;pok 48,$d2;ret
+105spw $21 $c0;sps 1;ret
+110spw $41 $89 $40 $01;ret
+115spw $47 $AE $40 $05;ret
+120spw $4F $5C $40 $0A;ret
+125spw $4C $CD $40 $33;ret
+130spw $59 $9A $40 $66;ret
+135spw $40 $00 $42 $00;ret
+140spw $40 $00 $44 $00;ret
+145spw $40 $00 $48 $00;ret
+150spw $40 $00 $50 $00;ret
+155tws;tww $58 0 $84;twp;ret
+160tws;tww $58 0 $e1;twp;ret
+165tws;tww $58 0 $fe;twp;ret
+170tws;tww $58 0 0;twp;cbd 6;ret

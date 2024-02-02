@@ -1,0 +1,6 @@
+5 REM SPI Test w/ nRF24L01
+10 SPM 0#Initialize SPI interface to Mode 0
+15 SPW $2A $AA $AA $AA $AA $01#Set the nRF24L01 RX pipe0 Addr.
+20 SPS#Set SS line high
+25 SPW $0A ; SPR 5 ; SPS#Read the address into DATA buffer
+30 FOR N=1 5 ; PRX READ ; NEXT#Print out the RX pipe0 Addr.

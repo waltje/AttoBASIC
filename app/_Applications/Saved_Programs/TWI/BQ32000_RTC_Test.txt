@@ -1,0 +1,25 @@
+0 REM BQ32000 RTC Test V2.34
+10 TWI 1# INIT TWI @100kbps
+15 A:= $D0 ; B:= $D1# WRITE AND READ ADDRESSES FOR BQ32000 RTC
+20 TWS ; TWW A 0 $80 ; TWP# set the STOP bit
+25 DATA $40 $20 $45# setup data for configuring RTC
+30 FOR R=7 9# set control registers 7 to 9
+35 D:= READ ; GOSUB 115# read each data and write to device
+40 NEXT# end of loop
+45 DATA $13 $17 $10 $00 $05 $30 $00# setup RTC's date
+50 FOR Z=249 255# set data registers 6 to 0 (count down)
+55 R:= COM Z ; D:= READ# set register and data
+60 GOSUB 115# write it
+65 NEXT# end of loop
+70 PRINT "Wait 4 sec~" ; SLP 8# wait 4 seconds to see if the clock is running
+75 R:=0 ; GOSUB 110# select register 0 and write it
+80 TWS ; TWW B 7 ; TWP # slave to read and retreive 7 bytes
+85 FOR R=0 6# Loop from register 0 to 6
+90  PRINT "R:" ; PRI R# print the register
+95  PRINT "D=" ; PRX READ# print the data in the register
+100 NEXT# end of loop
+105 END
+109 # READ FROM RTC
+110 TWS ; TWW A ; TWW R ; TWP ; RET# Select a register
+114 # WRITE TO RTC
+115 TWS ; TWW A R D ; TWP ; RET# Write data to a register

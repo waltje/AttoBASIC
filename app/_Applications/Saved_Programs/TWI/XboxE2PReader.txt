@@ -1,0 +1,9 @@
+0 REM XBOX (original) EEPROM reader
+10 PRI "Start data capture~"# inform user
+15 FOR N=1 8; PRI 9-N ; SLP 6; NEXT# 8 second countdown
+20 TWI; TWS # init TWI bus and assert START
+25 FOR I=0 15# outer loop, 16 pages of 16
+30 TWW $A8 8 * I; TWS; TWW $A9# select slave w/ E2P read address
+35 TWR 16; FOR J=0 15; PRX READ; NEXT# read 16 bytes from E2P
+40 NEXT
+45 TWP; EMIT 4; END# assert STOP, ^D and end

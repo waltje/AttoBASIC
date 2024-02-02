@@ -1,0 +1,579 @@
+
+optiboot85.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001d8  00001e26  00001e26  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .version      00000002  00001ffe  00001ffe  0000022c  2**0
+                  CONTENTS, READONLY
+  2 .debug_aranges 00000020  00000000  00000000  00000230  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   0000008a  00000000  00000000  00000250  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 00000014  00000000  00000000  000002da  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   00000120  00000000  00000000  000002ee  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00001e26 <Optiboot>:
+;
+;--------------------------------------------------------------------
+.section .text ;.orig 0x1E00
+Optiboot:
+; Adaboot nowait mod
+	clr		r1		;Set R1 to 0x00: XOR R1: R1 <- 0x00. Just zero register, could be handy
+    1e26:	11 24       	eor	r1, r1
+	in		r24, MCUSR	;Store Control Register to R24: R24 <- MCUCR
+    1e28:	84 b7       	in	r24, 0x34	; 52
+	out		MCUSR, r1	;Reset Control Register to 0x0: R01 -> MCUCR
+    1e2a:	14 be       	out	0x34, r1	; 52
+	sbrs	r24, 1		;Check EXTRF bit of MCUSR was set
+    1e2c:	81 ff       	sbrs	r24, 1
+	rjmp	appStart	; If ISC is off - we exit: appStart()
+    1e2e:	e2 c0       	rjmp	.+452    	; 0x1ff4 <GetChar+0x34>
+;Adaboot nowait end
+;
+	sbi		UART_DDR, UART_Tx	;Set IO Bit: Set DDBx in DDRB: Pin PBx to Output  - TX pin
+    1e30:	d1 9a       	sbi	0x1a, 1	; 26
+	sbi		UART_Port, UART_Tx	;Set IO Bit: Set PORTBx in PORTB: Pin PBx to High - TX pi
+    1e32:	d9 9a       	sbi	0x1b, 1	; 27
+#endif // LED_START_FLASHES > 0
+;
+#define ADD_L	r14
+#define ADD_H	r15
+initVars:
+	eor		ADD_L, ADD_L	;XOR R14 : LoadAddrH
+    1e34:	ee 24       	eor	r14, r14
+	eor		ADD_H, ADD_H	;XOR R15 : LoadAddrL
+    1e36:	ff 24       	eor	r15, r15
+	ldi		r21, 0x03	;Load 0x3 to R21 : SPMCSR bits PGERS & SPMEN
+    1e38:	53 e0       	ldi	r21, 0x03	; 3
+	ldi		r20, 0x01	;Load 0x1 to R20 : SPMCSR bit SPMEN
+    1e3a:	41 e0       	ldi	r20, 0x01	; 1
+
+	ldi		r24, 0x0F	;Set WD Params: Load 00001111 to R24 : Set WDE(WDEnab), Prescale to 256K (2s)
+    1e3c:	8f e0       	ldi	r24, 0x0F	; 15
+	rcall	watchdogConfig	; Call watchdogConfig
+    1e3e:	d6 d0       	rcall	.+428    	; 0x1fec <GetChar+0x2c>
+#endif
+#define PC_END ((( FLASHEND + 1 )/2) - 1) // Convert flashend from bytes to words - Pgm-space for PC
+#define BOOT_SHIFT ( PC_END - ( FLASHEND - BOOT_START )/2 - 1) // Get rjmp shift from RST to optiboot
+#define RJMP_OPH ( BOOT_SHIFT / 0x100 + 0xC0 )	// Build MSB - rjmp opcode and shift MSB
+#define RJMP_OPL ( BOOT_SHIFT % 0x100 )		// Opcode remainder - LSB of the shift
+	ldi		r19, RJMP_OPL	;Prepare reset vector opcode to jump to optiboot. That is 0xC (1100) << 4
+    1e40:	32 e1       	ldi	r19, 0x12	; 18
+	mov		r5, r19		;Move R19 -> R5  : and address shift. We jump from 0 so since address wraps
+    1e42:	53 2e       	mov	r5, r19
+	ldi		r19, RJMP_OPH	;Load MSB to R19 : the address shift will be FFF-<size of section in words+
+    1e44:	3f ec       	ldi	r19, 0xCF	; 207
+	mov		r4, r19		;Move R19 -> R4  : +1> - here +1 is to count actual rjmp instruction itself
+    1e46:	43 2e       	mov	r4, r19
+LoopMain:
+	rcall	GetChar		; r24=GetChar() : Read Command Byte
+    1e48:	bb d0       	rcall	.+374    	; 0x1fc0 <GetChar>
+_chkStkGetParam:
+	cpi		r24, 0x41	;Compare R24 with 0x41 (65, 'A' STK_GET_PARAM)
+    1e4a:	81 34       	cpi	r24, 0x41	; 65
+	brne	_chkStkSetDev	;Goto next check if notZ (NotEqual)
+    1e4c:	61 f4       	brne	.+24     	; 0x1e66 <Optiboot+0x40>
+	rcall	GetChar		; r24=GetChar(): Read Parameter Byte
+    1e4e:	b8 d0       	rcall	.+368    	; 0x1fc0 <GetChar>
+	mov		r17, r24	;Store param to R17
+    1e50:	18 2f       	mov	r17, r24
+	rcall	verifySpace	; verifySpace
+    1e52:	a3 d0       	rcall	.+326    	; 0x1f9a <Optiboot+0x174>
+	cpi		r17, 0x82	;Compare param with 0x82(130) - MINVER
+    1e54:	12 38       	cpi	r17, 0x82	; 130
+	breq	__sendMinVer	;If Z(Eq) GoTo sendMinVer
+    1e56:	11 f0       	breq	.+4      	; 0x1e5c <Optiboot+0x36>
+	cpi		r17, 0x81	;Compare param with 0x81(129) - MAJVER
+    1e58:	11 38       	cpi	r17, 0x81	; 129
+	brne	__sendGenVer	;If notZ(Neq) Goto sendGenVer
+    1e5a:	11 f4       	brne	.+4      	; 0x1e60 <Optiboot+0x3a>
+__sendMinVer:
+	ldi		r24, 0x04	;Load MinVer(4) to R24 for putch. Well, and MajVer as well
+    1e5c:	84 e0       	ldi	r24, 0x04	; 4
+	rjmp	__sendParam	;Goto sendParam
+    1e5e:	01 c0       	rjmp	.+2      	; 0x1e62 <Optiboot+0x3c>
+__sendGenVer:
+	ldi		r24, 0x03	;Load GenVer(3) to R24 for putch - generic version reply
+    1e60:	83 e0       	ldi	r24, 0x03	; 3
+__sendParam:
+	rcall	PutChar		; PutChar(r24) Send R24 over Tx
+    1e62:	a0 d0       	rcall	.+320    	; 0x1fa4 <PutChar>
+	rjmp	endLoop		;Goto endLoop
+    1e64:	93 c0       	rjmp	.+294    	; 0x1f8c <Optiboot+0x166>
+_chkStkSetDev:
+	cpi		r24, 0x42	;Compare R24 with 0x42(66, 'B', STK_SET_DEVICE)
+    1e66:	82 34       	cpi	r24, 0x42	; 66
+	brne	_chkStkSetDevExt;Goto next check if notZ (Neq)
+    1e68:	11 f4       	brne	.+4      	; 0x1e6e <Optiboot+0x48>
+	ldi		r24, 0x14	;Load param to R24 (20) to skip next 20 chars
+    1e6a:	84 e1       	ldi	r24, 0x14	; 20
+	rjmp	__stkSkipInput	;Goto stkSkipInput // Ignore the data
+    1e6c:	03 c0       	rjmp	.+6      	; 0x1e74 <Optiboot+0x4e>
+_chkStkSetDevExt:
+	cpi		r24, 0x45	;Compare R24 with 0x45 (69, STK_SET_DEVICE_EXT)
+    1e6e:	85 34       	cpi	r24, 0x45	; 69
+	brne	_chkStkLoadAddr	;Goto next check if NotZ(Neq)
+    1e70:	19 f4       	brne	.+6      	; 0x1e78 <Optiboot+0x52>
+	ldi		r24, 0x05	;Again load param to R24 (5) to skip next 5 chars
+    1e72:	85 e0       	ldi	r24, 0x05	; 5
+__stkSkipInput:
+	rcall	getNch		; getNchar skip xR24 chars
+    1e74:	b5 d0       	rcall	.+362    	; 0x1fe0 <GetChar+0x20>
+	rjmp	endLoop		;Goto EndLoop
+    1e76:	8a c0       	rjmp	.+276    	; 0x1f8c <Optiboot+0x166>
+_chkStkLoadAddr:
+	cpi		r24, 0x55	;Compare R24 with 0x55 (85, U, STK_LOAD_ADDRESS)
+    1e78:	85 35       	cpi	r24, 0x55	; 85
+	brne	_chkStkUnivrsl	;Goto next check if notZ(Neq)
+    1e7a:	41 f4       	brne	.+16     	; 0x1e8c <Optiboot+0x66>
+	rcall	GetChar		; r24=GetChar()
+    1e7c:	a1 d0       	rcall	.+322    	; 0x1fc0 <GetChar>
+	mov		r10, r24	;Load ADDR_LOW to R10
+    1e7e:	a8 2e       	mov	r10, r24
+	rcall	GetChar		; r24=GetChar
+    1e80:	9f d0       	rcall	.+318    	; 0x1fc0 <GetChar>
+	mov		r11, r24	;Load ADDR_HIGH to R11
+    1e82:	b8 2e       	mov	r11, r24
+	add		r10, r10	;Convert from word address to byte address (eg. *2)
+    1e84:	aa 0c       	add	r10, r10
+	adc		r11, r11	;same for high byte but with carry bit from previous operation
+    1e86:	bb 1c       	adc	r11, r11
+	movw	ADD_L, r10	;Store resulting address bytes to R15:R14 from R11:R10
+    1e88:	75 01       	movw	r14, r10
+	rjmp	_chkStkElse	;Goto chkStkElse for verifySpace
+    1e8a:	7f c0       	rjmp	.+254    	; 0x1f8a <Optiboot+0x164>
+_chkStkUnivrsl:
+	cpi		r24, 0x56	;Compare R24 with 0x56 (86, V, STK_UNIVERSAL)
+    1e8c:	86 35       	cpi	r24, 0x56	; 86
+	brne	_chkStkProgPage	;Skip to next check if notZ(Neq)
+    1e8e:	21 f4       	brne	.+8      	; 0x1e98 <Optiboot+0x72>
+	ldi		r24, 0x04	;Load param to R24 (4) to skip next 4 chars
+    1e90:	84 e0       	ldi	r24, 0x04	; 4
+	rcall	getNch		; getNch(r24) skip 4 bytes
+    1e92:	a6 d0       	rcall	.+332    	; 0x1fe0 <GetChar+0x20>
+	ldi		r24, 0x00	;Load param to R24 (0) to reply 0 over Tx
+    1e94:	80 e0       	ldi	r24, 0x00	; 0
+	rjmp	__sendParam	;Goto sendParam above to send the data
+    1e96:	e5 cf       	rjmp	.-54     	; 0x1e62 <Optiboot+0x3c>
+_chkStkProgPage:
+	cpi		r24, 0x64	;Compare R24 with 0x64 (100, d, STK_PROG_PAGE)
+    1e98:	84 36       	cpi	r24, 0x64	; 100
+	breq	.+2		;Skip line if Z(Eq) to handle the input
+    1e9a:	09 f0       	breq	.+2      	; 0x1e9e <Optiboot+0x78>
+	rjmp	_chkStkReadPage	;Goto next check otherwise
+    1e9c:	44 c0       	rjmp	.+136    	; 0x1f26 <Optiboot+0x100>
+	rcall	GetChar		; GetChar() skip length MSB
+    1e9e:	90 d0       	rcall	.+288    	; 0x1fc0 <GetChar>
+	rcall	GetChar		; r24=GetChar()
+    1ea0:	8f d0       	rcall	.+286    	; 0x1fc0 <GetChar>
+	mov		r17, r24	;Store length LSB to R17
+    1ea2:	18 2f       	mov	r17, r24
+	rcall	GetChar		; GetChar() skip MEMTYPE
+    1ea4:	8d d0       	rcall	.+282    	; 0x1fc0 <GetChar>
+ #error RAMSTART Must be defined
+ #define RAMSTART    0x0060
+#endif
+#define RAMSTH	(RAMSTART / 0x100)
+#define RAMSTL	(RAMSTART % 0x100)
+	ldi		r28, RAMSTL	;Initialize indirect memory pointer: YL
+    1ea6:	c0 e6       	ldi	r28, 0x60	; 96
+	ldi		r29, RAMSTH	;And YH. Resulting buffer pointer is at RAMSTART
+    1ea8:	d0 e0       	ldi	r29, 0x00	; 0
+__lReadPage:
+	rcall	GetChar		; r24=GetChar
+    1eaa:	8a d0       	rcall	.+276    	; 0x1fc0 <GetChar>
+	st		Y+, r24		;Store received byte to (Y), increment pointer
+    1eac:	89 93       	st	Y+, r24
+	dec		r17		;decrease length
+    1eae:	1a 95       	dec	r17
+	brne	__lReadPage	;Until(Z) lReadPage
+    1eb0:	e1 f7       	brne	.-8      	; 0x1eaa <Optiboot+0x84>
+;__EndLoop
+	rcall	verifySpace	; verifySpace
+    1eb2:	73 d0       	rcall	.+230    	; 0x1f9a <Optiboot+0x174>
+__boot_page_erase_short:
+	movw	r30, ADD_L	;Initialize Pointer Z: R31:R30 from R15:R14 - should keep LoadAddr
+    1eb4:	f7 01       	movw	r30, r14
+	out		SPMCSR, r21	;Set SPMCSR - (Store Program Memory Control/Status Register) to 00000011
+    1eb6:	57 bf       	out	0x37, r21	; 55
+	spm			;Erase Program Memory at (Z) - (R31:R30) - LoadAddr
+    1eb8:	e8 95       	spm
+__lSPMBusyWait:
+	in		r0, SPMCSR	;Load SPMCSR to R0
+    1eba:	07 b6       	in	r0, 0x37	; 55
+	sbrc	r0, 0		;Skip if bit 0 (SPMEN) is 0
+    1ebc:	00 fc       	sbrc	r0, 0
+	rjmp	__lSPMBusyWait	;Loop lSPMBusyWait Until SPM completes
+    1ebe:	fd cf       	rjmp	.-6      	; 0x1eba <Optiboot+0x94>
+
+#define PBENDH	(RAMSTART + SPM_PAGESIZE) / 0x100
+#define PBENDL	(RAMSTART + SPM_PAGESIZE) % 0x100
+
+#ifdef VIRTUAL_BOOT_PARTITION
+	cp		ADD_L, r1	;Compare R14 (LoadAddrL) and R1 (zero)
+    1ec0:	e1 14       	cp	r14, r1
+	cpc		ADD_H, r1	;Compare with zero and Carry with R15 (LoadAddrH) and if notZ(Neq) -
+    1ec2:	f1 04       	cpc	r15, r1
+	brne	__LoadPage	;Goto LoadPage. Otherwise (0x0000) patch first page saving reset vector
+    1ec4:	c9 f4       	brne	.+50     	; 0x1ef8 <Optiboot+0xd2>
+  #define APP_VECT    0x0C	;default to WDT vector
+ #endif
+ #define APP_SHFT    RAMSTART+APP_VECT*2
+ #define NEW_RSTV    RAMSTART+SPM_PAGESIZE*2+4
+ #define NEW_WDVT    RAMSTART+SPM_PAGESIZE*2+6
+	lds		r24, RAMSTART	;Load *(RAMSTART) byte to R24 : Store first command (A reset vector opcode)
+    1ec6:	80 91 60 00 	lds	r24, 0x0060
+	lds		r25, RAMSTART+1	; and next byte to R25 : to R25:R24. This is original ResetVector.
+    1eca:	90 91 61 00 	lds	r25, 0x0061
+	sts		NEW_RSTV+1, r25	;Store it to *(NEW_RSTV) Addresses should be divided by two (bytes to words)
+    1ece:	90 93 e5 00 	sts	0x00E5, r25
+	sts		NEW_RSTV, r24	; and previous byte.
+    1ed2:	80 93 e4 00 	sts	0x00E4, r24
+	lds		r8, APP_SHFT	;Load *(WDT) - existing WatchdogVector to R8
+    1ed6:	80 90 78 00 	lds	r8, 0x0078
+	lds		r9, APP_SHFT+1	;  and MSB to R9 : R9:R8 <- (APP_SHFT)
+    1eda:	90 90 79 00 	lds	r9, 0x0079
+	sts		NEW_WDVT+1, r9	; Store them to New WatchdogVector which is NewResetVector+3
+    1ede:	90 92 e7 00 	sts	0x00E7, r9
+	sts		NEW_WDVT, r8	;  and +2
+    1ee2:	80 92 e6 00 	sts	0x00E6, r8
+	sbiw	r24, APP_VECT	; Just decrease the rjmp opcode word by WDT - it shouldn't be above 0x40
+    1ee6:	0c 97       	sbiw	r24, 0x0c	; 12
+	sts		APP_SHFT, r24	;  and store results at Watchdog reset vector - low
+    1ee8:	80 93 78 00 	sts	0x0078, r24
+	sts		APP_SHFT+1, r25	;  and high bytes
+    1eec:	90 93 79 00 	sts	0x0079, r25
+	sts		RAMSTART, r5	; Replace first command (i.e. 0x00 - reset vector)
+    1ef0:	50 92 60 00 	sts	0x0060, r5
+	sts		RAMSTART+1, r4	; with rjmp optiboot opcode
+    1ef4:	40 92 61 00 	sts	0x0061, r4
+#endif // VIRTUAL_BOOT_PARTITION
+__LoadPage:
+	movw	r24, ADD_L	;Phew, Store R15:R14 (LoadAddr) to R25:R24
+    1ef8:	c7 01       	movw	r24, r14
+	ldi		r26, RAMSTL	;Load RAMSTART LSB to R26 (XL)
+    1efa:	a0 e6       	ldi	r26, 0x60	; 96
+	ldi		r27, RAMSTH	;Load RAMSTART MSB to R27 (XH)
+    1efc:	b0 e0       	ldi	r27, 0x00	; 0
+__lFillPgPage:
+	ld		r6, X+		;Load (R26:R27) - *X - to R6 and increment X
+    1efe:	6d 90       	ld	r6, X+
+	ld		r7, X+		;Load *(R26:R27) - *(X) - to R7 and increment X
+    1f00:	7d 90       	ld	r7, X+
+	movw	r30, r24	;Store R25:R24 (LoadAddr) to R31:R30 (Z)
+    1f02:	fc 01       	movw	r30, r24
+	movw	r0, r6		;Store R7:R6 (*Addr) to R1:R0 - instruction word
+    1f04:	03 01       	movw	r0, r6
+	out		SPMCSR, r20	;Set SPMCSR to R2(00000001) - clear all but set SPMEN
+    1f06:	47 bf       	out	0x37, r20	; 55
+	spm			;Start Program Memory (R1:R0 --> (Z))
+    1f08:	e8 95       	spm
+	adiw	r24, 0x02	;R25:R24 += 2 - Increment LoadAddr by word
+    1f0a:	02 96       	adiw	r24, 0x02	; 2
+	ldi		r31, PBENDH	;Load buffer end msb to R31
+    1f0c:	f0 e0       	ldi	r31, 0x00	; 0
+	cpi		r26, PBENDL	;Compare buffer end lsb to R26 (XL)
+    1f0e:	a0 3a       	cpi	r26, 0xA0	; 160
+	cpc		r27, r31	; and R27 (XH) with R31 and Carry (1+C)
+    1f10:	bf 07       	cpc	r27, r31
+	brne	__lFillPgPage	;Until(Z) lFillPgPage
+    1f12:	a9 f7       	brne	.-22     	; 0x1efe <Optiboot+0xd8>
+;__EndLoop
+	eor		r1, r1		;CLR R1 : Return back our zero register to zero state
+    1f14:	11 24       	eor	r1, r1
+	ldi		r18, 0x05	;Load 00000101 to R18
+    1f16:	25 e0       	ldi	r18, 0x05	; 5
+	movw	r30, ADD_L	;Move R15:R14 to R31:R30 Reset Z to LoadAddr
+    1f18:	f7 01       	movw	r30, r14
+	out		SPMCSR, r18	;Set SPMCSR to R18 - Clear all but set PGWRT,SPMEN
+    1f1a:	27 bf       	out	0x37, r18	; 55
+	spm			;Write filled page from pg buffer to flash
+    1f1c:	e8 95       	spm
+__lSpmBusyWait2:
+	in		r0, SPMCSR	;Read SPMCSR
+    1f1e:	07 b6       	in	r0, 0x37	; 55
+	sbrc	r0, 0		;Skip if SPMEN is clear
+    1f20:	00 fc       	sbrc	r0, 0
+	rjmp	__lSpmBusyWait2	;Until(Z) lSpmBusyWait2
+    1f22:	fd cf       	rjmp	.-6      	; 0x1f1e <Optiboot+0xf8>
+	rjmp	endLoop		;Goto EndLoop
+    1f24:	33 c0       	rjmp	.+102    	; 0x1f8c <Optiboot+0x166>
+_chkStkReadPage:
+	cpi		r24, 0x74	;Compare R24 with 0x74 (116, t, STK_READ_PAGE)
+    1f26:	84 37       	cpi	r24, 0x74	; 116
+	brne	_chkStkReadSign	;else if notZ(Neq) Skip to next check
+    1f28:	19 f5       	brne	.+70     	; 0x1f70 <Optiboot+0x14a>
+	rcall	GetChar		; GetChar Skip byte - High (never sent)
+    1f2a:	4a d0       	rcall	.+148    	; 0x1fc0 <GetChar>
+	rcall	GetChar		; r24=GetChar() Read length (must be <=FF)
+    1f2c:	49 d0       	rcall	.+146    	; 0x1fc0 <GetChar>
+	mov		r17, r24	;Store length to R17
+    1f2e:	18 2f       	mov	r17, r24
+	rcall	GetChar		; GetChar Skip byte - MemType
+    1f30:	47 d0       	rcall	.+142    	; 0x1fc0 <GetChar>
+	rcall	verifySpace	; verifySpace - sync
+    1f32:	33 d0       	rcall	.+102    	; 0x1f9a <Optiboot+0x174>
+	movw	r30, ADD_L	;Load Z from R15:R14 (LoadAddr)
+    1f34:	f7 01       	movw	r30, r14
+__lReadAndSend:
+#ifdef VIRTUAL_BOOT_PARTITION
+	sbiw	r30, 0x00	;Compare Word Z with 0x0000 (Z==0) - Original ResetVectorL
+    1f36:	30 97       	sbiw	r30, 0x00	; 0
+	brne	.+6		;Skip 3 lines if notZ(Neq) - next address condition
+    1f38:	19 f4       	brne	.+6      	; 0x1f40 <Optiboot+0x11a>
+	lds		r24, NEW_RSTV	; Load NewResetVectorL *(0x0184) to R24 - param for send.
+    1f3a:	80 91 e4 00 	lds	r24, 0x00E4
+	rjmp	__StepAndSend	;Goto StepAndSend
+    1f3e:	11 c0       	rjmp	.+34     	; 0x1f62 <Optiboot+0x13c>
+	cpi		r30, 0x01	;Compare R30 (ZL) and 1
+    1f40:	e1 30       	cpi	r30, 0x01	; 1
+	cpc		r31, r1		; and R31 (ZH) with zero and carry - Original ResetVectorH
+    1f42:	f1 05       	cpc	r31, r1
+	brne	.+6		;Skip 3 lines if notZ(Neq) - next address condition
+    1f44:	19 f4       	brne	.+6      	; 0x1f4c <Optiboot+0x126>
+	lds		r24, NEW_RSTV+1	; Load NewResetVectorH to R24 - param for send
+    1f46:	80 91 e5 00 	lds	r24, 0x00E5
+	rjmp	__StepAndSend	;Goto StepAndSend
+    1f4a:	0b c0       	rjmp	.+22     	; 0x1f62 <Optiboot+0x13c>
+	cpi		r30, APP_VECT*2	;Compare R30 (ZL) with 2x OriginalWdVectorL
+    1f4c:	e8 31       	cpi	r30, 0x18	; 24
+	cpc		r31, r1		; and R31 (ZH) with R1 (zero)
+    1f4e:	f1 05       	cpc	r31, r1
+	brne	.+6		;Skip 3 lines if notZ(Neq) - next address condition
+    1f50:	19 f4       	brne	.+6      	; 0x1f58 <Optiboot+0x132>
+	lds		r24, NEW_WDVT	; Load NewWdVectorL to R24 - param for send
+    1f52:	80 91 e6 00 	lds	r24, 0x00E6
+	rjmp	__StepAndSend	;Goto StepAndSend
+    1f56:	05 c0       	rjmp	.+10     	; 0x1f62 <Optiboot+0x13c>
+	cpi		r30, APP_VECT*2+1;Compare R30 (ZL) original WatchdogVectorH
+    1f58:	e9 31       	cpi	r30, 0x19	; 25
+	cpc		r31, r1		; and R31 (ZH) with R1 (zero)
+    1f5a:	f1 05       	cpc	r31, r1
+	brne	.+8		;Skip 4 lines if notZ(Neq) - default case
+    1f5c:	21 f4       	brne	.+8      	; 0x1f66 <Optiboot+0x140>
+	lds		r24, NEW_WDVT+1	; Load NewWdVectorH to R24 - param for send
+    1f5e:	80 91 e7 00 	lds	r24, 0x00E7
+__StepAndSend:
+	adiw	r30, 0x01	; Step
+    1f62:	31 96       	adiw	r30, 0x01	; 1
+	rjmp	__SendAndLoop	;Goto StepAndSend
+    1f64:	01 c0       	rjmp	.+2      	; 0x1f68 <Optiboot+0x142>
+#endif // VIRTUAL_BOOT_PARTITION
+	lpm		r24, Z+		;LoadProgMemory from Z++ to R24 - param for send
+    1f66:	85 91       	lpm	r24, Z+
+__SendAndLoop:
+	rcall	PutChar		; PutChar(r24) Send R24 over Tx
+    1f68:	1d d0       	rcall	.+58     	; 0x1fa4 <PutChar>
+	dec		r17		;Decrement R17 (length)
+    1f6a:	1a 95       	dec	r17
+	brne	__lReadAndSend	;Until(Z) lReadAndSend
+    1f6c:	21 f7       	brne	.-56     	; 0x1f36 <Optiboot+0x110>
+; STK_LOAD_ADDRESS must always be used prior to Cmnd_STK_PROG_PAGE or Cmnd_STK_READ_PAGE (2525B–AVR–04/03)
+	rjmp	endLoop		;Goto EndLoop
+    1f6e:	0e c0       	rjmp	.+28     	; 0x1f8c <Optiboot+0x166>
+_chkStkReadSign:
+	cpi		r24, 0x75	;Compare R24 with 0x74 (117, u, STK_READ_SIGN)
+    1f70:	85 37       	cpi	r24, 0x75	; 117
+	brne	_chkStkLvPgMode	;Skip to next check if notZ(Neq)
+    1f72:	39 f4       	brne	.+14     	; 0x1f82 <Optiboot+0x15c>
+	rcall	verifySpace	; verifySpace
+    1f74:	12 d0       	rcall	.+36     	; 0x1f9a <Optiboot+0x174>
+	ldi		r24, SIGNATURE_0;Load first signature octet: 0x1E(30)
+    1f76:	8e e1       	ldi	r24, 0x1E	; 30
+	rcall	PutChar		; PutChar(r24) and send it
+    1f78:	15 d0       	rcall	.+42     	; 0x1fa4 <PutChar>
+	ldi		r24, SIGNATURE_1;Load second signature octet: 0x93(147)
+    1f7a:	83 e9       	ldi	r24, 0x93	; 147
+	rcall	PutChar		; PutChar(r24) and send it
+    1f7c:	13 d0       	rcall	.+38     	; 0x1fa4 <PutChar>
+	ldi		r24, SIGNATURE_2;Load third signature octet: 0x0B(11)
+    1f7e:	8c e0       	ldi	r24, 0x0C	; 12
+	rjmp	__sendParam	; send param from above jumping to endLoop
+    1f80:	70 cf       	rjmp	.-288    	; 0x1e62 <Optiboot+0x3c>
+_chkStkLvPgMode:
+	cpi		r24, 0x51	;Compare R24 with 0x51 (81, Q, STK_LEAVE_PROG_MODE)
+    1f82:	81 35       	cpi	r24, 0x51	; 81
+	brne	_chkStkElse	;bail to default case if notZ(Neq)
+    1f84:	11 f4       	brne	.+4      	; 0x1f8a <Optiboot+0x164>
+	ldi		r24, 0x08	;Load 00001000 to R24 param to reset WD prescaler
+    1f86:	88 e0       	ldi	r24, 0x08	; 8
+	rcall	watchdogConfig	; watchdogConfig (r24)
+    1f88:	31 d0       	rcall	.+98     	; 0x1fec <GetChar+0x2c>
+_chkStkElse:
+	rcall	verifySpace	; verifySpace
+    1f8a:	07 d0       	rcall	.+14     	; 0x1f9a <Optiboot+0x174>
+endLoop:
+	ldi		r24, 0x10	;Load 0x10(16, STK_OK) to R24
+    1f8c:	80 e1       	ldi	r24, 0x10	; 16
+	rcall	PutChar		; PutChar(r24) Send param over Tx
+    1f8e:	0a d0       	rcall	.+20     	; 0x1fa4 <PutChar>
+	rjmp	LoopMain	;Goto LoopMain
+    1f90:	5b cf       	rjmp	.-330    	; 0x1e48 <Optiboot+0x22>
+ #error Baud rate too slow for soft UART
+#endif
+#define delayArg r25
+;
+uartDelay:
+	ldi		delayArg, UART_B_VAL	;Calibrated Delay Loop: 67 or 135? times for ATt85/8MHz/IOSC
+    1f92:	93 e1       	ldi	r25, 0x13	; 19
+_lUartDelay:
+	dec		delayArg		; Decrement R25
+    1f94:	9a 95       	dec	r25
+	brne	_lUartDelay		;Until(Z) lUartDelay
+    1f96:	f1 f7       	brne	.-4      	; 0x1f94 <Optiboot+0x16e>
+	ret
+    1f98:	08 95       	ret
+;
+;-----------------------------------------------------------------------
+verifySpace:
+	rcall	GetChar			; r24=GetChar()
+    1f9a:	12 d0       	rcall	.+36     	; 0x1fc0 <GetChar>
+	cpi		r24, 0x20		;is SPACE (0x20 ' ')?
+    1f9c:	80 32       	cpi	r24, 0x20	; 32
+	breq	.+2			;Skip line if Z(equal)
+    1f9e:	09 f0       	breq	.+2      	; 0x1fa2 <Optiboot+0x17c>
+	rjmp	.-2			; make somersault - endless loop: MCU will be reset by WD (in 2s)
+    1fa0:	ff cf       	rjmp	.-2      	; 0x1fa0 <Optiboot+0x17a>
+	ldi		r24, 0x14		;Load 0x14 to R24 : char to put (STK_INSYNC)
+    1fa2:	84 e1       	ldi	r24, 0x14	; 20
+
+00001fa4 <PutChar>:
+	ret
+;
+#else
+/*====== Original Code ========================================================*/
+PutChar:
+	ldi		bitcnt, 0x0A		;Load bitcount to R18: 10
+    1fa4:	2a e0       	ldi	r18, 0x0A	; 10
+	com		rSOURCE			;Invert rSOURCE
+    1fa6:	80 95       	com	r24
+	sec				;Set Carry C bit - start bit
+    1fa8:	08 94       	sec
+_lTx:
+	brcc	_raiseTx		;If Carry is 0 then Goto RaiseTx
+    1faa:	10 f4       	brcc	.+4      	; 0x1fb0 <PutChar+0xc>
+	cbi		UART_Port, UART_Tx	;Clear IO Bit: Clear UART_Tx of PORTB: Lower Tx
+    1fac:	d9 98       	cbi	0x1b, 1	; 27
+	rjmp	_keepTx			;GoTo KeepTx
+    1fae:	02 c0       	rjmp	.+4      	; 0x1fb4 <PutChar+0x10>
+_raiseTx:
+	sbi		UART_Port, UART_Tx	;Set IO Bit: Set PORTB4 of PORTB: Raise Tx
+    1fb0:	d9 9a       	sbi	0x1b, 1	; 27
+	nop				;Align Low/High timing
+    1fb2:	00 00       	nop
+_keepTx:
+	rcall	uartDelay		; uartDelay
+    1fb4:	ee df       	rcall	.-36     	; 0x1f92 <Optiboot+0x16c>
+	rcall	uartDelay		; uartDelay
+    1fb6:	ed df       	rcall	.-38     	; 0x1f92 <Optiboot+0x16c>
+#ifdef HIGH_PRECISION
+	rcall	uartDelay		; uartDelay
+	rcall	uartDelay		; uartDelay
+#endif
+	lsr		rSOURCE			;Shift right R24 one bit, LSB to Carry
+    1fb8:	86 95       	lsr	r24
+	dec		bitcnt			;Decrement R18 bitcounter
+    1fba:	2a 95       	dec	r18
+	brne	_lTx			;Until(Z) LoopTx
+    1fbc:	b1 f7       	brne	.-20     	; 0x1faa <PutChar+0x6>
+	ret
+    1fbe:	08 95       	ret
+
+00001fc0 <GetChar>:
+;
+GetChar:
+#if LED_START_FLASHES > 0
+	sbi		UART_Port-2, LED		;Set IO Bit: PINled of UART_Port-2: Toggle LED - turn on
+#endif
+	ldi		bitcnt, 0x09		;Load bit counter to R19 : 8+1stop
+    1fc0:	29 e0       	ldi	r18, 0x09	; 9
+	eor		rDEST, rDEST		;initialize return data
+    1fc2:	88 27       	eor	r24, r24
+_lWaitRx:
+	sbic	UART_Port-2, UART_Rx	;Skip if PINrx of UART_Port-2 is Clear: break if RX is low
+    1fc4:	c8 99       	sbic	0x19, 0	; 25
+	rjmp	_lWaitRx	 	; Until Rx Start Bit lWaitRx
+    1fc6:	fe cf       	rjmp	.-4      	; 0x1fc4 <GetChar+0x4>
+	rcall	uartDelay		; uartDelay // Eat start bit
+    1fc8:	e4 df       	rcall	.-56     	; 0x1f92 <Optiboot+0x16c>
+_lRx:
+#ifdef HIGH_PRECISION
+	rcall	uartDelay		; uartDelay // Position
+	rcall	uartDelay		; uartDelay // to the bit
+#endif
+	rcall	uartDelay		; uartDelay // far edge
+    1fca:	e3 df       	rcall	.-58     	; 0x1f92 <Optiboot+0x16c>
+	rcall	uartDelay		; uartDelay // and feel the beat
+    1fcc:	e2 df       	rcall	.-60     	; 0x1f92 <Optiboot+0x16c>
+	clc				;Clear Carry C Bit
+    1fce:	88 94       	clc
+	sbic	UART_Port-2, UART_Rx	;Skip if PINrx of UART_Port-2 is Clear: Skip if data is 0
+    1fd0:	c8 99       	sbic	0x19, 0	; 25
+	sec				;Set Carry C Bit otherwise
+    1fd2:	08 94       	sec
+	dec		bitcnt			;Decrement bit counter
+    1fd4:	2a 95       	dec	r18
+	breq	_endlRx			;Break if Zero : Should be on 9th stop bit to break
+    1fd6:	11 f0       	breq	.+4      	; 0x1fdc <GetChar+0x1c>
+	ror		rDEST			;Shift Right R24 through Carry: Fill in incoming bits
+    1fd8:	87 95       	ror	r24
+	rjmp	_lRx			;Loop for next Rx Bit
+    1fda:	f7 cf       	rjmp	.-18     	; 0x1fca <GetChar+0xa>
+_endlRx:
+	wdr				;Reset Watchdog
+    1fdc:	a8 95       	wdr
+#if LED_START_FLASHES > 0
+	sbi		UART_Port-2, LED		;Set IO Bit: Set PINled of UART_Port-2: Toggle LED - turn off
+#endif
+	ret				;return with result in R24
+    1fde:	08 95       	ret
+#endif
+;
+;-----------------------------------------------------------------------
+getNch:
+	mov		r16, r24	;move R24 to R16
+    1fe0:	08 2f       	mov	r16, r24
+_lGetNch:
+	rcall	GetChar		; r24=GetChar
+    1fe2:	ee df       	rcall	.-36     	; 0x1fc0 <GetChar>
+	subi	r16, 0x01	;Decrement R16
+    1fe4:	01 50       	subi	r16, 0x01	; 1
+	brne	_lGetNch	;Until(Z) lGetNch
+    1fe6:	e9 f7       	brne	.-6      	; 0x1fe2 <GetChar+0x22>
+	rcall	verifySpace	; verifySpace
+    1fe8:	d8 df       	rcall	.-80     	; 0x1f9a <Optiboot+0x174>
+	ret
+    1fea:	08 95       	ret
+;
+;-----------------------------------------------------------------------
+watchdogConfig:
+	ldi		r25, 0x18	;Reset Watchdog
+    1fec:	98 e1       	ldi	r25, 0x18	; 24
+	out		WDTCR, r25	;WDTCR <- 00011000
+    1fee:	91 bd       	out	0x21, r25	; 33
+	out		WDTCR, r24	;WDTCR <- R24
+    1ff0:	81 bd       	out	0x21, r24	; 33
+	ret
+    1ff2:	08 95       	ret
+;
+;-----------------------------------------------------------------------
+appStart:
+#message Using vector APP_VECT for application start
+	clr		r24		; disabe WD
+    1ff4:	88 27       	eor	r24, r24
+	rcall	watchdogConfig	; Reset WD
+    1ff6:	fa df       	rcall	.-12     	; 0x1fec <GetChar+0x2c>
+;	ldi		r28,0x07	;"magic key" in YH:L
+;	ldi		r29,0xb0
+	ldi		r30, APP_VECT	; Set ZL R30 <- ijmp address in Vector table
+    1ff8:	ec e0       	ldi	r30, 0x0C	; 12
+	clr		r31		; Set ZH R31 <- 0x00 (XOR R31)
+    1ffa:	ff 27       	eor	r31, r31
+	ijmp			; Jump to RESET vector (to jump further to code)
+    1ffc:	09 94       	ijmp

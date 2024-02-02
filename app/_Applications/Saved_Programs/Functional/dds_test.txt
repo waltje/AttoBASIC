@@ -1,0 +1,8 @@
+5 REM DDS functional test
+10 X:=0; Z:=0 # start at "00:XX:00" Hz
+15 FOR N= 0 9 # sweep from 1KHz to 9KHz in 1KHz steps
+20 Y:= SWAP N # swap the K and 100 Hz positions
+25 DDS 1 # enable the output
+30 PRI "Freq in KHz: "; PRI N
+35 DEL 200 # delay 2 seconds
+40 NEXT

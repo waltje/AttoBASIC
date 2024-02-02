@@ -1,0 +1,20 @@
+0 REM MCP3221 TEST V2.34
+10 R:= 0 ; A:= $91# Clear a variable and set starting device address
+15 TWI# 400K bus speed
+20 FOR N=0 7# device 0 to 7 loop
+25 M:= A + LSL N# calculate slave address
+30 TWS ; GOSUB 95 ; TWP# address slave if there
+35 NEXT# end of loop
+40 IF R = 0 THEN PRINT "No Device!~" ; END# Error if no device
+45 TWS ; TWW R ; TWR 2 ; TWP# Start, address slave, read two bytes
+50 IF 0 = RES THEN PRINT "No Data Read!~" ; END
+55 PRINT "Found MCP3221 at Address " ; PRX R# inform user
+60 H:=READ ; L:=READ# Fetch high and low byte
+65 PRINT "H: " ; PRX H ; PRINT "L: " ; PRX L# Print high and low byte
+70 H:=SWAP H OR $F0 AND L# essentially a lsl H:L 4 bits into H for 8-bit value
+75 PRINT "H: "; PRX H# print 8 bit value
+80 H:=H/5# divide by 5 for max 51 chars
+85 for N=0 H; PRINT "*"; NEXT; PRINT "~"# print a bar graph
+90 SLP 2 ; GOTO 15# sleep 64ms then loop
+95 IF $40 = TWW M THEN R:= M ; RET # Test for slave ACK
+100 RET # No device detected

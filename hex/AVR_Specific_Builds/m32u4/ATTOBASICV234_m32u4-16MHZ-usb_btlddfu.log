@@ -1,0 +1,104 @@
+AVRASM: AVR macro assembler 2.1.42 (build 1796 Sep 15 2009 10:48:36)
+Copyright (C) 1995-2009 ATMEL Corporation
+
+Verilog option is set
+AttoBASICV234.asm(1249): Including file 'Include/Defs_MCU-Options.inc'
+Include/Defs_MCU-Options.inc(1): Including file 'Include/m32u4def.inc'
+AttoBASICV234.asm(1280): ATmega32U4 selected.
+AttoBASICV234.asm(1307): Including file 'Include/Defs_Constants.inc'
+Include/Defs_Constants.inc(51): Including file 'Include/Defs_Register.inc'
+Include/Defs_Register.inc(88): warning: Register r30 already defined by the .DEF directive
+Include/Defs_Constants.inc(51): info: 'Include/Defs_Register.inc' included from here
+AttoBASICV234.asm(1307): info: 'Include/Defs_Constants.inc' included from here
+Include/Defs_Constants.inc(52): Including file 'Include/Defs_Pinout.inc'
+Include/Defs_Constants.inc(53): Including file 'Include/Defs_Timers.inc'
+Include/Defs_Constants.inc(54): Including file 'Include/Defs_ADC.inc'
+Include/Defs_Constants.inc(385): System clock prescaler set to  1
+Include/Defs_Constants.inc(757): Including file 'Include/Defs_PWM.inc'
+Include/Defs_Constants.inc(809): AttoBASIC does not control SPI_SS line
+Include/Defs_Constants.inc(909): Including file 'Include/Defs_DHT.inc'
+Include/Defs_Constants.inc(916): Including file 'Include/Defs_OWR.inc'
+Include/Defs_Constants.inc(929): Including file 'Include/Defs_NRF.inc'
+Include/Defs_Constants.inc(936): Including file 'Include/Defs_RTC.inc'
+Include/Defs_Constants.inc(943): Including file 'Include\Defs_DDS.inc'
+AttoBASICV234.asm(1308): Including file 'Include/Defs_USART.inc'
+AttoBASICV234.asm(1331): Including file 'Include/Defs_usb_serial-atmega32u4.inc'
+AttoBASICV234.asm(1341): Including file 'Include/Macro_IO.inc'
+AttoBASICV234.asm(1342): Including file 'Include/Macro_Misc.inc'
+AttoBASICV234.asm(1343): Including file 'Include/Macro_Delays.inc'
+AttoBASICV234.asm(1344): Including file 'Include/Macro_AttoBASIC.inc'
+AttoBASICV234.asm(1351): Including file 'Include/Data_RAM.inc'
+AttoBASICV234.asm(1352): Including file 'Include/Data_EEP.inc'
+AttoBASICV234.asm(1358): Including file 'Include/Code_Vectors.inc'
+AttoBASICV234.asm(3722): Including file 'Include/Code_Editing.inc'
+AttoBASICV234.asm(3723): Including file 'Include/Code_EFS.inc'
+AttoBASICV234.asm(3724): Including file 'include/Code_Math.inc'
+AttoBASICV234.asm(3725): Including file 'Include/Code_ERRPROC.inc'
+AttoBASICV234.asm(3726): Including file 'Include/Code_Init.inc'
+AttoBASICV234.asm(3727): Including file 'Include/Code_DataBytes.inc'
+AttoBASICV234.asm(3730): Including file 'Include/Code_SysClock.inc'
+AttoBASICV234.asm(3739): Including file 'Include/Code_TWI.inc'
+Include/Code_TWI.inc(41): Including file 'Include/Defs_TWI.inc'
+Include/Defs_TWI.inc(197): Including file 'Include/Macro_TWI.inc'
+AttoBASICV234.asm(3744): Including file 'Include/Code_SPI.inc'
+AttoBASICV234.asm(3747): Including file 'Include/Code_PORTIO.inc'
+AttoBASICV234.asm(3750): Including file 'Include/Code_PWM.inc'
+AttoBASICV234.asm(3752): Including file 'Include/Code_Operators.inc'
+AttoBASICV234.asm(3754): Including file 'Include/Code_Analog.inc'
+AttoBASICV234.asm(3757): Including file 'Include/Code_AComp.inc'
+AttoBASICV234.asm(3760): Including file 'Include/Code_ICP.inc'
+Include/Code_ICP.inc(40): Including file 'Include/Defs_ICP.inc'
+AttoBASICV234.asm(3763): Including file 'Include/Code_DS.inc'
+AttoBASICV234.asm(3766): Including file 'Include/Code_DataFile.inc'
+Include/Code_DataFile.inc(39): Including file 'Include/Defs_DATAFILE.inc'
+AttoBASICV234.asm(3769): Including file 'Include/Code_LOPWR.inc'
+AttoBASICV234.asm(3772): Including file 'Include/Code_DDS.inc'
+AttoBASICV234.asm(3775): Including file 'Include/Code_RTC.inc'
+AttoBASICV234.asm(3778): Including file 'Include/Code_DHT.inc'
+AttoBASICV234.asm(3781): Including file 'Include/Code_NRF.inc'
+AttoBASICV234.asm(3784): Including file 'Include/Code_OWR.inc'
+AttoBASICV234.asm(3790): Including file 'Include/Code_Debug.inc'
+AttoBASICV234.asm(3837): Including file 'Include/Code_BLDR.inc'
+AttoBASICV234.asm(3842): Including file 'Include/Data_Cmds.inc'
+AttoBASICV234.asm(3843): Including file 'Include/Data_Msgs.inc'
+AttoBASICV234.asm(3848): Including file 'Include/Code_IRQvectors.inc'
+AttoBASICV234.asm(3870): Including file 'Include/Code_sio_usb.inc'
+AttoBASICV234.asm(3877): Notice: USB support for ATmega32U4 @ 16MHz enabled
+AttoBASICV234.asm(3878): Including file 'Include/Code_usb_serial_atmega32u4-16M.inc'
+AttoBASICV234.asm(3980): Including file 'Include/Data_SqrWav.inc'
+AttoBASICV234.asm(3987): Including file 'Include/Code_Bootloader.inc'
+Include/Code_Bootloader.inc(206): Including file 'Include/Code_BootloaderDFU_atmega32u4-16M.inc'
+Include/Defs_Constants.inc(405): Using FCLK @ 16MHz
+Include/Defs_Constants.inc(595): Enabling non-volatile option storage (CFG)
+Include/Defs_DHT.inc(43): Enabling DHT Sensor Support
+Include/Defs_DHT.inc(386): Using divide by 8 for DHT timing.
+Include/Defs_OWR.inc(42): Enabling 1-Wire Support
+Include/Defs_USART.inc(56): Using baud rate of 38400 for FCLK > 4MHz
+Include/Code_EFS.inc(101): EFS enabled.
+Include/Code_Init.inc(167): Enabling Port-Pin Pullups for DS interface.
+Include/Code_SysClock.inc(39): CLK (SysClkPsc) enabled
+Include/Code_TWI.inc(39): TWI enabled.
+Include/Defs_TWI.inc(76): TWI @ 400K available
+Include/Code_PORTIO.inc(247): Multi-Port PIO enabled.
+Include/Code_PWM.inc(39): PWM enabled.
+Include/Code_ICP.inc(39): ICP enabled.
+Include/Code_DS.inc(39): DSI enabled.
+Include/Code_LOPWR.inc(39): LPMD enabled.
+Include/Code_DDS.inc(39): DDS enabled.
+Include/Code_RTC.inc(39): RTC enabled.
+Include/Code_DHT.inc(39): DHT enabled.
+Include/Code_NRF.inc(39): NRF enabled.
+Include/Code_OWR.inc(39): OWR enabled.
+Include/Code_Debug.inc(39): DEBUG enabled.
+Include/Code_usb_serial_atmega32u4-16M.inc(142): warning: .cseg .db misalignment - padding zero byte
+AttoBASICV234.asm(3878): info: 'Include/Code_usb_serial_atmega32u4-16M.inc' included from here
+Include/Code_Bootloader.inc(205): Notice: BootloaderDFU for m32u4 @ 16MHz enabled
+
+ATmega32U4 memory use summary [bytes]:
+Segment   Begin    End      Code   Data   Used    Size   Use%
+---------------------------------------------------------------
+[.cseg] 0x000000 0x007e1a  13424   8912  22336   32768  68.2%
+[.dseg] 0x000100 0x000b00      0   2560   2560    2560 100.0%
+[.eseg] 0x000000 0x0003ff      0     32     32    1024   3.1%
+
+Assembly complete, 0 errors. 2 warnings

@@ -1,0 +1,60 @@
+AVRASM: AVR macro assembler 2.1.42 (build 1796 Sep 15 2009 10:48:36)
+Copyright (C) 1995-2009 ATMEL Corporation
+
+AttoBASICV236.asm(1294): Including file 'Include/Defs_MCU-Options.inc'
+Include/Defs_MCU-Options.inc(1): Including file 'Include/m163def.inc'
+AttoBASICV236.asm(1307): ATmega163 selected.
+AttoBASICV236.asm(1350): Including file 'Include/Code_mega163.inc'
+Include/Code_mega163.inc(25): Including file 'Include/Defs_MCU-Options.inc'
+Include/Defs_MCU-Options.inc(1): Including file 'Include/m163def.inc'
+AttoBASICV236.asm(4062): No EEPROM data, deleting AttoBASICV236.eep
+
+Notice:
+The register and instruction counts are symbol table hit counts,
+and hence implicitly used resources are not counted, eg, the
+'lpm' instruction without operands implicitly uses r0 and z,
+none of which are counted.
+
+x,y,z are separate entities in the symbol table and are
+counted separately from r26..r31 here.
+
+.dseg memory usage only counts static data declared with .byte
+
+ATmega163 register use summary:
+r0 :   8 r1 :   0 r2 :   0 r3 :   0 r4 :   0 r5 :  20 r6 :  20 r7 :   3 
+r8 :   2 r9 :   5 r10:   5 r11:   6 r12:   5 r13:   5 r14:   6 r15:   5 
+r16: 226 r17:  22 r18:  39 r19:  24 r20:  23 r21:  45 r22:  12 r23: 159 
+r24:  34 r25:  35 r26:  28 r27:  26 r28:  46 r29:  39 r30:  83 r31:  79 
+x  :   0 y  :  19 z  :  20 
+Registers used: 30 out of 35 (85.7%)
+
+ATmega163 instruction use summary:
+.lds  :   0 .sts  :   0 adc   :   0 add   :   4 adiw  :  10 and   :  13 
+andi  :  37 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
+brcc  :   3 brcs  :   4 breq  :  37 brge  :   0 brhc  :   0 brhs  :   0 
+brid  :   0 brie  :   0 brlo  :   3 brlt  :   0 brmi  :   8 brne  :  85 
+brpl  :   6 brsh  :   8 brtc  :   0 brts  :   0 brvc  :   0 brvs  :   0 
+bset  :   0 bst   :   0 call  :   2 cbi   :  10 cbr   :   0 clc   :   3 
+clh   :   0 cli   :   0 cln   :   0 clr   :  21 cls   :   0 clt   :   0 
+clv   :   0 clz   :   0 com   :   8 cp    :  27 cpc   :   0 cpi   :  97 
+cpse  :   0 dec   :  17 eor   :   1 fmul  :   0 fmuls :   0 fmulsu:   0 
+icall :   1 ijmp  :   0 in    :  36 inc   :  13 jmp   :  18 ld    :  25 
+ldd   :   0 ldi   : 167 lds   :   0 lpm   :  12 lsl   :   6 lsr   :   5 
+mov   : 126 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 neg   :   0 
+nop   :   0 or    :  10 ori   :  22 out   :  53 pop   :   0 push  :   0 
+rcall : 312 ret   : 126 reti  :   1 rjmp  : 105 rol   :   3 ror   :   0 
+sbc   :   0 sbci  :   2 sbi   :  17 sbic  :   7 sbis  :  10 sbiw  :  25 
+sbr   :   0 sbrc  :   3 sbrs  :  14 sec   :   2 seh   :   0 sei   :   0 
+sen   :   0 ser   :   1 ses   :   0 set   :   0 sev   :   0 sez   :   0 
+sleep :   0 spm   :   0 st    :  14 std   :   0 sts   :   0 sub   :   3 
+subi  :  18 swap  :   0 tst   :  10 wdr   :   0 
+Instructions used: 52 out of 112 (46.4%)
+
+ATmega163 memory use summary [bytes]:
+Segment   Begin    End      Code   Data   Used    Size   Use%
+---------------------------------------------------------------
+[.cseg] 0x000000 0x0011d8   3166   1402   4568   16384  27.9%
+[.dseg] 0x000060 0x000060      0      0      0    1024   0.0%
+[.eseg] 0x000000 0x000000      0      0      0     512   0.0%
+
+Assembly complete, 0 errors. 0 warnings

@@ -1,0 +1,21 @@
+5 REM DS3231 RTC TEST
+10 TWI 1# INIT TWI @100kbps
+15 A:= $D0 ; B:= $D1# WRITE AND READ ADDRESSES FOR BQ32000 RTC
+20# *** CONFIGURE THE DS3231
+25 TWS ; TWW A $E 0; TWP# write config regsiter
+30# *** INITIALIZE TIME AND DATE DATA TO RTC REGISTERS
+35 DATA $00 $00 $60 $00 $22 $12 $16 # setup RTC's time and date
+40 FOR Z=0 6# set data registers 0 to 6
+45 R:=Z ; D:= READ# set register and data
+50 TWS; TWW A R D; TWP#  Write data to a register
+55 NEXT# end of loop
+60# *** WAIT A BIT FOR THE SECONDS TO CHANGE THEN READ THE REGISTERS BACK
+65 PRINT "Wait 4 sec~" ; SLP 8#  wait 4 seconds to see if the clock is running
+70 TWS; TWW A 0# Select register 0, no STOP
+75 TWS; TWW B; TWR 7; TWP # slave to read and retreive 7 bytes
+80# *** LOOP AND PRINT EACH REGISTER'S VALUE
+85 FOR R=0 6#  Loop from register 0 to 6
+90 PRINT "R:" ; PRI R# print the register
+95 PRINT "D=" ; PRX READ# print the data in the register
+100 NEXT#  end of loop
+105 END

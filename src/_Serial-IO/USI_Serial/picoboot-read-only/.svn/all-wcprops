@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 22
+/svn/!svn/ver/94/trunk
+END
+picobootSTK500.S
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/93/trunk/picobootSTK500.S
+END
+pb-t88-8Mhz-b1.hex
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/89/trunk/pb-t88-8Mhz-b1.hex
+END
+License.txt
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/45/trunk/License.txt
+END
+SerialUSI.S
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/39/trunk/SerialUSI.S
+END
+pb-t84-t85-8Mhz-b1.hex
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/88/trunk/pb-t84-t85-8Mhz-b1.hex
+END
+boot.S
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/svn/!svn/ver/14/trunk/boot.S
+END
+pb-t88-b1.hex
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/83/trunk/pb-t88-b1.hex
+END
+tinyBoot.S
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/35/trunk/tinyBoot.S
+END
+Readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/76/trunk/Readme.txt
+END
+stk500.h
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/91/trunk/stk500.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/81/trunk/Makefile
+END
+picobootSerial.S
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/94/trunk/picobootSerial.S
+END
+picoboot.S
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/34/trunk/picoboot.S
+END
+pb-t84-t85-b1.hex
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/85/trunk/pb-t84-t85-b1.hex
+END
+BBUart.S
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/56/trunk/BBUart.S
+END
+AVR305.S
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/57/trunk/AVR305.S
+END

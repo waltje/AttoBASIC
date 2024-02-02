@@ -1,0 +1,124 @@
+AVRASM: AVR macro assembler 2.1.42 (build 1796 Sep 15 2009 10:48:36)
+Copyright (C) 1995-2009 ATMEL Corporation
+
+AttoBASICV236.asm(1294): Including file 'Include/Defs_MCU-Options.inc'
+Include/Defs_MCU-Options.inc(1): Including file 'Include/m328def.inc'
+AttoBASICV236.asm(1321): ATmega328 [ P ] selected.
+AttoBASICV236.asm(1352): Including file 'Include/Defs_Constants.inc'
+Include/Defs_Constants.inc(51): Including file 'Include/Defs_Register.inc'
+Include/Defs_Register.inc(88): warning: Register r30 already defined by the .DEF directive
+Include/Defs_Constants.inc(51): info: 'Include/Defs_Register.inc' included from here
+AttoBASICV236.asm(1352): info: 'Include/Defs_Constants.inc' included from here
+Include/Defs_Constants.inc(52): Including file 'Include/Defs_Pinout.inc'
+Include/Defs_Constants.inc(53): Including file 'Include/Defs_Timers.inc'
+Include/Defs_Constants.inc(54): Including file 'Include/Defs_ADC.inc'
+Include/Defs_Constants.inc(384): warning: Preprocessor: Redefinition of macro 'BTLDR'
+AttoBASICV236.asm(1352): info: 'Include/Defs_Constants.inc' included from here
+Include/Defs_MCU-Options.inc(4): info: Previous definition of 'BTLDR'
+Include/Defs_Constants.inc(435): System clock prescaler set to  1
+Include/Defs_Constants.inc(808): Including file 'Include/Defs_PWM.inc'
+Include/Defs_Constants.inc(857): AttoBASIC controls SPI_SS line
+Include/Defs_Constants.inc(965): Including file 'Include/Defs_DHT.inc'
+Include/Defs_Constants.inc(992): Including file 'Include/Defs_RTC.inc'
+Include/Defs_Constants.inc(999): Including file 'Include\Defs_DDS.inc'
+AttoBASICV236.asm(1353): Including file 'Include/Defs_USART.inc'
+AttoBASICV236.asm(1386): Including file 'Include/Macro_IO.inc'
+AttoBASICV236.asm(1387): Including file 'Include/Macro_Misc.inc'
+AttoBASICV236.asm(1388): Including file 'Include/Macro_Delays.inc'
+AttoBASICV236.asm(1389): Including file 'Include/Macro_AttoBASIC.inc'
+AttoBASICV236.asm(1396): Including file 'Include/Data_RAM.inc'
+AttoBASICV236.asm(1397): Including file 'Include/Data_EEP.inc'
+AttoBASICV236.asm(1403): Including file 'Include/Code_Vectors.inc'
+AttoBASICV236.asm(3755): Including file 'Include/Code_Editing.inc'
+AttoBASICV236.asm(3756): Including file 'Include/Code_EFS.inc'
+AttoBASICV236.asm(3757): Including file 'include/Code_Math.inc'
+AttoBASICV236.asm(3758): Including file 'Include/Code_ERRPROC.inc'
+AttoBASICV236.asm(3759): Including file 'Include/Code_Init.inc'
+AttoBASICV236.asm(3760): Including file 'Include/Code_DataBytes.inc'
+AttoBASICV236.asm(3763): Including file 'Include/Code_SysClock.inc'
+AttoBASICV236.asm(3777): Including file 'Include/Code_SPI.inc'
+AttoBASICV236.asm(3780): Including file 'Include/Code_PORTIO.inc'
+AttoBASICV236.asm(3783): Including file 'Include/Code_PWM.inc'
+AttoBASICV236.asm(3785): Including file 'Include/Code_Operators.inc'
+AttoBASICV236.asm(3787): Including file 'Include/Code_Analog.inc'
+AttoBASICV236.asm(3790): Including file 'Include/Code_AComp.inc'
+AttoBASICV236.asm(3799): Including file 'Include/Code_DataFile.inc'
+Include/Code_DataFile.inc(39): Including file 'Include/Defs_DATAFILE.inc'
+AttoBASICV236.asm(3802): Including file 'Include/Code_LOPWR.inc'
+AttoBASICV236.asm(3805): Including file 'Include/Code_DDS.inc'
+AttoBASICV236.asm(3808): Including file 'Include/Code_RTC.inc'
+AttoBASICV236.asm(3811): Including file 'Include/Code_DHT.inc'
+AttoBASICV236.asm(3823): Including file 'Include/Code_Debug.inc'
+AttoBASICV236.asm(3857): Including file 'Include/Code_sio_usart.inc'
+AttoBASICV236.asm(3870): Including file 'Include/Code_BLDR.inc'
+AttoBASICV236.asm(3875): Including file 'Include/Data_Cmds.inc'
+AttoBASICV236.asm(3876): Including file 'Include/Data_Msgs.inc'
+AttoBASICV236.asm(3878): Including file 'Include/Data_DR_Prog.inc'
+AttoBASICV236.asm(3881): Including file 'Include/Code_IRQvectors.inc'
+AttoBASICV236.asm(4015): Including file 'Include/Data_SqrWav.inc'
+AttoBASICV236.asm(4022): Including file 'Include/Code_Bootloader.inc'
+Include/Code_Bootloader.inc(136): Including file 'Include/Code_BootloaderAVR-m328-8mhz.inc'
+Include/Defs_Constants.inc(449): Using FCLK @ 8MHz
+Include/Defs_DHT.inc(43): Enabling DHT Sensor Support
+Include/Defs_DHT.inc(386): Using divide by 8 for DHT timing.
+Include/Defs_USART.inc(56): Using baud rate of 38400 for FCLK > 4MHz
+Include/Code_EFS.inc(101): EFS enabled.
+Include/Code_SysClock.inc(39): CLK (SysClkPsc) enabled
+Include/Code_PORTIO.inc(247): Multi-Port PIO enabled.
+Include/Code_PWM.inc(39): PWM enabled.
+Include/Code_LOPWR.inc(39): LPMD enabled.
+Include/Code_DDS.inc(39): DDS enabled.
+Include/Code_RTC.inc(39): RTC enabled.
+Include/Code_DHT.inc(39): DHT enabled.
+Include/Code_Debug.inc(39): DEBUG enabled.
+Include/Code_Bootloader.inc(135): Notice: BootloaderAVR for m328 @ 8MHz enabled
+
+Notice:
+The register and instruction counts are symbol table hit counts,
+and hence implicitly used resources are not counted, eg, the
+'lpm' instruction without operands implicitly uses r0 and z,
+none of which are counted.
+
+x,y,z are separate entities in the symbol table and are
+counted separately from r26..r31 here.
+
+.dseg memory usage only counts static data declared with .byte
+
+ATmega328 register use summary:
+r0 :  92 r1 : 115 r2 :  26 r3 :   7 r4 :   7 r5 :   8 r6 :   7 r7 :   7 
+r8 :   0 r9 :   4 r10:   7 r11:   8 r12:  26 r13:   7 r14:   1 r15:   1 
+r16: 958 r17:   0 r18:  17 r19:  92 r20: 132 r21: 387 r22: 130 r23:  94 
+r24:  94 r25:  81 r26:  42 r27:  52 r28: 172 r29: 186 r30: 261 r31: 261 
+x  :   0 y  :  58 z  :  73 
+Registers used: 32 out of 35 (91.4%)
+
+ATmega328 instruction use summary:
+.lds  :   0 .sts  :   0 adc   :  21 add   :  25 adiw  :   8 and   :  10 
+andi  :  70 asr   :   0 bclr  :   0 bld   :   1 brbc  :   0 brbs  :   0 
+brcc  :  17 brcs  :   8 break :   0 breq  :  97 brge  :   5 brhc  :   0 
+brhs  :   0 brid  :   0 brie  :   0 brlo  :   4 brlt  :   2 brmi  :  13 
+brne  : 164 brpl  :   9 brsh  :  14 brtc  :   1 brts  :   2 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   2 call  : 330 cbi   :  29 cbr   :  35 
+clc   :   6 clh   :   0 cli   :  12 cln   :   0 clr   : 118 cls   :   0 
+clt   :   2 clv   :   0 clz   :   0 com   :   5 cp    :  36 cpc   :  24 
+cpi   : 156 cpse  :   0 dec   :  63 eor   :   6 fmul  :   0 fmuls :   0 
+fmulsu:   0 icall :   1 ijmp  :   0 in    :  97 inc   :  27 jmp   : 111 
+ld    :  62 ldd   :   4 ldi   : 546 lds   : 129 lpm   :  26 lsl   :   9 
+lsr   :   9 mov   : 138 movw  :  18 mul   :   9 muls  :   0 mulsu :   0 
+neg   :   3 nop   :  21 or    :  12 ori   :  40 out   : 107 pop   : 168 
+push  : 193 rcall : 286 ret   : 205 reti  :   5 rjmp  : 247 rol   :  19 
+ror   :   8 sbc   :  18 sbci  :  71 sbi   :  30 sbic  :   5 sbis  :   8 
+sbiw  :  30 sbr   :  25 sbrc  :  42 sbrs  :  47 sec   :   4 seh   :   0 
+sei   :   6 sen   :   0 ser   :   1 ses   :   0 set   :   2 sev   :   0 
+sez   :   0 sleep :   7 spm   :   0 st    :  45 std   :   0 sts   : 219 
+sub   :  26 subi  :  71 swap  :  15 tst   :  57 wdr   :   4 
+Instructions used: 80 out of 113 (70.8%)
+
+ATmega328 memory use summary [bytes]:
+Segment   Begin    End      Code   Data   Used    Size   Use%
+---------------------------------------------------------------
+[.cseg] 0x000000 0x007ffa  10622   3700  14322   32768  43.7%
+[.dseg] 0x000100 0x000900      0   1387   1387    2048  67.7%
+[.eseg] 0x000000 0x000020      0     32     32    1024   3.1%
+
+Assembly complete, 0 errors. 2 warnings

@@ -1,0 +1,13 @@
+0 REM LCD Test (Newhaven) V2.34
+10 rtr ; rtp
+15 sdd7 ; sbd7# Enable backlight
+20 twi ; tws
+25 tww $7c $30 $30 $39 $14 $70 $57 $6B# Initialize the display
+30 del 20; tww $38 $0c $06 $01 ; twp# Set entry mode
+35 del 10
+40 tws ; tww $7c $80 $80 $40# Display chars on 1st line
+45 tww "ABCDEFGHIJKLMNOP"; twp
+50 tws ; tww $7c $80 $C0 $40# Display chars on 2nd line
+55 tww "1234567890123456"; twp
+60 rtp; slp 7# print timestamp, sleep 2 seconds
+65 cbd7; rtp#  disable backlight then print timestamp again

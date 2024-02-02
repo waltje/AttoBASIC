@@ -1,0 +1,4 @@
+5 REM Data File Dump with Delay
+10 SDC4 ; CBC4 ; DFF7 ; SLP 9
+15 DFD 0 32 ; EMIT 4
+20 END

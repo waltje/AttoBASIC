@@ -1,0 +1,59 @@
+LIST OF COMMANDS, FUNCTIONS, AND OPERATORS
+
+===========================================================
+      Commands and functions-
+===========================================================
+NEW				NEW PROGRAM               EX: NEW
+LIST			LIST PROGRAM              EX: LIST
+PRINT			PRINT VALUE TO SCREEN     EX: PRINT A
+PRX				PRINT HEX                 EX: PRX 100 results in the output: 64
+PRB				PRINT BINARY              EX: PIB INB prints PINB in binary
+$				CONVERT TWO FOLLOWING CHARACTERS FROM ASCII  EX: A:=$31
+KEY				GET KEY FROM TERMINAL     EX:  A := KEY ; or KEY (return) to pause.
+EMIT			EMIT VALUE AS ASCII CHARACTER TO TERMINAL  EX: EMIT $20
+RUN				RUN PROGRAM               EX: RUN
+DEL				DELAY n * 10MS            EX: DEL 20 (DELAYS 200MS)
+IF-THEN			CONTROL STRUCTURE         EX: IF A=31 THEN GOTO 100
+FOR-TO-NEXT		LOOPING STRUCTURE       EX: see below
+GOSUB-RETURN	PROGRAM FLOW CONTROL   EX: see below
+GOTO			PROGRAM FLOW              EX; GOTO 100
+SIZE			PRINT REMAINING BYTES OF PROGRAM SPACE TO SCREEN EX: SIZE
+END				STOP EXECUTION OF PROGRAM EX: END
+PEE	K			READ VALUE OF MEMORY      EX: PRX PEEK A,B
+POKE			WRITE VALUE OF MEMORY     EX: POKE A,$31; POKE VALUE,destination
+<backspace>		DESTRUCTIVE BACKSPACE DURING LINE EDITING
+SAVE			SAVE PROGRAM AND VARIABLES TO EEPROM    EX: SAVE
+LOAD			LOAD PROGRAM AND VARIABLES FROM EEPROM  EX: LOAD
+RST				RESET THE MCU USING THE WATCHDOG TIMER  EX: RST
+
+===========================================================
+     Operator/relational
+===========================================================
+:=				set equal to, LET instruction not needed)
+=				used for evaluation as in IF a = b THEN...)
+<>				not equal to
+>				is greater than
+<				is less than
+-				subtraction, 8 bit unsigned
++				addition, 8 bit, unsigned
+AND				logical AND between two 8 bit values
+OR				logical OR between two 8 bit values
+EXOR			logical Exclusive OR between two 8 bit values
+
+===========================================================
+     I/O-
+===========================================================
+OPB				OUTPUT PORT B     EX: OPB $00
+OPD				OUTPUT PORT D     EX: PBD $00
+ODB				OUTPUT DATA DIRECTION REGISTER B     EX: ODB $FF
+ODD				OUTPUT DATA DIRECTION REGISTER D     EX: ODD $FF
+INB				INPUT PIN B       EX: A:= INB
+IND				INPUT PIN D       EX: B:= IND
+SBB				SET BIT IN B      EX: SBB 2
+CBB				CLEAR BIT IN B    EX: CBB 2
+SBD				SET BIT IN D      EX: SBD 2
+CBD				CLEAR BIT IN D    EX: CBD 2
+ACO				ANALOG COMPARITOR OUTPUT EX: IF ACO THEN PRINT A.
+PWM8			PULSE WIDTH MODULATION 8 BIT  EX: PWM 17
+PWE				PWM EXTENDED 10 BIT PWM  ED: PWE 2,00  result in a 50% cycle
+PWO				PWM OFF

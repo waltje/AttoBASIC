@@ -1,0 +1,13 @@
+5 SDB0; CBB0# Set the LED's I/O port and state to low
+10 OSC 122# Set the calibration of the internal oscillator
+15 FOR A=0 4# loop 0 to 4 (div by 1, 2, 4, 8 & 16)
+20 CLK A; GOSUB 45# Set SysClk and print current value
+25 GOS 50# Blink the LED
+30 NEXT# Loop
+35 CLK 0; GOSUB 45# Return to 1x divider
+40 END
+45 PRI "CLK="; PRI CLK; RET # Inform user of current SysClk
+50 FOR B=1 10# Set up loop
+55 CBB0; DEL 1; SBB0; DEL 1# Blink the LED
+60 NEXT# Loop
+65 RET# Return

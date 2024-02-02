@@ -1,0 +1,8 @@
+5 cfg 8 5
+10 for b=0 10
+15 if b = cfg then gos 35 ; goto 25
+20 gos 40
+25 nex
+30 end
+35 pri "match on " ; pri b ; ret
+40 pri "no match on " ; pri b ; ret

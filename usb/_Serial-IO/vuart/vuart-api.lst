@@ -1,0 +1,13 @@
+__ctors_start
+__vector_1
+__vector_10
+__vector_11
+vuart_init
+vuart_read_data
+vuart_write_data
+vuart_state
+tx_data
+tx_bit_count
+rx_data
+rx_data_complete
+rx_bit_count

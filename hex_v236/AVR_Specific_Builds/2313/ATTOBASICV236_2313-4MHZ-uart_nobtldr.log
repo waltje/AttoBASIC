@@ -1,0 +1,64 @@
+err:ntdll:RtlpWaitForCriticalSection section 0x7bd08c80 "../../../wine-2.0.3/dlls/ntdll/loader.c: loader_section" wait timed out in thread 001a, blocked by 001e, retrying (60 sec)
+err:ntdll:RtlpWaitForCriticalSection section 0x7bd08c80 "../../../wine-2.0.3/dlls/ntdll/loader.c: loader_section" wait timed out in thread 001b, blocked by 001e, retrying (60 sec)
+AVRASM: AVR macro assembler 2.1.42 (build 1796 Sep 15 2009 10:48:36)
+Copyright (C) 1995-2009 ATMEL Corporation
+
+AttoBASICV236.asm(1294): Including file 'Include/Defs_MCU-Options.inc'
+Include/Defs_MCU-Options.inc(1): Including file 'Include/2313def.inc'
+AttoBASICV236.asm(1297): AT90S2313 selected.
+AttoBASICV236.asm(1340): Including file 'Include/Code_at90s2313.inc'
+Include/Code_at90s2313.inc(61): Including file 'Include/Defs_MCU-Options.inc'
+Include/Defs_MCU-Options.inc(1): Including file 'Include/2313def.inc'
+Include/Code_at90s2313.inc(189): Including file 'Include/\Macro_Misc.inc'
+Include/Code_at90s2313.inc(190): Including file 'Include/\Macro_IO.inc'
+Include/Code_at90s2313.inc(192): Including file 'Include/\Macro_Delays.inc'
+AttoBASICV236.asm(4062): No EEPROM data, deleting AttoBASICV236.eep
+
+Notice:
+The register and instruction counts are symbol table hit counts,
+and hence implicitly used resources are not counted, eg, the
+'lpm' instruction without operands implicitly uses r0 and z,
+none of which are counted.
+
+x,y,z are separate entities in the symbol table and are
+counted separately from r26..r31 here.
+
+.dseg memory usage only counts static data declared with .byte
+
+AT90S2313 register use summary:
+r0 :   8 r1 :   5 r2 :   0 r3 :   0 r4 :   0 r5 :   5 r6 :  12 r7 :   6 
+r8 :   2 r9 :   2 r10:   2 r11:   2 r12:   2 r13:   2 r14:   2 r15:   2 
+r16:  96 r17:  18 r18:  25 r19:  16 r20:  15 r21:  24 r22:  11 r23:  92 
+r24:  20 r25:  14 r26:  23 r27:  12 r28:  30 r29:  17 r30:  43 r31:  19 
+x  :   0 y  :  12 z  :  13 
+Registers used: 31 out of 35 (88.6%)
+
+AT90S2313 instruction use summary:
+.lds  :   0 .sts  :   0 adc   :   0 add   :   3 adiw  :   7 and   :   3 
+andi  :  25 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
+brcc  :   2 brcs  :   2 breq  :  23 brge  :   0 brhc  :   0 brhs  :   0 
+brid  :   0 brie  :   0 brlo  :   2 brlt  :   0 brmi  :   5 brne  :  29 
+brpl  :   8 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 brvs  :   0 
+bset  :   0 bst   :   0 cbi   :   0 cbr   :   0 clc   :   1 clh   :   0 
+cli   :   1 cln   :   0 clr   :  23 cls   :   0 clt   :   0 clv   :   0 
+clz   :   0 com   :   2 cp    :  14 cpc   :   0 cpi   :  40 cpse  :   3 
+dec   :  22 eor   :   1 icall :   1 ijmp  :   0 in    :  11 inc   :   8 
+ld    :  16 ldd   :   0 ldi   :  78 lds   :   0 lpm   :  12 lsl   :   1 
+lsr   :   0 mov   :  70 neg   :   0 nop   :   3 or    :   4 ori   :  14 
+out   :  30 pop   :   4 push  :   2 rcall : 128 ret   :  69 reti  :   1 
+rjmp  :  81 rol   :   1 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   6 
+sbic  :   3 sbis  :   5 sbiw  :   0 sbr   :   0 sbrc  :   2 sbrs  :  10 
+sec   :   0 seh   :   0 sei   :   1 sen   :   0 ser   :   1 ses   :   0 
+set   :   0 sev   :   0 sez   :   0 sleep :   3 st    :   9 std   :   0 
+sts   :   0 sub   :   1 subi  :  14 swap  :   2 tst   :   7 wdr   :   0 
+
+Instructions used: 52 out of 102 (51.0%)
+
+AT90S2313 memory use summary [bytes]:
+Segment   Begin    End      Code   Data   Used    Size   Use%
+---------------------------------------------------------------
+[.cseg] 0x000000 0x0007fe   1612    434   2046    2048  99.9%
+[.dseg] 0x000060 0x000060      0      0      0     128   0.0%
+[.eseg] 0x000000 0x000000      0      0      0     128   0.0%
+
+Assembly complete, 0 errors. 0 warnings

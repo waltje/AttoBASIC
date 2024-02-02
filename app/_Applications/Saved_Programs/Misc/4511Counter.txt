@@ -1,0 +1,9 @@
+5 REM Simple CD4511 Counter
+10 pri "?: " ; a:= key ; a:= a - $30
+15 pri a
+20 odf $f ; sde7 ; cbe7
+30 for n=0 a
+40 opf n
+50 slp 3
+60 next
+70 sbe7 ; goto 10

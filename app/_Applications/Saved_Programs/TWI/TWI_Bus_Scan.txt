@@ -1,0 +1,12 @@
+0 REM TWI Bus Scan V2.34
+5 N:=0
+10 TWI#400K bus speed
+15 FOR H= $0 $F# Device address loop MSN
+20  FOR L=0 $F# Device address loop LSN
+25   A:= L + SWAP H# calculate the slave address
+30   TWS ; GOSUB 45 ; TWP# address slave if there
+35  NEXT
+40 NEXT ; PRI "Devices Found: "; PRI N; END# end of loops
+45 IF $18 = TWW A# Was WR-ACK on address?
+50 PRI "~Wr ACK at ";PRX A;PRI "Dev Addr:";PRX LSR A;N:=N+1;RET
+55 RET

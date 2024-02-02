@@ -1,0 +1,27 @@
+0 REM FrqGen V2.34-6# AttoBASIC w/ Mega32U4 and AD9833 DDS Generator
+10 twi;spm 2# init interfaces
+15 sdd7;sbe6# Enable backlight and SWA PUP
+20 gos 105;del 10;spw $21 $00;sps1# Init LCD and reset DDS
+25 A:=0# reset mode counter
+30 if 1 ^ ibe6 the A:=A+1; slp2; sbd7; got 40# branch if SWA pressed
+35 slp 2;got 30# recheck every 64 mS
+40 if A=1 the spw $74 $24 $40 $16;sps1;gos 120;got 60# set Libido @22.28KHz
+45 if A=2 the spw $64 $F6 $40 $00;sps1;gos 125;got 60# set TissRegen @564Hz
+50 if A=3 the spw $58 $AE $40 $4F;sps1;gos 130;got 60# set BP Reduction @77.525KHz
+55 if A=4 the got 20# loop
+60 spw $20 $68;sps1# Enable DDS
+65 if 1 ^ ibe6 the slp 2;got 65# loop till SWA released
+70 V:=3
+75 if V=1 the v:= $84;got 95
+80 if V=2 the v:= $E1;got 95
+85 if V=3 the v:= $FD;got 95
+90 end# error condition
+95 tws;tww $58 0 v;twp;sdd6;sbd6# Set and enable Vpp
+100 slp 7;cbd7;got 30# delay 2s, disable backlight then loop
+105 tws;tww $7c $80 $39 $14 $25 $56 $6d# init LCD
+110 tww $38 $0C $06 $01;twp;ret
+115 tws;tww $7C $80 $80 $40;ret# set display to R1:C1
+120 gos 115;tww "Libido        ";got 135# display "Libido"
+125 gos 115;tww "Tissue Regen  ";got 135# display "Tissue Regen"
+130 gos 115;tww "BP Reduce     ";got 135# display "BP Reduce"
+135 twp;ret

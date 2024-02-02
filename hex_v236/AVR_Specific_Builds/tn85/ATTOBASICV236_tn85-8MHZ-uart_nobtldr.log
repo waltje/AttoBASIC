@@ -1,0 +1,108 @@
+AVRASM: AVR macro assembler 2.1.42 (build 1796 Sep 15 2009 10:48:36)
+Copyright (C) 1995-2009 ATMEL Corporation
+
+AttoBASICV236.asm(1294): Including file 'Include/Defs_MCU-Options.inc'
+Include/Defs_MCU-Options.inc(1): Including file 'Include/tn85def.inc'
+AttoBASICV236.asm(1315): ATtiny85 selected.
+AttoBASICV236.asm(1352): Including file 'Include/Defs_Constants.inc'
+Include/Defs_Constants.inc(51): Including file 'Include/Defs_Register.inc'
+Include/Defs_Register.inc(88): warning: Register r30 already defined by the .DEF directive
+Include/Defs_Constants.inc(51): info: 'Include/Defs_Register.inc' included from here
+AttoBASICV236.asm(1352): info: 'Include/Defs_Constants.inc' included from here
+Include/Defs_Constants.inc(52): Including file 'Include/Defs_Pinout.inc'
+Include/Defs_Constants.inc(53): Including file 'Include/Defs_Timers.inc'
+Include/Defs_Constants.inc(54): Including file 'Include/Defs_ADC.inc'
+Include/Defs_Constants.inc(435): System clock prescaler set to  1
+Include/Defs_Constants.inc(550): ATtiny84/85 with UART enabled
+Include/Defs_Constants.inc(808): Including file 'Include/Defs_PWM.inc'
+Include/Defs_Constants.inc(860): AttoBASIC does not control SPI_SS line
+Include/Defs_Constants.inc(972): Including file 'Include/Defs_OWR.inc'
+Include/Defs_Constants.inc(999): Including file 'Include\Defs_DDS.inc'
+AttoBASICV236.asm(1353): Including file 'Include/Defs_USART.inc'
+Include/Defs_USART.inc(315): ATtiny84 ( A ) or ATtiny85 selected , no hardware USART.
+AttoBASICV236.asm(1386): Including file 'Include/Macro_IO.inc'
+AttoBASICV236.asm(1387): Including file 'Include/Macro_Misc.inc'
+AttoBASICV236.asm(1388): Including file 'Include/Macro_Delays.inc'
+AttoBASICV236.asm(1389): Including file 'Include/Macro_AttoBASIC.inc'
+AttoBASICV236.asm(1396): Including file 'Include/Data_RAM.inc'
+AttoBASICV236.asm(1397): Including file 'Include/Data_EEP.inc'
+AttoBASICV236.asm(1403): Including file 'Include/Code_Vectors.inc'
+AttoBASICV236.asm(3767): Including file 'Include/Code_Editing.inc'
+AttoBASICV236.asm(3768): Including file 'Include/Code_EFS.inc'
+AttoBASICV236.asm(3769): Including file 'include/Code_Math.inc'
+AttoBASICV236.asm(3770): Including file 'Include/Code_ERRPROC.inc'
+AttoBASICV236.asm(3771): Including file 'Include/Code_Init.inc'
+AttoBASICV236.asm(3772): Including file 'Include/Code_DataBytes.inc'
+AttoBASICV236.asm(3775): Including file 'Include/Code_SysClock.inc'
+AttoBASICV236.asm(3792): Including file 'Include/Code_PORTIO.inc'
+AttoBASICV236.asm(3795): Including file 'Include/Code_PWM.inc'
+AttoBASICV236.asm(3797): Including file 'Include/Code_Operators.inc'
+AttoBASICV236.asm(3799): Including file 'Include/Code_Analog.inc'
+AttoBASICV236.asm(3802): Including file 'Include/Code_AComp.inc'
+AttoBASICV236.asm(3814): Including file 'Include/Code_LOPWR.inc'
+AttoBASICV236.asm(3817): Including file 'Include/Code_DDS.inc'
+AttoBASICV236.asm(3829): Including file 'Include/Code_OWR.inc'
+AttoBASICV236.asm(3848): Including file 'Include/Code_sio_tinyusart.inc'
+AttoBASICV236.asm(3887): Including file 'Include/Data_Cmds.inc'
+AttoBASICV236.asm(3888): Including file 'Include/Data_Msgs.inc'
+AttoBASICV236.asm(3893): Including file 'Include/Code_IRQvectors.inc'
+AttoBASICV236.asm(4027): Including file 'Include/Data_SqrWav.inc'
+Include/Defs_Constants.inc(449): Using FCLK @ 8MHz
+Include/Defs_Constants.inc(645): Enabling non-volatile option storage (CFG)
+Include/Defs_OWR.inc(42): Enabling 1-Wire Support
+Include/Defs_USART.inc(56): Using baud rate of 38400 for FCLK > 4MHz
+Include/Code_SysClock.inc(39): CLK (SysClkPsc) enabled
+Include/Code_PORTIO.inc(42): Single-port PIO enabled.
+Include/Code_PWM.inc(39): PWM enabled.
+Include/Code_LOPWR.inc(39): LPMD enabled.
+Include/Code_DDS.inc(39): DDS enabled.
+Include/Code_OWR.inc(39): OWR enabled.
+
+Notice:
+The register and instruction counts are symbol table hit counts,
+and hence implicitly used resources are not counted, eg, the
+'lpm' instruction without operands implicitly uses r0 and z,
+none of which are counted.
+
+x,y,z are separate entities in the symbol table and are
+counted separately from r26..r31 here.
+
+.dseg memory usage only counts static data declared with .byte
+
+ATtiny85 register use summary:
+r0 :  49 r1 :  72 r2 :   8 r3 :   7 r4 :   7 r5 :   8 r6 :   7 r7 :   7 
+r8 :   0 r9 :   0 r10:   7 r11:   8 r12:  21 r13:   7 r14:   1 r15:   1 
+r16: 549 r17:   0 r18:  27 r19:  77 r20: 104 r21: 230 r22:  84 r23:  73 
+r24: 141 r25:  52 r26:  28 r27:  28 r28: 111 r29: 125 r30: 146 r31: 142 
+x  :   0 y  :  32 z  :  55 
+Registers used: 31 out of 35 (88.6%)
+
+ATtiny85 instruction use summary:
+.lds  :   0 .sts  :   0 adc   :  13 add   :  17 adiw  :   8 and   :   9 
+andi  :  55 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
+brcc  :  11 brcs  :   8 break :   0 breq  :  76 brge  :   4 brhc  :   0 
+brhs  :   0 brid  :   0 brie  :   0 brlo  :   3 brlt  :   0 brmi  :  11 
+brne  : 140 brpl  :   9 brsh  :  11 brtc  :   0 brts  :   0 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   0 cbi   :  31 cbr   :  12 clc   :   5 
+clh   :   0 cli   :  12 cln   :   0 clr   :  75 cls   :   0 clt   :   0 
+clv   :   0 clz   :   0 com   :   2 cp    :  34 cpc   :  22 cpi   : 134 
+cpse  :   0 dec   :  54 eor   :   6 icall :   1 ijmp  :   0 in    :  68 
+inc   :  20 ld    :  48 ldd   :   0 ldi   : 356 lds   :  58 lpm   :  18 
+lsl   :   5 lsr   :   8 mov   :  98 movw  :   8 neg   :   2 nop   :  14 
+or    :   9 ori   :  29 out   : 115 pop   : 108 push  : 123 rcall : 370 
+ret   : 150 reti  :   8 rjmp  : 250 rol   :  12 ror   :   7 sbc   :  13 
+sbci  :   5 sbi   :  31 sbic  :  12 sbis  :  11 sbiw  :  27 sbr   :  13 
+sbrc  :  15 sbrs  :  28 sec   :   3 seh   :   0 sei   :   6 sen   :   0 
+ser   :   2 ses   :   0 set   :   0 sev   :   0 sez   :   0 sleep :   4 
+spm   :   0 st    :  25 std   :   0 sts   :  68 sub   :  20 subi  :  34 
+swap  :  13 tst   :  35 wdr   :   3 
+Instructions used: 69 out of 105 (65.7%)
+
+ATtiny85 memory use summary [bytes]:
+Segment   Begin    End      Code   Data   Used    Size   Use%
+---------------------------------------------------------------
+[.cseg] 0x000000 0x002000   6274   1844   8118    8192  99.1%
+[.dseg] 0x000060 0x000260      0    512    512     512 100.0%
+[.eseg] 0x000000 0x0001f8      0    504    504     512  98.4%
+
+Assembly complete, 0 errors. 1 warnings

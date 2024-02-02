@@ -1,0 +1,16 @@
+This is disassembled and reOPTImized optiboot version of Tom's optiboot from
+https://github.com/TCWORLD/ATTinyCore/tree/master/tiny/bootloaders/optiboot.
+
+Nothing special, just an attempt to learn AVR ASM flavour on a practical example.
+
+Achievements: 
+Reduced code size to 0x1FC allowing to fit the loader to last 8 pages.
+Using T1 for led flashing
+
+Targets:
+
+Amend attiny arduino core to use optiboot's softuart
+
+Using softuart port ArduinoISP to attiny making tiny AVR ISP programmer
+
+Using softuart port ArdPICprog to attiny making tiny PIC ISP programmer

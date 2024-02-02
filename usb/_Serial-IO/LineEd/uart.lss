@@ -1,0 +1,90 @@
+
+uart.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000046  00001c88  00001c88  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000052  0080021a  0080021a  000000ba  2**0
+                  ALLOC
+  2 .debug_aranges 00000028  00000000  00000000  000000ba  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_pubnames 00000034  00000000  00000000  000000e2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000001ed  00000000  00000000  00000116  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 00000127  00000000  00000000  00000303  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   000000ef  00000000  00000000  0000042a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000030  00000000  00000000  0000051c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    000000d5  00000000  00000000  0000054c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    00000050  00000000  00000000  00000621  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_pubtypes 00000029  00000000  00000000  00000671  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000018  00000000  00000000  0000069a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00001c88 <uart_putchar>:
+//    uart_putchar('\r', stream);
+//  loop_until_bit_is_set(UCSRA, UDRE);
+//  UDR = c;
+//
+  return 0;
+}
+    1c88:	80 e0       	ldi	r24, 0x00	; 0
+    1c8a:	90 e0       	ldi	r25, 0x00	; 0
+    1c8c:	08 95       	ret
+
+00001c8e <uart_getchar>:
+  uint8_t c;
+  char *cp, *cp2;
+  static char b[RX_BUFSIZE];
+  static char *rxp;
+
+  if (rxp == 0)
+    1c8e:	80 91 1a 02 	lds	r24, 0x021A
+    1c92:	90 91 1b 02 	lds	r25, 0x021B
+    1c96:	00 97       	sbiw	r24, 0x00	; 0
+    1c98:	49 f4       	brne	.+18     	; 0x1cac <uart_getchar+0x1e>
+	/* behaviour similar to Unix stty ICRNL */
+	if (c == '\r')
+	  c = '\n';
+	if (c == '\n')
+	  {
+	    *cp = c;
+    1c9a:	8a e0       	ldi	r24, 0x0A	; 10
+    1c9c:	80 93 1c 02 	sts	0x021C, r24
+	    uart_putchar(c, stream);
+	    rxp = b;
+    1ca0:	8c e1       	ldi	r24, 0x1C	; 28
+    1ca2:	92 e0       	ldi	r25, 0x02	; 2
+    1ca4:	90 93 1b 02 	sts	0x021B, r25
+    1ca8:	80 93 1a 02 	sts	0x021A, r24
+	      }
+	    break;
+	  }
+      }
+
+  c = *rxp++;
+    1cac:	e0 91 1a 02 	lds	r30, 0x021A
+    1cb0:	f0 91 1b 02 	lds	r31, 0x021B
+    1cb4:	81 91       	ld	r24, Z+
+    1cb6:	f0 93 1b 02 	sts	0x021B, r31
+    1cba:	e0 93 1a 02 	sts	0x021A, r30
+  if (c == '\n')
+    1cbe:	8a 30       	cpi	r24, 0x0A	; 10
+    1cc0:	21 f4       	brne	.+8      	; 0x1cca <uart_getchar+0x3c>
+    rxp = 0;
+    1cc2:	10 92 1b 02 	sts	0x021B, r1
+    1cc6:	10 92 1a 02 	sts	0x021A, r1
+
+  return c;
+}
+    1cca:	90 e0       	ldi	r25, 0x00	; 0
+    1ccc:	08 95       	ret

@@ -1,0 +1,20 @@
+AVRASM: AVR macro assembler 2.1.42 (build 1796 Sep 15 2009 10:48:36)
+Copyright (C) 1995-2009 ATMEL Corporation
+
+Verilog option is set
+AttoBASICV234.asm(1249): Including file 'Include/Defs_MCU-Options.inc'
+Include/Defs_MCU-Options.inc(1): Including file 'Include/m163def.inc'
+AttoBASICV234.asm(1262): ATmega163 selected.
+AttoBASICV234.asm(1305): Including file 'Include/Code_mega163.inc'
+Include/Code_mega163.inc(25): Including file 'Include/Defs_MCU-Options.inc'
+Include/Defs_MCU-Options.inc(1): Including file 'Include/m163def.inc'
+AttoBASICV234.asm(4015): No EEPROM data, deleting AttoBASICV234.eep
+
+ATmega163 memory use summary [bytes]:
+Segment   Begin    End      Code   Data   Used    Size   Use%
+---------------------------------------------------------------
+[.cseg] 0x000000 0x0011d8   3166   1402   4568   16384  27.9%
+[.dseg] 0x000060 0x000060      0      0      0    1024   0.0%
+[.eseg] 0x000000 0x000000      0      0      0     512   0.0%
+
+Assembly complete, 0 errors. 0 warnings

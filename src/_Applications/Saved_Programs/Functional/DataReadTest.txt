@@ -1,0 +1,7 @@
+2 REM Data Read Test
+5 data $aa $55 $aa $55 $aa $55 $aa $55 $aa $55 $aa $55 $aa $55 $aa $55# 16 data bytes - line buffer is the issue
+8# data 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31# 32 data bytes - fits within line buffer
+11 for n=0 32
+14 pri "N= "; pri N
+17 pri "D= "; prx read
+20 next

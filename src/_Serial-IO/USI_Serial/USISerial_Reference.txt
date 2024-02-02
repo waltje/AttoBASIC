@@ -1,0 +1,33 @@
+USI_UART_Flush_Buffers() --> Resets all buffer pointers.
+	Uses:	r1	Insure r1 = 0 before calling this routine
+
+USI_UART_Initialise_Receiver() --> Initialises the USI for UART reception.  Note that this function only enables the pinchange interrupt on the USI Data Input pin. The USI is configured to read data within the pinchange interrupt.
+	Uses:	r24
+
+USI_UART_Initialise_Transmitter() --> Initialises USI for UART transmission.
+	Uses:	r1	Insure r1 = 0 before calling this routine
+		r2	temporary register
+
+USI_UART_Close() --> Close the hardware associated with the USI and disable pinchange interrupts
+	Uses:	r1	Insure r1 = 0 before calling this routine
+		r24	temporary register
+
+USI_UART_Transmit_Byte() --> Puts data in the transmission buffer; waits till space available.
+				Also initiates the transmission routines if not already started.
+	Uses:	r1	Insure r1 = 0 before calling this routine
+		r17
+		r24	Character to be transmitted
+		r25	Returns zero
+		r30	(ZL)
+		r31	(ZH)
+
+USI_UART_Receive_Byte() --> Returns a byte from the receive buffer. Waits if buffer is empty.
+	Uses:	r24	Character received
+		r25	Returns zero
+		r30	(ZL)
+		r31	(ZH)
+
+USI_UART_Data_In_Receive_Buffer() --> Check if there is data in the receive buffer.
+	Uses:	r18
+		r24	0 = RX buffer empty, 1 = RX buffer has data
+		r25	Returns zero

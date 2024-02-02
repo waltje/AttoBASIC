@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/77/trunk/avrdude
+END
+Readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/77/trunk/avrdude/Readme.txt
+END
+avrdude.conf
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/75/trunk/avrdude/avrdude.conf
+END
+picoboot.c
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/73/trunk/avrdude/picoboot.c
+END
+picoboot.h
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/74/trunk/avrdude/picoboot.h
+END

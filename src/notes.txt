@@ -1,0 +1,5 @@
+Using SREC_CAT to fill in "holes" with 0xFF 
+
+srec_cat [input_file_name] -intel \
+-fill 0xFF -within [input_file_name] -intel \
+-o [output_file_name] -intel -obs=16

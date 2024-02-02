@@ -1,0 +1,14 @@
+0 REM 24C256 I2C EEPROM Test
+10 O:=0#Add offset to data value here
+15 TWI# init TWI bus
+20 PRI "Writing ...~"# Inform user
+25 TWS; TWW $A0 0 0# Set write address to 0
+30 FOR I=0 15; PRI I+O; TWW I+O; NEXT; TWP# Address counter loop, just write 15 bytes
+35 TWS; TWW $A0 0 0# Set read addr
+40 IF $48 = TWB PRI "E2P Busy~"; GOTO 35#  Wait for write complete
+45 PRI "Reading ...~"# Inform user
+50 TWS; TWW $A0 0 0# Set read addr
+55 TWS; TWW $A1		# Restart and read data
+60 TWR 16; TWP		#Read 1st 16 bytes
+65 FOR I=0 15; PRI READ; NEXT# Read 1st page
+70 END

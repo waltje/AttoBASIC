@@ -1,0 +1,32 @@
+5 REM FrgGen
+10 twi;spm 2# init interfaces
+15 sdd7;sbd7# Enable backlight
+20 gos 130;del 10# Init LCD
+25 spw $21 $00;sps1# reset DDS
+30 gos 140 # display "FRQ:"
+35 pri "1=Lipoma~";pri "2=TissRegen~";pri "3=Auric~"# menu
+40 pri ">"# prompt
+45 A:=key; pri "~"# fetch key
+50 if a=88 the end# if "Q" then quit
+55 if a>51 the got 35 # only "1" to 3" so loop
+60 a:= a-48
+65 if a=1 the spw $40 $00 $44 $00;sps1;gos 145# set 1.0MHz
+70 if a=2 the spw $6A $F6 $40 $00;sps1;gos 150# set 564Hz
+75 if a=3 the spw $49 $F8 $40 $0E;sps1;gos 155# set 13,824Hz
+80 spw $20 $68;sps1# Enable DDS
+85 pri "1=10V~";pri "2=20V~";pri "3=30V~"# menu
+90 pri ">"# prompt
+95 A:=key;a:= a-48;pri "~"# fetch key
+100 if a>3 the pri "~~";got 85 # only "1" to 3" so loop
+105 if a=1 the v:= $84
+110 if a=2 the v:= $E1
+115 if a=3 the v:= $FD
+120 tws;tww $58 0 v;twp;sdd6;sbd6# Set and enable Vpp
+125 slp 8;cbd7;end# delay then disable backlight
+130 tws;tww $7c $80 $39 $14 $25 $56 $6d# init LCD
+135 tww $38 $0C $06 $01;twp;ret
+140 tws;tww $7C $80 $80 $40;tww "FRQ: ";ret# display "FRQ:"
+145 gos 140;tww "1M";got 160# display "1MHz"
+150 gos 140;tww "564";got 160# display "564Hz"
+155 gos 140;tww "13.824K";got 160# display "13.824KHz"
+160 tww "Hz";twp;ret

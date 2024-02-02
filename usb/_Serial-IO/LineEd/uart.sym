@@ -1,0 +1,2 @@
+00001c88 T uart_putchar
+00001c8e T uart_getchar

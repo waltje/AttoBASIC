@@ -1,0 +1,72 @@
+AVRASM: AVR macro assembler 2.1.42 (build 1796 Sep 15 2009 10:48:36)
+Copyright (C) 1995-2009 ATMEL Corporation
+
+Verilog option is set
+AttoBASICV234.asm(1249): Including file 'Include/Defs_MCU-Options.inc'
+Include/Defs_MCU-Options.inc(1): Including file 'Include/tn85def.inc'
+AttoBASICV234.asm(1270): ATtiny85 selected.
+AttoBASICV234.asm(1307): Including file 'Include/Defs_Constants.inc'
+Include/Defs_Constants.inc(51): Including file 'Include/Defs_Register.inc'
+Include/Defs_Register.inc(88): warning: Register r30 already defined by the .DEF directive
+Include/Defs_Constants.inc(51): info: 'Include/Defs_Register.inc' included from here
+AttoBASICV234.asm(1307): info: 'Include/Defs_Constants.inc' included from here
+Include/Defs_Constants.inc(52): Including file 'Include/Defs_Pinout.inc'
+Include/Defs_Constants.inc(53): Including file 'Include/Defs_Timers.inc'
+Include/Defs_Constants.inc(54): Including file 'Include/Defs_ADC.inc'
+Include/Defs_Constants.inc(385): System clock prescaler set to  1
+Include/Defs_Constants.inc(500): ATtiny84/85 with UART enabled
+Include/Defs_Constants.inc(757): Including file 'Include/Defs_PWM.inc'
+Include/Defs_Constants.inc(809): AttoBASIC does not control SPI_SS line
+Include/Defs_Constants.inc(916): Including file 'Include/Defs_OWR.inc'
+Include/Defs_Constants.inc(943): Including file 'Include\Defs_DDS.inc'
+AttoBASICV234.asm(1308): Including file 'Include/Defs_USART.inc'
+Include/Defs_USART.inc(315): ATtiny84 ( A ) or ATtiny85 selected , no hardware USART.
+AttoBASICV234.asm(1341): Including file 'Include/Macro_IO.inc'
+AttoBASICV234.asm(1342): Including file 'Include/Macro_Misc.inc'
+AttoBASICV234.asm(1343): Including file 'Include/Macro_Delays.inc'
+AttoBASICV234.asm(1344): Including file 'Include/Macro_AttoBASIC.inc'
+AttoBASICV234.asm(1351): Including file 'Include/Data_RAM.inc'
+AttoBASICV234.asm(1352): Including file 'Include/Data_EEP.inc'
+AttoBASICV234.asm(1358): Including file 'Include/Code_Vectors.inc'
+AttoBASICV234.asm(3722): Including file 'Include/Code_Editing.inc'
+AttoBASICV234.asm(3723): Including file 'Include/Code_EFS.inc'
+AttoBASICV234.asm(3724): Including file 'include/Code_Math.inc'
+AttoBASICV234.asm(3725): Including file 'Include/Code_ERRPROC.inc'
+AttoBASICV234.asm(3726): Including file 'Include/Code_Init.inc'
+AttoBASICV234.asm(3727): Including file 'Include/Code_DataBytes.inc'
+AttoBASICV234.asm(3730): Including file 'Include/Code_SysClock.inc'
+AttoBASICV234.asm(3747): Including file 'Include/Code_PORTIO.inc'
+AttoBASICV234.asm(3750): Including file 'Include/Code_PWM.inc'
+AttoBASICV234.asm(3752): Including file 'Include/Code_Operators.inc'
+AttoBASICV234.asm(3754): Including file 'Include/Code_Analog.inc'
+AttoBASICV234.asm(3757): Including file 'Include/Code_AComp.inc'
+AttoBASICV234.asm(3769): Including file 'Include/Code_LOPWR.inc'
+AttoBASICV234.asm(3772): Including file 'Include/Code_DDS.inc'
+AttoBASICV234.asm(3784): Including file 'Include/Code_OWR.inc'
+AttoBASICV234.asm(3803): Including file 'Include/Code_sio_tinyusart.inc'
+AttoBASICV234.asm(3842): Including file 'Include/Data_Cmds.inc'
+AttoBASICV234.asm(3843): Including file 'Include/Data_Msgs.inc'
+AttoBASICV234.asm(3848): Including file 'Include/Code_IRQvectors.inc'
+AttoBASICV234.asm(3862): Including file 'Include/Code_SPM_Exec.inc'
+AttoBASICV234.asm(3980): Including file 'Include/Data_SqrWav.inc'
+AttoBASICV234.asm(4015): warning: end of .eseg at 0x207 is beyond end of memory at 0x1ff
+Include/Defs_Constants.inc(407): Using FCLK @ 20MHz
+Include/Defs_Constants.inc(595): Enabling non-volatile option storage (CFG)
+Include/Defs_OWR.inc(42): Enabling 1-Wire Support
+Include/Defs_USART.inc(56): Using baud rate of 38400 for FCLK > 4MHz
+Include/Code_SysClock.inc(39): CLK (SysClkPsc) enabled
+Include/Code_PORTIO.inc(42): Single-port PIO enabled.
+Include/Code_PWM.inc(39): PWM enabled.
+Include/Code_LOPWR.inc(39): LPMD enabled.
+Include/Code_DDS.inc(39): DDS enabled.
+Include/Code_OWR.inc(39): OWR enabled.
+Include/Code_SPM_Exec.inc(39): SPM_EXEC enabled.
+
+ATtiny85 memory use summary [bytes]:
+Segment   Begin    End      Code   Data   Used    Size   Use%  Warn
+--------------------------------------------------------------------
+[.cseg] 0x000000 0x002000   6286   1896   8182    8192  99.9%
+[.dseg] 0x000060 0x000260      0    512    512     512 100.0%
+[.eseg] 0x000000 0x000207      0    511    511     512  99.8%  OVER
+
+Assembly complete, 0 errors. 2 warnings

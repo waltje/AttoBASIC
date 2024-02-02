@@ -1,0 +1,19 @@
+0 REM BMP-180 Test
+10 TWI; A:= $EE# Enable TWI and set address of BMP-180
+15 PRI "~~Calibration Data~========~"; GOS 65# Print the EEPROM calibration data
+20 R:= $F4; D:= $2E; GOS 85#Start a temperature conversion
+25 PRI "~Raw Temperature Data~========~"# Print the header
+30 R:= $F6; GOS 90# Access the data register
+35 N:=2; GOS 95; FOR I= 1 N; PRX REA; NEX# Fetch the raw temperature data and print it
+40 R:= $F4; D:= $34; GOS 85#Start a pressure conversion
+45 PRI "~Raw Pressure Data~========~"# Print the header
+50 R:= $F6; GOS 90# Access the data register
+55 N:=3; GOS 95; FOR I= 1 N; PRX REA; NEX# Fetch the raw pressure data and print it
+60 END
+65 N:=1; FOR R= $AA $BF# Loop from register $AA to $BF, calibration data
+70 GOS 90; GOS 95# Fetch each byte of callibration data
+75 PRI "Reg: "; PRX R; PRI " = "; PRX REA# Print the register then the data value
+80 NEX; RET# End of loop then return
+85 TWS; TWW A R D; TWP; RET# Write register and data to BMP180
+90 TWS; TWW A R; TWP; RET# Write to BMP180 addr plus register to access
+95 TWS; TWW A+1; TWR N; TWP; RET# Request read from BMP180 then read data into DATA array

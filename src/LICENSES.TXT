@@ -1,0 +1,3 @@
+https://opensource.org/licenses/MIT
+http://www.apache.org/licenses/LICENSE-2.0
+https://www.blackducksoftware.com/resources/data/top-20-open-source-licenses
