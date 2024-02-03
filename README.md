@@ -19,6 +19,7 @@ Older versions support AT90S2313, ATtiny2313(A), AT90S8515 & ATmega163 and are n
 
 # Author
 Copyright 2001-2016 Richard Cappels, <projects@appels.org>
+
 Copyright 2012-2023 Scott Vitale, <ksv_prj@gmx.com>
 
 # Updates
